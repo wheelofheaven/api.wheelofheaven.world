@@ -4,10 +4,17 @@
   "description": "Static JSON API for Wheel of Heaven library and content",
   "documentation": "https://www.wheelofheaven.io/docs/api",
   "endpoints": {
+    "context": "/v1/context",
     "catalog": "/v1/catalog",
     "books": "/v1/books",
     "traditions": "/v1/traditions",
     "search": "/v1/search"
+  },
+  "contextEndpoints": {
+    "main": "/v1/context",
+    "terminology": "/v1/context/terminology",
+    "hypothesis": "/v1/context/hypothesis",
+    "timeline": "/v1/context/timeline"
   },
   "source": "https://github.com/wheelofheaven/api.wheelofheaven.io"
 }

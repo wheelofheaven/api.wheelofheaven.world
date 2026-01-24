@@ -18,12 +18,25 @@ https://api.wheelofheaven.io
 | Endpoint | Description |
 |----------|-------------|
 | `/` | API info and available endpoints |
+| `/v1/context` | Full project context for LLM/AI consumption |
+| `/v1/context/terminology` | Key terms and definitions |
+| `/v1/context/hypothesis` | Detailed hypothesis explanation |
+| `/v1/context/timeline` | Precessional World Ages timeline |
 | `/v1/catalog` | Full library catalog |
 | `/v1/traditions` | List of religious/philosophical traditions |
 | `/v1/books` | List of all books with links |
 | `/v1/books/{slug}` | Full book with content |
 | `/v1/books/{slug}/meta` | Book metadata only |
 | `/v1/search` | Lightweight search index |
+
+### Context Endpoints (for AI/LLM)
+
+The `/v1/context` endpoints provide structured context optimized for AI systems:
+
+- **`/v1/context`** - Project overview, core hypothesis, and navigation
+- **`/v1/context/terminology`** - Comprehensive glossary of key terms
+- **`/v1/context/hypothesis`** - Detailed explanation of the Wheel of Heaven hypothesis
+- **`/v1/context/timeline`** - The 12 World Ages with dates and significance
 
 ### Response Format
 

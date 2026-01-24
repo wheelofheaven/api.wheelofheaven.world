@@ -1,0 +1,134 @@
+{
+  "apiVersion": "v1",
+  "kind": "ContextTerminology",
+  "metadata": {
+    "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
+    "purpose": "Key terminology for understanding Wheel of Heaven content"
+  },
+  "data": {
+    "categories": [
+      {
+        "name": "Core Concepts",
+        "terms": [
+          {
+            "term": "Elohim",
+            "hebrew": "אֱלֹהִים",
+            "definition": "Hebrew plural noun traditionally translated as 'God' but literally meaning 'those who came from the sky' or 'the ones from above'. In Wheel of Heaven, refers to the extraterrestrial civilization that created life on Earth.",
+            "usage": "The Elohim created humanity in their image through genetic engineering."
+          },
+          {
+            "term": "Yahweh",
+            "hebrew": "יהוה",
+            "definition": "The leader of the Elohim scientists who created life on Earth. Often mistranslated as 'the LORD' in biblical texts.",
+            "usage": "Yahweh led the team of Elohim creators and later became president of their eternal council."
+          },
+          {
+            "term": "Satan/Lucifer",
+            "definition": "In Raëlian interpretation, a faction among the Elohim who opposed the creation experiment, fearing humanity might become a threat.",
+            "usage": "The 'serpent' in Eden represents the Elohim faction that wanted to give humans knowledge."
+          }
+        ]
+      },
+      {
+        "name": "Cosmological Terms",
+        "terms": [
+          {
+            "term": "Precession of the Equinoxes",
+            "definition": "The 25,920-year cycle of Earth's axial wobble that causes the apparent position of stars to shift over millennia, dividing history into zodiacal 'World Ages'.",
+            "usage": "The precession cycle provides the astronomical framework for the World Ages."
+          },
+          {
+            "term": "World Age",
+            "definition": "One of twelve ~2,160-year periods in the precessional cycle, each associated with a zodiacal constellation and marking distinct phases of human development.",
+            "usage": "We are currently transitioning from the Age of Pisces to the Age of Aquarius."
+          },
+          {
+            "term": "Age of Aquarius",
+            "definition": "The current World Age (beginning ~1945 CE), prophesied as the era of apocalypse (revelation), scientific awakening, and potential reunion with the Elohim.",
+            "usage": "The Age of Aquarius marks humanity's coming of age in cosmic terms."
+          },
+          {
+            "term": "Great Year",
+            "definition": "The complete 25,920-year precessional cycle, sometimes called a Platonic Year.",
+            "usage": "One Great Year encompasses all twelve World Ages."
+          }
+        ]
+      },
+      {
+        "name": "Biblical Reinterpretations",
+        "terms": [
+          {
+            "term": "Genesis Creation",
+            "definition": "Reinterpreted as an account of the Elohim's genetic engineering project to create life on Earth, with 'days' representing long periods of scientific work.",
+            "usage": "The seven days of creation describe phases of terraforming and genetic engineering."
+          },
+          {
+            "term": "Garden of Eden",
+            "definition": "A laboratory or protected zone where the Elohim conducted their final human creation experiments.",
+            "usage": "Eden was located in the region corresponding to modern-day Israel."
+          },
+          {
+            "term": "The Flood",
+            "definition": "A nuclear or catastrophic event caused by the Elohim's home planet government to destroy the Earth experiment, with Noah warned by sympathetic Elohim.",
+            "usage": "Noah's ark was actually a spacecraft containing preserved DNA."
+          },
+          {
+            "term": "Tower of Babel",
+            "definition": "An attempt by humans to reach the Elohim (in space), which was thwarted to prevent premature contact.",
+            "usage": "The 'confusion of languages' was a deliberate separation of human groups."
+          }
+        ]
+      },
+      {
+        "name": "Raëlian Movement",
+        "terms": [
+          {
+            "term": "Raël",
+            "definition": "Born Claude Vorilhon (1946-), French motorsport journalist who claims contact with the Elohim in 1973 and founded the Raëlian Movement.",
+            "usage": "Raël received the Messages and was designated as the final prophet."
+          },
+          {
+            "term": "The Messages",
+            "definition": "The collected teachings transmitted to Raël by the Elohim during their encounters in 1973 and 1975.",
+            "usage": "The Messages form the foundational texts of the Raëlian philosophy."
+          },
+          {
+            "term": "Embassy",
+            "definition": "A proposed building to welcome the Elohim's official return to Earth, with extraterritorial status.",
+            "usage": "The Embassy project is central to Raëlian organizational goals."
+          },
+          {
+            "term": "Sensual Meditation",
+            "definition": "A Raëlian practice focused on awakening consciousness through bodily awareness and sensory experience.",
+            "usage": "Sensual Meditation is taught as a path to harmony and well-being."
+          }
+        ]
+      },
+      {
+        "name": "Ancient Astronaut Theory",
+        "terms": [
+          {
+            "term": "Ancient Astronauts",
+            "definition": "The hypothesis that extraterrestrial beings visited Earth in antiquity and were interpreted as gods by ancient peoples.",
+            "usage": "Ancient astronaut theory provides a framework for reinterpreting mythological accounts."
+          },
+          {
+            "term": "Cargo Cult (analogy)",
+            "definition": "The phenomenon where technologically primitive peoples interpret advanced technology as divine, used as an analogy for ancient human encounters with the Elohim.",
+            "usage": "Ancient humans created 'cargo cult' religions around Elohim technology."
+          },
+          {
+            "term": "Paleocontact",
+            "definition": "Another term for ancient astronaut contact, emphasizing the prehistoric nature of these encounters.",
+            "usage": "Paleocontact evidence includes anomalous artifacts and textual accounts."
+          }
+        ]
+      }
+    ]
+  },
+  "links": {
+    "self": "/v1/context/terminology",
+    "parent": "/v1/context",
+    "wiki": "https://www.wheelofheaven.io/wiki"
+  }
+}
