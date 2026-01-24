@@ -2,7 +2,7 @@
   "apiVersion": "v1",
   "kind": "Context",
   "metadata": {
-    "generated": "2026-01-24T11:31:44Z",
+    "generated": "2026-01-24T11:36:22Z",
     "purpose": "LLM/AI context for understanding Wheel of Heaven"
   },
   "data": {

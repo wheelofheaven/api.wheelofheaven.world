@@ -2,7 +2,7 @@
   "apiVersion": "v1",
   "kind": "BookList",
   "metadata": {
-    "generated": "2026-01-24T11:31:44Z",
+    "generated": "2026-01-24T11:36:22Z",
     "count": 6
   },
   "data": [
