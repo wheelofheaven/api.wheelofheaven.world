@@ -1,0 +1,21 @@
+# Wheel of Heaven Static API
+# Generates JSON endpoints from library data
+
+base_url = "https://api.wheelofheaven.io"
+title = "Wheel of Heaven API"
+description = "Static JSON API for Wheel of Heaven data"
+
+# No feeds, no search index, no sass
+generate_feeds = false
+build_search_index = false
+compile_sass = false
+
+# Minimal output
+minify_html = false
+
+[slugify]
+paths = "safe"
+anchors = "safe"
+
+[extra]
+api_version = "v1"

@@ -1,0 +1,34 @@
+{%- set catalog = load_data(path="data/library/catalog.json") -%}
+{
+  "apiVersion": "v1",
+  "kind": "SearchIndex",
+  "metadata": {
+    "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
+    "description": "Lightweight search index for client-side search"
+  },
+  "data": {
+    "books": [
+{%- for book in catalog.books %}
+{%- if book.status != "planned" %}
+      {
+        "slug": "{{ book.slug }}",
+        "code": "{{ book.code }}",
+        "titles": {% if book.titles %}{{ book.titles | json_encode() | safe }}{% else %}{}{% endif %},
+        "author": "{{ book.author | default(value="") }}",
+        "tradition": "{{ book.tradition }}",
+        "tags": {% if book.tags %}{{ book.tags | json_encode() | safe }}{% else %}[]{% endif %}
+      }{% if not loop.last %},{% endif %}
+{%- endif %}
+{%- endfor %}
+    ],
+    "traditions": [
+{%- for tradition in catalog.traditions %}
+      {
+        "id": "{{ tradition.id }}",
+        "code": "{{ tradition.code }}",
+        "name": {% if tradition.name %}{{ tradition.name | json_encode() | safe }}{% else %}{}{% endif %}
+      }{% if not loop.last %},{% endif %}
+{%- endfor %}
+    ]
+  }
+}

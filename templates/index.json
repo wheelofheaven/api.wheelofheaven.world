@@ -1,0 +1,13 @@
+{
+  "name": "Wheel of Heaven API",
+  "version": "v1",
+  "description": "Static JSON API for Wheel of Heaven library and content",
+  "documentation": "https://www.wheelofheaven.io/docs/api",
+  "endpoints": {
+    "catalog": "/v1/catalog.json",
+    "books": "/v1/books/index.json",
+    "traditions": "/v1/traditions.json",
+    "search": "/v1/search.json"
+  },
+  "source": "https://github.com/wheelofheaven/api.wheelofheaven.io"
+}

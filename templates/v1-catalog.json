@@ -1,0 +1,10 @@
+{% set catalog = load_data(path="data/library/catalog.json") -%}
+{
+  "apiVersion": "v1",
+  "kind": "Catalog",
+  "metadata": {
+    "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
+    "source": "https://api.wheelofheaven.io"
+  },
+  "data": {{ catalog | json_encode(pretty=true) | safe }}
+}

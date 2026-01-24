@@ -1,0 +1,21 @@
+[tools]
+zola = "0.21.0"
+
+[tasks.build]
+description = "Build the API"
+run = """
+zola build
+bash scripts/postbuild.sh
+"""
+
+[tasks.serve]
+description = "Start dev server"
+run = "zola serve --port 1198"
+
+[tasks.check]
+description = "Check for errors"
+run = "zola check"
+
+[tasks.clean]
+description = "Remove build output"
+run = "rm -rf public/"

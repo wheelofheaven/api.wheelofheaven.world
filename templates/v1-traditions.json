@@ -1,0 +1,9 @@
+{% set catalog = load_data(path="data/library/catalog.json") -%}
+{
+  "apiVersion": "v1",
+  "kind": "TraditionList",
+  "metadata": {
+    "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}"
+  },
+  "data": {{ catalog.traditions | json_encode(pretty=true) | safe }}
+}

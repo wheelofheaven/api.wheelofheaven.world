@@ -1,0 +1,49 @@
+{%- set slug = page.extra.book_slug -%}
+{%- set catalog = load_data(path="data/library/catalog.json") -%}
+{%- set_global book_entry = false -%}
+{%- for b in catalog.books -%}
+  {%- if b.slug == slug -%}
+    {%- set_global book_entry = b -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if book_entry -%}
+{
+  "apiVersion": "v1",
+  "kind": "BookMeta",
+  "metadata": {
+    "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
+    "slug": "{{ slug }}"
+  },
+  "data": {
+    "slug": "{{ book_entry.slug }}",
+    "code": "{{ book_entry.code }}",
+    "titles": {% if book_entry.titles %}{{ book_entry.titles | json_encode() | safe }}{% else %}{}{% endif %},
+    "tradition": "{{ book_entry.tradition }}",
+    "collection": "{{ book_entry.collection | default(value="") }}",
+    "author": "{{ book_entry.author | default(value="") }}",
+    "primaryLang": "{{ book_entry.primaryLang }}",
+    "availableLangs": {% if book_entry.availableLangs %}{{ book_entry.availableLangs | json_encode() | safe }}{% else %}[]{% endif %},
+    "completeLangs": {% if book_entry.completeLangs %}{{ book_entry.completeLangs | json_encode() | safe }}{% else %}[]{% endif %},
+    "publicationYear": {% if book_entry.publicationYear %}{{ book_entry.publicationYear }}{% else %}null{% endif %},
+    "chapters": {{ book_entry.chapters | default(value=0) }},
+    "paragraphs": {{ book_entry.paragraphs | default(value=0) }},
+    "status": "{{ book_entry.status | default(value="unknown") }}",
+    "tags": {% if book_entry.tags %}{{ book_entry.tags | json_encode() | safe }}{% else %}[]{% endif %}
+  },
+  "links": {
+    "self": "/v1/books/{{ slug }}/meta.json",
+    "full": "/v1/books/{{ slug }}.json",
+    "chapters": "/v1/books/{{ slug }}/chapters/",
+    "catalog": "/v1/catalog.json"
+  }
+}
+{%- else -%}
+{
+  "apiVersion": "v1",
+  "kind": "Error",
+  "error": {
+    "code": 404,
+    "message": "Book not found: {{ slug }}"
+  }
+}
+{%- endif -%}

@@ -1,0 +1,29 @@
+{% set catalog = load_data(path="data/library/catalog.json") -%}
+{
+  "apiVersion": "v1",
+  "kind": "BookList",
+  "metadata": {
+    "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
+    "count": {{ catalog.books | length }}
+  },
+  "data": [
+{%- for book in catalog.books %}
+    {
+      "slug": "{{ book.slug }}",
+      "code": "{{ book.code }}",
+      "tradition": "{{ book.tradition }}",
+      "collection": "{{ book.collection | default(value="") }}",
+      "primaryLang": "{{ book.primaryLang }}",
+      "availableLangs": {{ book.availableLangs | default(value=[]) | json_encode() | safe }},
+      "chapters": {{ book.chapters | default(value=0) }},
+      "paragraphs": {{ book.paragraphs | default(value=0) }},
+      "status": "{{ book.status | default(value="unknown") }}",
+      "links": {
+        "self": "/v1/books/{{ book.slug }}.json",
+        "meta": "/v1/books/{{ book.slug }}/meta.json",
+        "chapters": "/v1/books/{{ book.slug }}/chapters/"
+      }
+    }{% if not loop.last %},{% endif %}
+{%- endfor %}
+  ]
+}
