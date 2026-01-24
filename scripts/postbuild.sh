@@ -7,25 +7,18 @@ cd "$(dirname "$0")/.."
 
 echo "Converting HTML to JSON..."
 
-# Rename index.html to index.json throughout
-find public -name "index.html" | while read file; do
-    dir=$(dirname "$file")
-    # Get the parent directory name for the new filename
-    parent=$(basename "$dir")
-    grandparent=$(dirname "$dir")
+# Rename all index.html to index.json (keeps directory structure)
+find public -name "index.html" -exec sh -c 'mv "$1" "${1%.html}.json"' _ {} \;
 
-    if [ "$parent" = "public" ]; then
-        # Root index stays as is but rename to .json
-        mv "$file" "$dir/index.json"
-    else
-        # Move index.html up one level with directory name + .json
-        mv "$file" "$grandparent/$parent.json"
-        rmdir "$dir" 2>/dev/null || true
-    fi
-done
+# Create _headers file for proper Content-Type
+cat > public/_headers << 'EOF'
+/*
+  Content-Type: application/json
+  Access-Control-Allow-Origin: *
 
-# Clean up empty directories
-find public -type d -empty -delete 2>/dev/null || true
+/index.json
+  Content-Type: application/json
+EOF
 
 echo "Done. Output structure:"
 find public -type f -name "*.json" | sort

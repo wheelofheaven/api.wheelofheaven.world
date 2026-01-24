@@ -18,12 +18,12 @@ https://api.wheelofheaven.io
 | Endpoint | Description |
 |----------|-------------|
 | `/` | API info and available endpoints |
-| `/v1/catalog.json` | Full library catalog |
-| `/v1/traditions.json` | List of religious/philosophical traditions |
-| `/v1/books/` | List of all books with links |
-| `/v1/books/{slug}.json` | Full book with content |
-| `/v1/books/{slug}/meta.json` | Book metadata only |
-| `/v1/search.json` | Lightweight search index |
+| `/v1/catalog` | Full library catalog |
+| `/v1/traditions` | List of religious/philosophical traditions |
+| `/v1/books` | List of all books with links |
+| `/v1/books/{slug}` | Full book with content |
+| `/v1/books/{slug}/meta` | Book metadata only |
+| `/v1/search` | Lightweight search index |
 
 ### Response Format
 

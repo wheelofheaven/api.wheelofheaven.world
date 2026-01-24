@@ -31,10 +31,10 @@
     "tags": {% if book_entry.tags %}{{ book_entry.tags | json_encode() | safe }}{% else %}[]{% endif %}
   },
   "links": {
-    "self": "/v1/books/{{ slug }}/meta.json",
-    "full": "/v1/books/{{ slug }}.json",
-    "chapters": "/v1/books/{{ slug }}/chapters/",
-    "catalog": "/v1/catalog.json"
+    "self": "/v1/books/{{ slug }}/meta",
+    "full": "/v1/books/{{ slug }}",
+    "chapters": "/v1/books/{{ slug }}/chapters",
+    "catalog": "/v1/catalog"
   }
 }
 {%- else -%}

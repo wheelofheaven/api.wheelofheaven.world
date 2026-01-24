@@ -19,9 +19,9 @@
       "paragraphs": {{ book.paragraphs | default(value=0) }},
       "status": "{{ book.status | default(value="unknown") }}",
       "links": {
-        "self": "/v1/books/{{ book.slug }}.json",
-        "meta": "/v1/books/{{ book.slug }}/meta.json",
-        "chapters": "/v1/books/{{ book.slug }}/chapters/"
+        "self": "/v1/books/{{ book.slug }}",
+        "meta": "/v1/books/{{ book.slug }}/meta",
+        "chapters": "/v1/books/{{ book.slug }}/chapters"
       }
     }{% if not loop.last %},{% endif %}
 {%- endfor %}

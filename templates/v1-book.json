@@ -34,9 +34,9 @@
     "content": {% if book_data and book_data.chapters %}{{ book_data.chapters | json_encode(pretty=true) | safe }}{% else %}[]{% endif %}
   },
   "links": {
-    "self": "/v1/books/{{ slug }}.json",
-    "meta": "/v1/books/{{ slug }}/meta.json",
-    "catalog": "/v1/catalog.json"
+    "self": "/v1/books/{{ slug }}",
+    "meta": "/v1/books/{{ slug }}/meta",
+    "catalog": "/v1/catalog"
   }
 }
 {%- else -%}
