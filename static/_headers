@@ -1,0 +1,10 @@
+# CORS headers for API access
+/*
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: Content-Type
+  Content-Type: application/json; charset=utf-8
+
+# Cache control for API responses
+/v1/*
+  Cache-Control: public, max-age=3600
