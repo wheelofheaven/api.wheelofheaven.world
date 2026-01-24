@@ -1,0 +1,26 @@
+{%- set wiki = load_data(path="data/extracted/wiki.json") -%}
+{
+  "apiVersion": "v1",
+  "kind": "WikiIndex",
+  "metadata": {
+    "generated": "{{ wiki.generated }}",
+    "count": {{ wiki.count }}
+  },
+  "entries": [
+{%- for entry in wiki.entries %}
+    {
+      "slug": {{ entry.slug | json_encode() | safe }},
+      "title": {{ entry.title | json_encode() | safe }},
+      "description": {{ entry.description | json_encode() | safe }},
+      "url": "/v1/wiki/{{ entry.slug }}"
+      {%- if entry.extra and (entry.extra.alternative_names or entry.extra.category) %},
+      "extra": {{ entry.extra | json_encode() | safe }}
+      {%- endif %}
+    }{% if not loop.last %},{% endif %}
+{%- endfor %}
+  ],
+  "links": {
+    "self": "/v1/wiki",
+    "context": "/v1/context"
+  }
+}
