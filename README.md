@@ -87,9 +87,14 @@ mise run check
    ```
 3. Rebuild: `mise run build`
 
-## Data Source
+## Data Sources
 
-Book data comes from the [data-library](https://github.com/wheelofheaven/data-library) submodule in `data/library/`.
+This API generates JSON from two data submodules:
+
+| Submodule | Path | Description |
+|-----------|------|-------------|
+| [data-library](https://github.com/wheelofheaven/data-library) | `data/library/` | Book/scripture JSON data |
+| [data-content](https://github.com/wheelofheaven/data-content) | `data/content/` | Wiki, timeline, resources (Markdown) |
 
 To update:
 ```bash

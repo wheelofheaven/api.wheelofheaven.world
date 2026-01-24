@@ -1,3 +1,6 @@
 [submodule "data/library"]
 	path = data/library
 	url = git@github.com:wheelofheaven/data-library.git
+[submodule "data/content"]
+	path = data/content
+	url = git@github.com:wheelofheaven/data-content.git
