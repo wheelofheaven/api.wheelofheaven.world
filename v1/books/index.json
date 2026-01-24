@@ -1,0 +1,106 @@
+{
+  "apiVersion": "v1",
+  "kind": "BookList",
+  "metadata": {
+    "generated": "2026-01-24T11:31:44Z",
+    "count": 6
+  },
+  "data": [
+    {
+      "slug": "the-book-which-tells-the-truth",
+      "code": "TBWTT",
+      "tradition": "raelian",
+      "collection": "raelian-messages",
+      "primaryLang": "fr",
+      "availableLangs": ["fr","en","de","es","ru","ja","zh"],
+      "chapters": 7,
+      "paragraphs": 1029,
+      "status": "complete",
+      "links": {
+        "self": "/v1/books/the-book-which-tells-the-truth",
+        "meta": "/v1/books/the-book-which-tells-the-truth/meta",
+        "chapters": "/v1/books/the-book-which-tells-the-truth/chapters"
+      }
+    },
+    {
+      "slug": "extraterrestrials-took-me-to-their-planet",
+      "code": "ETTMTTP",
+      "tradition": "raelian",
+      "collection": "raelian-messages",
+      "primaryLang": "fr",
+      "availableLangs": ["fr"],
+      "chapters": 0,
+      "paragraphs": 0,
+      "status": "planned",
+      "links": {
+        "self": "/v1/books/extraterrestrials-took-me-to-their-planet",
+        "meta": "/v1/books/extraterrestrials-took-me-to-their-planet/meta",
+        "chapters": "/v1/books/extraterrestrials-took-me-to-their-planet/chapters"
+      }
+    },
+    {
+      "slug": "sensual-meditation",
+      "code": "SM",
+      "tradition": "raelian",
+      "collection": "raelian-teachings",
+      "primaryLang": "fr",
+      "availableLangs": ["fr"],
+      "chapters": 0,
+      "paragraphs": 0,
+      "status": "planned",
+      "links": {
+        "self": "/v1/books/sensual-meditation",
+        "meta": "/v1/books/sensual-meditation/meta",
+        "chapters": "/v1/books/sensual-meditation/chapters"
+      }
+    },
+    {
+      "slug": "genesis",
+      "code": "GEN",
+      "tradition": "biblical",
+      "collection": "hebrew-bible",
+      "primaryLang": "he",
+      "availableLangs": ["he"],
+      "chapters": 50,
+      "paragraphs": 0,
+      "status": "planned",
+      "links": {
+        "self": "/v1/books/genesis",
+        "meta": "/v1/books/genesis/meta",
+        "chapters": "/v1/books/genesis/chapters"
+      }
+    },
+    {
+      "slug": "exodus",
+      "code": "EXO",
+      "tradition": "biblical",
+      "collection": "hebrew-bible",
+      "primaryLang": "he",
+      "availableLangs": ["he"],
+      "chapters": 40,
+      "paragraphs": 0,
+      "status": "planned",
+      "links": {
+        "self": "/v1/books/exodus",
+        "meta": "/v1/books/exodus/meta",
+        "chapters": "/v1/books/exodus/chapters"
+      }
+    },
+    {
+      "slug": "book-of-enoch",
+      "code": "1ENO",
+      "tradition": "apocrypha",
+      "collection": "enochian",
+      "primaryLang": "gez",
+      "availableLangs": ["gez","en"],
+      "chapters": 108,
+      "paragraphs": 0,
+      "status": "planned",
+      "links": {
+        "self": "/v1/books/book-of-enoch",
+        "meta": "/v1/books/book-of-enoch/meta",
+        "chapters": "/v1/books/book-of-enoch/chapters"
+      }
+    }
+  ]
+}

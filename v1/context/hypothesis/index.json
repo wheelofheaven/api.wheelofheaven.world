@@ -1,0 +1,111 @@
+{
+  "apiVersion": "v1",
+  "kind": "ContextHypothesis",
+  "metadata": {
+    "generated": "2026-01-24T11:31:44Z",
+    "purpose": "Detailed explanation of the Wheel of Heaven hypothesis"
+  },
+  "data": {
+    "title": "The Wheel of Heaven Hypothesis",
+    "subtitle": "Life on Earth as an Extraterrestrial Scientific Project",
+    "summary": "The Wheel of Heaven hypothesis proposes that all life on Earth was created through advanced genetic engineering by an extraterrestrial civilization called the Elohim. This hypothesis synthesizes Raëlian teachings with biblical scholarship, ancient astronaut theory, and archaeoastronomy to present a coherent alternative history of humanity.",
+    "premises": [
+      {
+        "id": 1,
+        "title": "The Elohim Exist",
+        "description": "An advanced extraterrestrial civilization exists that mastered genetic engineering, space travel, and longevity thousands of years before visiting Earth.",
+        "evidence": [
+          "The Hebrew word 'Elohim' is grammatically plural",
+          "Consistent descriptions of 'gods' descending from the sky across cultures",
+          "Raël's claimed direct contact and received Messages"
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Earth Was Terraformed",
+        "description": "The Elohim selected Earth as a suitable laboratory and prepared it for life through what ancient texts describe as 'creation' over extended periods.",
+        "evidence": [
+          "Genesis 1 describes systematic environmental preparation",
+          "The 'days' of creation represent epochs of scientific work",
+          "Earth's unique conditions suggest deliberate optimization"
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Life Was Engineered",
+        "description": "All species on Earth, including humans, were created through genetic engineering rather than emerging solely through undirected evolution.",
+        "evidence": [
+          "'Let us make man in our image' (plural creators)",
+          "The sudden appearance of complex life in the fossil record",
+          "Humans created as a synthesis ('in their image') of Elohim genetics"
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Ancient Texts Are Historical",
+        "description": "Religious and mythological texts preserve garbled but authentic accounts of interactions between humans and the Elohim.",
+        "evidence": [
+          "Consistent themes of sky-beings, forbidden knowledge, and cataclysms",
+          "Technical descriptions in texts (Ezekiel's 'wheel', Enoch's journeys)",
+          "The global flood narrative with its spacecraft/preservation themes"
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Cosmic Cycles Structure History",
+        "description": "The precessional cycle of 25,920 years provides a cosmic clock dividing human history into meaningful 'World Ages' of approximately 2,160 years each.",
+        "evidence": [
+          "Ancient awareness of precession (Hipparchus, earlier traditions)",
+          "Zodiacal symbolism in religious traditions matching their era",
+          "Prophetic traditions predicting age transitions"
+        ]
+      },
+      {
+        "id": 6,
+        "title": "The Age of Revelation Is Now",
+        "description": "The current transition into the Age of Aquarius marks the prophesied time of 'apocalypse' (Greek: revelation/unveiling) when humanity learns its true origins.",
+        "evidence": [
+          "Astronomical transition beginning mid-20th century",
+          "Explosion of scientific knowledge and space exploration",
+          "Raël's contact occurring at the dawn of this age (1973)"
+        ]
+      }
+    ],
+    "implications": [
+      {
+        "domain": "Religion",
+        "implication": "Religious texts are neither purely mythological nor supernaturally inspired, but historical accounts requiring scientific reinterpretation."
+      },
+      {
+        "domain": "Science",
+        "implication": "The origin of life and human consciousness may require acknowledging external intelligent intervention alongside evolutionary processes."
+      },
+      {
+        "domain": "History",
+        "implication": "Human history extends further back and is more interconnected globally than conventional archaeology recognizes."
+      },
+      {
+        "domain": "Future",
+        "implication": "Humanity's destiny involves eventual reunion with its creators and integration into a larger cosmic community."
+      }
+    ],
+    "relationship_to_sources": {
+      "raelian": "The Raëlian Messages provide the most direct and detailed account of the Elohim and their relationship with humanity.",
+      "biblical": "Biblical texts are treated as primary historical sources requiring demythologization and scientific reinterpretation.",
+      "ancient_astronaut": "Ancient astronaut research provides comparative evidence and analytical frameworks.",
+      "archaeoastronomy": "Astronomical knowledge encoded in ancient structures supports the precessional timeline."
+    },
+    "methodological_notes": [
+      "Wheel of Heaven presents this hypothesis for exploration, not as dogma",
+      "Critical engagement with sources is encouraged",
+      "The hypothesis is falsifiable and subject to revision with new evidence",
+      "Multiple interpretations of evidence are acknowledged"
+    ]
+  },
+  "links": {
+    "self": "/v1/context/hypothesis",
+    "parent": "/v1/context",
+    "timeline": "/v1/context/timeline",
+    "terminology": "/v1/context/terminology"
+  }
+}

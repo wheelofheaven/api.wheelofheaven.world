@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://api.wheelofheaven.io/</loc>
+    </url>
+    <url>
+        <loc>https://api.wheelofheaven.io/v1/books/</loc>
+    </url>
+    <url>
+        <loc>https://api.wheelofheaven.io/v1/books/the-book-which-tells-the-truth/</loc>
+    </url>
+    <url>
+        <loc>https://api.wheelofheaven.io/v1/catalog/</loc>
+    </url>
+    <url>
+        <loc>https://api.wheelofheaven.io/v1/context/</loc>
+    </url>
+    <url>
+        <loc>https://api.wheelofheaven.io/v1/context/hypothesis/</loc>
+    </url>
+    <url>
+        <loc>https://api.wheelofheaven.io/v1/context/terminology/</loc>
+    </url>
+    <url>
+        <loc>https://api.wheelofheaven.io/v1/context/timeline/</loc>
+    </url>
+    <url>
+        <loc>https://api.wheelofheaven.io/v1/search/</loc>
+    </url>
+    <url>
+        <loc>https://api.wheelofheaven.io/v1/traditions/</loc>
+    </url>
+</urlset>

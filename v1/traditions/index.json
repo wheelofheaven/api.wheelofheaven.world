@@ -1,0 +1,89 @@
+{
+  "apiVersion": "v1",
+  "kind": "TraditionList",
+  "metadata": {
+    "generated": "2026-01-24T11:31:44Z"
+  },
+  "data": [
+  {
+    "id": "raelian",
+    "code": "RAE",
+    "name": {
+      "en": "Raëlian Corpus",
+      "fr": "Corpus Raëlien",
+      "de": "Raëlianisches Korpus",
+      "es": "Corpus Raëliano",
+      "ja": "ラエリアン文献",
+      "zh": "雷尔文集",
+      "ru": "Раэлианский корпус",
+      "ko": "라엘리안 문헌"
+    },
+    "description": {
+      "en": "The foundational texts of the Raëlian Movement, containing the messages received by Claude Vorilhon (Raël) from the Elohim.",
+      "fr": "Les textes fondateurs du Mouvement Raëlien, contenant les messages reçus par Claude Vorilhon (Raël) des Elohim."
+    },
+    "order": 1,
+    "icon": "message-circle"
+  },
+  {
+    "id": "biblical",
+    "code": "BIB",
+    "name": {
+      "en": "Biblical Texts",
+      "fr": "Textes Bibliques",
+      "de": "Biblische Texte",
+      "es": "Textos Bíblicos",
+      "ja": "聖書テキスト",
+      "zh": "圣经文本",
+      "ru": "Библейские тексты",
+      "ko": "성경 본문"
+    },
+    "description": {
+      "en": "Canonical biblical scriptures from Hebrew, Christian, and related traditions, interpreted through the lens of the ancient astronaut hypothesis.",
+      "fr": "Écritures bibliques canoniques des traditions hébraïque, chrétienne et connexes, interprétées à travers le prisme de l'hypothèse des anciens astronautes."
+    },
+    "order": 2,
+    "icon": "book-open"
+  },
+  {
+    "id": "ancient-astronaut",
+    "code": "AA",
+    "name": {
+      "en": "Ancient Astronaut Corpus",
+      "fr": "Corpus des Anciens Astronautes",
+      "de": "Korpus der antiken Astronauten",
+      "es": "Corpus de Astronautas Antiguos",
+      "ja": "古代宇宙飛行士文献",
+      "zh": "远古宇航员文集",
+      "ru": "Корпус древних астронавтов",
+      "ko": "고대 우주비행사 문헌"
+    },
+    "description": {
+      "en": "Key texts from researchers and authors who have contributed to the ancient astronaut hypothesis and related fields.",
+      "fr": "Textes clés de chercheurs et d'auteurs ayant contribué à l'hypothèse des anciens astronautes et domaines connexes."
+    },
+    "order": 3,
+    "icon": "rocket"
+  },
+  {
+    "id": "apocrypha",
+    "code": "APO",
+    "name": {
+      "en": "Apocrypha & Pseudepigrapha",
+      "fr": "Apocryphes & Pseudépigraphes",
+      "de": "Apokryphen & Pseudepigraphen",
+      "es": "Apócrifos & Pseudoepígrafos",
+      "ja": "外典・偽典",
+      "zh": "伪经与次经",
+      "ru": "Апокрифы и Псевдоэпиграфы",
+      "ko": "외경과 위경"
+    },
+    "description": {
+      "en": "Non-canonical religious texts that provide additional context and perspectives on ancient narratives.",
+      "fr": "Textes religieux non canoniques qui fournissent un contexte et des perspectives supplémentaires sur les récits anciens."
+    },
+    "order": 4,
+    "icon": "scroll"
+  }
+]
+}

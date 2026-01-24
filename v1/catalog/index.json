@@ -1,0 +1,444 @@
+{
+  "apiVersion": "v1",
+  "kind": "Catalog",
+  "metadata": {
+    "generated": "2026-01-24T11:31:44Z",
+    "source": "https://api.wheelofheaven.io"
+  },
+  "data": {
+  "version": "1.0",
+  "updated": "2025-01-24",
+  "traditions": [
+    {
+      "id": "raelian",
+      "code": "RAE",
+      "name": {
+        "en": "Raëlian Corpus",
+        "fr": "Corpus Raëlien",
+        "de": "Raëlianisches Korpus",
+        "es": "Corpus Raëliano",
+        "ja": "ラエリアン文献",
+        "zh": "雷尔文集",
+        "ru": "Раэлианский корпус",
+        "ko": "라엘리안 문헌"
+      },
+      "description": {
+        "en": "The foundational texts of the Raëlian Movement, containing the messages received by Claude Vorilhon (Raël) from the Elohim.",
+        "fr": "Les textes fondateurs du Mouvement Raëlien, contenant les messages reçus par Claude Vorilhon (Raël) des Elohim."
+      },
+      "order": 1,
+      "icon": "message-circle"
+    },
+    {
+      "id": "biblical",
+      "code": "BIB",
+      "name": {
+        "en": "Biblical Texts",
+        "fr": "Textes Bibliques",
+        "de": "Biblische Texte",
+        "es": "Textos Bíblicos",
+        "ja": "聖書テキスト",
+        "zh": "圣经文本",
+        "ru": "Библейские тексты",
+        "ko": "성경 본문"
+      },
+      "description": {
+        "en": "Canonical biblical scriptures from Hebrew, Christian, and related traditions, interpreted through the lens of the ancient astronaut hypothesis.",
+        "fr": "Écritures bibliques canoniques des traditions hébraïque, chrétienne et connexes, interprétées à travers le prisme de l'hypothèse des anciens astronautes."
+      },
+      "order": 2,
+      "icon": "book-open"
+    },
+    {
+      "id": "ancient-astronaut",
+      "code": "AA",
+      "name": {
+        "en": "Ancient Astronaut Corpus",
+        "fr": "Corpus des Anciens Astronautes",
+        "de": "Korpus der antiken Astronauten",
+        "es": "Corpus de Astronautas Antiguos",
+        "ja": "古代宇宙飛行士文献",
+        "zh": "远古宇航员文集",
+        "ru": "Корпус древних астронавтов",
+        "ko": "고대 우주비행사 문헌"
+      },
+      "description": {
+        "en": "Key texts from researchers and authors who have contributed to the ancient astronaut hypothesis and related fields.",
+        "fr": "Textes clés de chercheurs et d'auteurs ayant contribué à l'hypothèse des anciens astronautes et domaines connexes."
+      },
+      "order": 3,
+      "icon": "rocket"
+    },
+    {
+      "id": "apocrypha",
+      "code": "APO",
+      "name": {
+        "en": "Apocrypha & Pseudepigrapha",
+        "fr": "Apocryphes & Pseudépigraphes",
+        "de": "Apokryphen & Pseudepigraphen",
+        "es": "Apócrifos & Pseudoepígrafos",
+        "ja": "外典・偽典",
+        "zh": "伪经与次经",
+        "ru": "Апокрифы и Псевдоэпиграфы",
+        "ko": "외경과 위경"
+      },
+      "description": {
+        "en": "Non-canonical religious texts that provide additional context and perspectives on ancient narratives.",
+        "fr": "Textes religieux non canoniques qui fournissent un contexte et des perspectives supplémentaires sur les récits anciens."
+      },
+      "order": 4,
+      "icon": "scroll"
+    }
+  ],
+  "collections": [
+    {
+      "id": "raelian-messages",
+      "tradition": "raelian",
+      "code": "MSG",
+      "name": {
+        "en": "The Messages",
+        "fr": "Les Messages",
+        "de": "Die Botschaften",
+        "es": "Los Mensajes",
+        "ja": "メッセージ",
+        "zh": "讯息",
+        "ru": "Послания",
+        "ko": "메시지"
+      },
+      "description": {
+        "en": "The core messages transmitted to Raël by the Elohim during their encounters, forming the foundation of Raëlian philosophy.",
+        "fr": "Les messages fondamentaux transmis à Raël par les Elohim lors de leurs rencontres, formant le fondement de la philosophie Raëlienne."
+      },
+      "order": 1,
+      "books": [
+        "the-book-which-tells-the-truth",
+        "extraterrestrials-took-me-to-their-planet"
+      ]
+    },
+    {
+      "id": "raelian-teachings",
+      "tradition": "raelian",
+      "code": "TCH",
+      "name": {
+        "en": "Teachings & Meditations",
+        "fr": "Enseignements & Méditations",
+        "de": "Lehren & Meditationen",
+        "es": "Enseñanzas & Meditaciones",
+        "ja": "教えと瞑想",
+        "zh": "教导与冥想",
+        "ru": "Учения и Медитации",
+        "ko": "가르침과 명상"
+      },
+      "description": {
+        "en": "Supplementary teachings, meditations, and guidance for practicing Raëlian philosophy.",
+        "fr": "Enseignements complémentaires, méditations et conseils pour pratiquer la philosophie Raëlienne."
+      },
+      "order": 2,
+      "books": [
+        "sensual-meditation"
+      ]
+    },
+    {
+      "id": "hebrew-bible",
+      "tradition": "biblical",
+      "code": "HB",
+      "name": {
+        "en": "Hebrew Bible (Tanakh)",
+        "fr": "Bible Hébraïque (Tanakh)",
+        "de": "Hebräische Bibel (Tanach)",
+        "es": "Biblia Hebrea (Tanaj)",
+        "ja": "ヘブライ語聖書（タナハ）",
+        "zh": "希伯来圣经（塔纳赫）",
+        "ru": "Еврейская Библия (Танах)",
+        "ko": "히브리 성경 (타나크)"
+      },
+      "description": {
+        "en": "The Hebrew scriptures including Torah, Prophets, and Writings.",
+        "fr": "Les écritures hébraïques incluant la Torah, les Prophètes et les Écrits."
+      },
+      "order": 1,
+      "books": [
+        "genesis",
+        "exodus"
+      ]
+    },
+    {
+      "id": "new-testament",
+      "tradition": "biblical",
+      "code": "NT",
+      "name": {
+        "en": "New Testament",
+        "fr": "Nouveau Testament",
+        "de": "Neues Testament",
+        "es": "Nuevo Testamento",
+        "ja": "新約聖書",
+        "zh": "新约圣经",
+        "ru": "Новый Завет",
+        "ko": "신약 성경"
+      },
+      "description": {
+        "en": "The Christian scriptures including the Gospels, Acts, Epistles, and Revelation.",
+        "fr": "Les écritures chrétiennes incluant les Évangiles, les Actes, les Épîtres et l'Apocalypse."
+      },
+      "order": 2,
+      "books": []
+    },
+    {
+      "id": "enochian",
+      "tradition": "apocrypha",
+      "code": "ENO",
+      "name": {
+        "en": "Books of Enoch",
+        "fr": "Livres d'Hénoch",
+        "de": "Bücher Henoch",
+        "es": "Libros de Enoc",
+        "ja": "エノク書",
+        "zh": "以诺书",
+        "ru": "Книги Еноха",
+        "ko": "에녹서"
+      },
+      "description": {
+        "en": "Ancient Jewish texts attributed to Enoch, containing vivid accounts of heavenly beings and cosmic journeys.",
+        "fr": "Textes juifs anciens attribués à Hénoch, contenant des récits vivants d'êtres célestes et de voyages cosmiques."
+      },
+      "order": 1,
+      "books": [
+        "book-of-enoch"
+      ]
+    }
+  ],
+  "books": [
+    {
+      "slug": "the-book-which-tells-the-truth",
+      "code": "TBWTT",
+      "tradition": "raelian",
+      "collection": "raelian-messages",
+      "order": 1,
+      "author": "Raël (Claude Vorilhon)",
+      "publicationYear": 1973,
+      "originalTitle": "Le Livre Qui Dit la Vérité",
+      "primaryLang": "fr",
+      "availableLangs": [
+        "fr",
+        "en",
+        "de",
+        "es",
+        "ru",
+        "ja",
+        "zh"
+      ],
+      "completeLangs": [
+        "fr",
+        "en"
+      ],
+      "chapters": 7,
+      "paragraphs": 1029,
+      "tags": [
+        "contact",
+        "genesis",
+        "elohim",
+        "creation",
+        "messages",
+        "encounter"
+      ],
+      "topics": [
+        "first-contact",
+        "creation-of-humanity",
+        "biblical-reinterpretation",
+        "elohim-identity"
+      ],
+      "status": "complete",
+      "hasAudio": false,
+      "hasVideo": false
+    },
+    {
+      "slug": "extraterrestrials-took-me-to-their-planet",
+      "code": "ETTMTTP",
+      "tradition": "raelian",
+      "collection": "raelian-messages",
+      "order": 2,
+      "author": "Raël (Claude Vorilhon)",
+      "publicationYear": 1975,
+      "originalTitle": "Les Extra-Terrestres M'ont Emmené sur Leur Planète",
+      "primaryLang": "fr",
+      "availableLangs": [
+        "fr"
+      ],
+      "completeLangs": [],
+      "chapters": 0,
+      "paragraphs": 0,
+      "tags": [
+        "journey",
+        "planet",
+        "elohim",
+        "technology",
+        "immortality"
+      ],
+      "topics": [
+        "interstellar-travel",
+        "elohim-civilization",
+        "eternal-life"
+      ],
+      "status": "planned",
+      "hasAudio": false,
+      "hasVideo": false
+    },
+    {
+      "slug": "sensual-meditation",
+      "code": "SM",
+      "tradition": "raelian",
+      "collection": "raelian-teachings",
+      "order": 1,
+      "author": "Raël (Claude Vorilhon)",
+      "publicationYear": 1980,
+      "originalTitle": "La Méditation Sensuelle",
+      "primaryLang": "fr",
+      "availableLangs": [
+        "fr"
+      ],
+      "completeLangs": [],
+      "chapters": 0,
+      "paragraphs": 0,
+      "tags": [
+        "meditation",
+        "sensuality",
+        "awakening",
+        "consciousness"
+      ],
+      "topics": [
+        "sensual-meditation",
+        "awakening",
+        "mind-body"
+      ],
+      "status": "planned",
+      "hasAudio": false,
+      "hasVideo": false
+    },
+    {
+      "slug": "genesis",
+      "code": "GEN",
+      "tradition": "biblical",
+      "collection": "hebrew-bible",
+      "order": 1,
+      "author": "Traditional (Moses)",
+      "publicationYear": null,
+      "originalTitle": "בְּרֵאשִׁית (Bereshit)",
+      "primaryLang": "he",
+      "availableLangs": [
+        "he"
+      ],
+      "completeLangs": [],
+      "chapters": 50,
+      "paragraphs": 0,
+      "tags": [
+        "creation",
+        "genesis",
+        "patriarchs",
+        "origins"
+      ],
+      "topics": [
+        "creation-account",
+        "garden-of-eden",
+        "flood",
+        "patriarchs"
+      ],
+      "status": "planned",
+      "hasAudio": false,
+      "hasVideo": false
+    },
+    {
+      "slug": "exodus",
+      "code": "EXO",
+      "tradition": "biblical",
+      "collection": "hebrew-bible",
+      "order": 2,
+      "author": "Traditional (Moses)",
+      "publicationYear": null,
+      "originalTitle": "שְׁמוֹת (Shemot)",
+      "primaryLang": "he",
+      "availableLangs": [
+        "he"
+      ],
+      "completeLangs": [],
+      "chapters": 40,
+      "paragraphs": 0,
+      "tags": [
+        "exodus",
+        "moses",
+        "plagues",
+        "sinai",
+        "law"
+      ],
+      "topics": [
+        "liberation",
+        "mount-sinai",
+        "ten-commandments",
+        "tabernacle"
+      ],
+      "status": "planned",
+      "hasAudio": false,
+      "hasVideo": false
+    },
+    {
+      "slug": "book-of-enoch",
+      "code": "1ENO",
+      "tradition": "apocrypha",
+      "collection": "enochian",
+      "order": 1,
+      "author": "Traditional (Enoch)",
+      "publicationYear": null,
+      "originalTitle": "መጽሐፈ ሄኖክ (Mets'hafe Henok)",
+      "primaryLang": "gez",
+      "availableLangs": [
+        "gez",
+        "en"
+      ],
+      "completeLangs": [],
+      "chapters": 108,
+      "paragraphs": 0,
+      "tags": [
+        "angels",
+        "watchers",
+        "nephilim",
+        "apocalyptic",
+        "heavenly-journey"
+      ],
+      "topics": [
+        "watchers",
+        "nephilim",
+        "heavenly-visions",
+        "end-times"
+      ],
+      "status": "planned",
+      "hasAudio": false,
+      "hasVideo": false
+    }
+  ],
+  "referenceFormats": {
+    "book": "{bookCode}",
+    "chapter": "{bookCode} {chapter}",
+    "paragraph": "{bookCode} {chapter}:{paragraph}",
+    "range": "{bookCode} {chapter}:{startParagraph}-{endParagraph}",
+    "crossChapter": "{bookCode} {startChapter}:{startParagraph}-{endChapter}:{endParagraph}"
+  },
+  "languageCodes": {
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch",
+    "es": "Español",
+    "ja": "日本語",
+    "zh": "简体中文",
+    "zh-Hant": "繁體中文",
+    "ko": "한국어",
+    "ru": "Русский",
+    "he": "עברית",
+    "gez": "ግዕዝ"
+  },
+  "statusCodes": {
+    "complete": "Fully digitized and translated",
+    "partial": "Some chapters or translations available",
+    "planned": "Scheduled for future digitization",
+    "draft": "Work in progress"
+  }
+}
+}

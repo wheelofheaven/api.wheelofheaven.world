@@ -1,0 +1,42 @@
+{
+  "apiVersion": "v1",
+  "kind": "SearchIndex",
+  "metadata": {
+    "generated": "2026-01-24T11:31:44Z",
+    "description": "Lightweight search index for client-side search"
+  },
+  "data": {
+    "books": [
+      {
+        "slug": "the-book-which-tells-the-truth",
+        "code": "TBWTT",
+        "titles": {},
+        "author": "Raël (Claude Vorilhon)",
+        "tradition": "raelian",
+        "tags": ["contact","genesis","elohim","creation","messages","encounter"]
+      },
+    ],
+    "traditions": [
+      {
+        "id": "raelian",
+        "code": "RAE",
+        "name": {"en":"Raëlian Corpus","fr":"Corpus Raëlien","de":"Raëlianisches Korpus","es":"Corpus Raëliano","ja":"ラエリアン文献","zh":"雷尔文集","ru":"Раэлианский корпус","ko":"라엘리안 문헌"}
+      },
+      {
+        "id": "biblical",
+        "code": "BIB",
+        "name": {"en":"Biblical Texts","fr":"Textes Bibliques","de":"Biblische Texte","es":"Textos Bíblicos","ja":"聖書テキスト","zh":"圣经文本","ru":"Библейские тексты","ko":"성경 본문"}
+      },
+      {
+        "id": "ancient-astronaut",
+        "code": "AA",
+        "name": {"en":"Ancient Astronaut Corpus","fr":"Corpus des Anciens Astronautes","de":"Korpus der antiken Astronauten","es":"Corpus de Astronautas Antiguos","ja":"古代宇宙飛行士文献","zh":"远古宇航员文集","ru":"Корпус древних астронавтов","ko":"고대 우주비행사 문헌"}
+      },
+      {
+        "id": "apocrypha",
+        "code": "APO",
+        "name": {"en":"Apocrypha & Pseudepigrapha","fr":"Apocryphes & Pseudépigraphes","de":"Apokryphen & Pseudepigraphen","es":"Apócrifos & Pseudoepígrafos","ja":"外典・偽典","zh":"伪经与次经","ru":"Апокрифы и Псевдоэпиграфы","ko":"외경과 위경"}
+      }
+    ]
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "apiVersion": "v1",
+  "kind": "Context",
+  "metadata": {
+    "generated": "2026-01-24T11:31:44Z",
+    "purpose": "LLM/AI context for understanding Wheel of Heaven"
+  },
+  "data": {
+    "project": {
+      "name": "Wheel of Heaven",
+      "tagline": "An encyclopedic encyclopedia of Ages past, present and future",
+      "url": "https://www.wheelofheaven.io",
+      "description": "Wheel of Heaven is a comprehensive knowledge base exploring the hypothesis that life on Earth was intelligently designed by an extraterrestrial civilization known as the Elohim. The project synthesizes Raëlian teachings, biblical exegesis, ancient astronaut theory, and archaeoastronomy into a coherent narrative spanning cosmic time.",
+      "license": "CC0-1.0 (Public Domain)",
+      "languages": ["en", "fr", "de", "es", "ja", "ko", "ru", "zh", "zh-Hant"]
+    },
+    "coreHypothesis": {
+      "summary": "Life on Earth was created through advanced genetic engineering by an extraterrestrial civilization called the Elohim, who were mistaken for gods by ancient humans.",
+      "keyPoints": [
+        "The Elohim are a scientifically advanced extraterrestrial civilization",
+        "They created all life on Earth through genetic engineering approximately 25,000 years ago",
+        "Biblical and ancient texts are historical accounts of their interactions with humanity",
+        "The word 'Elohim' in Hebrew is plural, meaning 'those who came from the sky'",
+        "Humanity is approaching a new age (Age of Aquarius) of potential reconnection with our creators"
+      ],
+      "precessionalCycle": {
+        "description": "The 25,920-year cycle of Earth's axial precession, divided into 12 'World Ages' of ~2,160 years each",
+        "currentAge": "Age of Aquarius (began ~1945 CE)",
+        "significance": "Each age marks a phase in humanity's relationship with the Elohim"
+      }
+    },
+    "traditions": [
+      {
+        "id": "raelian",
+        "name": {"en":"Raëlian Corpus","fr":"Corpus Raëlien","de":"Raëlianisches Korpus","es":"Corpus Raëliano","ja":"ラエリアン文献","zh":"雷尔文集","ru":"Раэлианский корпус","ko":"라엘리안 문헌"},
+        "description": {"en":"The foundational texts of the Raëlian Movement, containing the messages received by Claude Vorilhon (Raël) from the Elohim.","fr":"Les textes fondateurs du Mouvement Raëlien, contenant les messages reçus par Claude Vorilhon (Raël) des Elohim."}
+      },
+      {
+        "id": "biblical",
+        "name": {"en":"Biblical Texts","fr":"Textes Bibliques","de":"Biblische Texte","es":"Textos Bíblicos","ja":"聖書テキスト","zh":"圣经文本","ru":"Библейские тексты","ko":"성경 본문"},
+        "description": {"en":"Canonical biblical scriptures from Hebrew, Christian, and related traditions, interpreted through the lens of the ancient astronaut hypothesis.","fr":"Écritures bibliques canoniques des traditions hébraïque, chrétienne et connexes, interprétées à travers le prisme de l'hypothèse des anciens astronautes."}
+      },
+      {
+        "id": "ancient-astronaut",
+        "name": {"en":"Ancient Astronaut Corpus","fr":"Corpus des Anciens Astronautes","de":"Korpus der antiken Astronauten","es":"Corpus de Astronautas Antiguos","ja":"古代宇宙飛行士文献","zh":"远古宇航员文集","ru":"Корпус древних астронавтов","ko":"고대 우주비행사 문헌"},
+        "description": {"en":"Key texts from researchers and authors who have contributed to the ancient astronaut hypothesis and related fields.","fr":"Textes clés de chercheurs et d'auteurs ayant contribué à l'hypothèse des anciens astronautes et domaines connexes."}
+      },
+      {
+        "id": "apocrypha",
+        "name": {"en":"Apocrypha & Pseudepigrapha","fr":"Apocryphes & Pseudépigraphes","de":"Apokryphen & Pseudepigraphen","es":"Apócrifos & Pseudoepígrafos","ja":"外典・偽典","zh":"伪经与次经","ru":"Апокрифы и Псевдоэпиграфы","ko":"외경과 위경"},
+        "description": {"en":"Non-canonical religious texts that provide additional context and perspectives on ancient narratives.","fr":"Textes religieux non canoniques qui fournissent un contexte et des perspectives supplémentaires sur les récits anciens."}
+      }
+    ],
+    "keyTerminology": [
+      {
+        "term": "Elohim",
+        "definition": "Hebrew plural noun meaning 'those who came from the sky'. In the Wheel of Heaven interpretation, this refers to the extraterrestrial creators of life on Earth."
+      },
+      {
+        "term": "Raël",
+        "definition": "Born Claude Vorilhon (1946-), French author who founded the Raëlian Movement after claiming contact with the Elohim in 1973."
+      },
+      {
+        "term": "World Age",
+        "definition": "A ~2,160-year period corresponding to the zodiacal age determined by axial precession. Currently transitioning from Pisces to Aquarius."
+      },
+      {
+        "term": "Precession of the Equinoxes",
+        "definition": "The 25,920-year cycle during which Earth's rotational axis traces a circle against the backdrop of stars, causing the zodiacal ages."
+      },
+      {
+        "term": "Ancient Astronaut Hypothesis",
+        "definition": "The theory that extraterrestrial beings visited Earth in antiquity and influenced the development of human civilizations."
+      },
+      {
+        "term": "Intelligent Design (in this context)",
+        "definition": "The creation of life through deliberate genetic engineering by the Elohim, not through supernatural means or random evolution alone."
+      }
+    ],
+    "contentSections": [
+      {
+        "name": "Wiki",
+        "path": "/wiki",
+        "description": "Encyclopedia entries defining key concepts, figures, and terminology"
+      },
+      {
+        "name": "Timeline",
+        "path": "/timeline",
+        "description": "Chronological exploration of World Ages from prehistory to the future"
+      },
+      {
+        "name": "Library",
+        "path": "/library",
+        "description": "Primary source texts including Raëlian scriptures, biblical texts, and related works"
+      },
+      {
+        "name": "Resources",
+        "path": "/resources",
+        "description": "Curated external resources including books, documentaries, and research"
+      }
+    ],
+    "subContexts": {
+      "terminology": "/v1/context/terminology",
+      "hypothesis": "/v1/context/hypothesis",
+      "timeline": "/v1/context/timeline"
+    }
+  },
+  "links": {
+    "self": "/v1/context",
+    "catalog": "/v1/catalog",
+    "website": "https://www.wheelofheaven.io"
+  }
+}
