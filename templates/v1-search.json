@@ -1,34 +1,94 @@
 {%- set catalog = load_data(path="data/library/catalog.json") -%}
+{%- set wiki = load_data(path="data/extracted/wiki.json") -%}
+{%- set timeline = load_data(path="data/extracted/timeline.json") -%}
+{%- set active_books = catalog.books | filter(attribute="status", value="planned") | length -%}
 {
   "apiVersion": "v1",
   "kind": "SearchIndex",
   "metadata": {
     "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
-    "description": "Lightweight search index for client-side search"
+    "description": "Comprehensive search index for cross-site search",
+    "counts": {
+      "wiki": {{ wiki.count }},
+      "timeline": {{ timeline.count }},
+      "books": {{ catalog.books | length - active_books }},
+      "traditions": {{ catalog.traditions | length }}
+    }
   },
   "data": {
+    "wiki": {{ wiki.entries | json_encode() | safe }},
+    "timeline": {{ timeline.entries | json_encode() | safe }},
     "books": [
+{%- set_global book_idx = 0 %}
+{%- set_global book_count = 0 %}
 {%- for book in catalog.books %}
 {%- if book.status != "planned" %}
+{%- set_global book_count = book_count + 1 %}
+{%- endif %}
+{%- endfor %}
+{%- for book in catalog.books %}
+{%- if book.status != "planned" %}
+{%- set_global book_idx = book_idx + 1 %}
       {
-        "slug": "{{ book.slug }}",
+        "type": "book",
+        "slug": {{ book.slug | json_encode() | safe }},
         "code": "{{ book.code }}",
+        "title": {% if book.titles and book.titles.en %}{{ book.titles.en | json_encode() | safe }}{% else %}{{ book.slug | json_encode() | safe }}{% endif %},
         "titles": {% if book.titles %}{{ book.titles | json_encode() | safe }}{% else %}{}{% endif %},
-        "author": "{{ book.author | default(value="") }}",
+        "author": {{ book.author | default(value="") | json_encode() | safe }},
         "tradition": "{{ book.tradition }}",
+        "url": "/library/{{ book.slug }}/",
         "tags": {% if book.tags %}{{ book.tags | json_encode() | safe }}{% else %}[]{% endif %}
-      }{% if not loop.last %},{% endif %}
+      }{% if book_idx < book_count %},{% endif %}
 {%- endif %}
 {%- endfor %}
     ],
     "traditions": [
 {%- for tradition in catalog.traditions %}
       {
+        "type": "tradition",
         "id": "{{ tradition.id }}",
         "code": "{{ tradition.code }}",
-        "name": {% if tradition.name %}{{ tradition.name | json_encode() | safe }}{% else %}{}{% endif %}
+        "name": {% if tradition.name %}{{ tradition.name | json_encode() | safe }}{% else %}{}{% endif %},
+        "url": "/library/?tradition={{ tradition.id }}"
       }{% if not loop.last %},{% endif %}
 {%- endfor %}
     ]
-  }
+  },
+  "flat": [
+{%- set_global total = wiki.count + timeline.count + book_count %}
+{%- set_global idx = 0 %}
+{%- for entry in wiki.entries %}
+{%- set_global idx = idx + 1 %}
+    {
+      "type": "wiki",
+      "slug": {{ entry.slug | json_encode() | safe }},
+      "title": {{ entry.title | json_encode() | safe }},
+      "text": {{ entry.description | json_encode() | safe }},
+      "url": "/wiki/{{ entry.slug }}/"
+    }{% if idx < total %},{% endif %}
+{%- endfor %}
+{%- for entry in timeline.entries %}
+{%- set_global idx = idx + 1 %}
+    {
+      "type": "timeline",
+      "slug": {{ entry.slug | json_encode() | safe }},
+      "title": {{ entry.title | json_encode() | safe }},
+      "text": {{ entry.description | json_encode() | safe }},
+      "url": "/timeline/{{ entry.slug }}/"
+    }{% if idx < total %},{% endif %}
+{%- endfor %}
+{%- for book in catalog.books %}
+{%- if book.status != "planned" %}
+{%- set_global idx = idx + 1 %}
+    {
+      "type": "book",
+      "slug": {{ book.slug | json_encode() | safe }},
+      "title": {% if book.titles and book.titles.en %}{{ book.titles.en | json_encode() | safe }}{% else %}{{ book.slug | json_encode() | safe }}{% endif %},
+      "text": {{ book.author | default(value="") | json_encode() | safe }},
+      "url": "/library/{{ book.slug }}/"
+    }{% if idx < total %},{% endif %}
+{%- endif %}
+{%- endfor %}
+  ]
 }
