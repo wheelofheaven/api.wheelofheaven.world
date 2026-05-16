@@ -1,7 +1,7 @@
 # Wheel of Heaven Static API
 # Generates JSON endpoints from library data
 
-base_url = "https://api.wheelofheaven.io"
+base_url = "https://api.wheelofheaven.world"
 title = "Wheel of Heaven API"
 description = "Static JSON API for Wheel of Heaven data"
 

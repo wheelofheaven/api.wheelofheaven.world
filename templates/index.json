@@ -2,7 +2,7 @@
   "name": "Wheel of Heaven API",
   "version": "v1",
   "description": "Static JSON API for Wheel of Heaven library and content",
-  "documentation": "https://www.wheelofheaven.io/docs/api",
+  "documentation": "https://www.wheelofheaven.world/docs/api",
   "endpoints": {
     "context": "/v1/context",
     "catalog": "/v1/catalog",

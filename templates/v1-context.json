@@ -10,7 +10,7 @@
     "project": {
       "name": "Wheel of Heaven",
       "tagline": "An encyclopedic encyclopedia of Ages past, present and future",
-      "url": "https://www.wheelofheaven.io",
+      "url": "https://www.wheelofheaven.world",
       "description": "Wheel of Heaven is a comprehensive knowledge base exploring the hypothesis that life on Earth was intelligently designed by an extraterrestrial civilization known as the Elohim. The project synthesizes Raëlian teachings, biblical exegesis, ancient astronaut theory, and archaeoastronomy into a coherent narrative spanning cosmic time.",
       "license": "CC0-1.0 (Public Domain)",
       "languages": ["en", "fr", "de", "es", "ja", "ko", "ru", "zh", "zh-Hant"]
@@ -96,6 +96,6 @@
   "links": {
     "self": "/v1/context",
     "catalog": "/v1/catalog",
-    "website": "https://www.wheelofheaven.io"
+    "website": "https://www.wheelofheaven.world"
   }
 }

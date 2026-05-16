@@ -10,7 +10,7 @@ This is a Zola-powered static API that generates JSON endpoints from the library
 
 ### Base URL
 ```
-https://api.wheelofheaven.io
+https://api.wheelofheaven.world
 ```
 
 ### Available Endpoints

@@ -4,7 +4,7 @@
   "kind": "Catalog",
   "metadata": {
     "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
-    "source": "https://api.wheelofheaven.io"
+    "source": "https://api.wheelofheaven.world"
   },
   "data": {{ catalog | json_encode(pretty=true) | safe }}
 }
