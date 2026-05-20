@@ -105,6 +105,10 @@ git submodule update --remote
 
 The `public/` directory contains the generated JSON files, ready for deployment to any static hosting (Cloudflare Pages, Netlify, Vercel, etc.).
 
+## Documentation
+
+For the architectural context (who consumes the API, how it's built, how it sits next to www and the shared data submodules), see [docs.wheelofheaven.world/architecture/sites/api](https://docs.wheelofheaven.world/architecture/sites/api/). For the build / deploy chain across all sites, see [CI & Deploy](https://docs.wheelofheaven.world/contributing/dev/ci-deploy/).
+
 ## License
 
 CC0-1.0 (Public Domain)
