@@ -1,0 +1,73 @@
+{
+  "apiVersion": "v1",
+  "kind": "Manifest",
+  "metadata": {
+    "generated": "{{ now() | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
+    "language": "en",
+    "description": "Wheel of Heaven static JSON API. Every endpoint emits the {apiVersion, kind, metadata, data, links} envelope. URLs under /v1/ are permanent."
+  },
+  "data": {
+    "documentation": "https://docs.wheelofheaven.world/reference/api/",
+    "strategy": "https://github.com/wheelofheaven/wheelofheaven/blob/main/.claude/plans/strategy-api.md",
+    "source": "https://github.com/wheelofheaven/api.wheelofheaven.world",
+    "license": "CC0-1.0",
+    "sections": {
+      "encyclopedia": {
+        "wiki": "/v1/wiki/",
+        "timeline": "/v1/timeline/",
+        "articles": "/v1/articles/",
+        "news": "/v1/news/"
+      },
+      "library": {
+        "library": "/v1/library/",
+        "books": "/v1/library/books/",
+        "traditions": "/v1/library/traditions/",
+        "books_alias": "/v1/books/",
+        "catalog_alias": "/v1/catalog/",
+        "traditions_alias": "/v1/traditions/"
+      },
+      "sources": {
+        "sources": "/v1/sources/",
+        "tradition_hubs": "/v1/sources/traditions/",
+        "concept_hubs": "/v1/concepts/"
+      },
+      "translation_program": {
+        "glossary": "/v1/glossary/",
+        "translations": "/v1/translations/"
+      },
+      "search": {
+        "search_index": "/v1/search/"
+      },
+      "context": {
+        "overview": "/v1/context/",
+        "hypothesis": "/v1/context/hypothesis/",
+        "terminology": "/v1/context/terminology/",
+        "timeline": "/v1/context/timeline/",
+        "sources": "/v1/context/sources/",
+        "method": "/v1/context/method/"
+      },
+      "meta": {
+        "schema_index": "/v1/schema/",
+        "enums_index": "/v1/enums/"
+      }
+    },
+    "multilingual": {
+      "supported_languages": ["en", "de", "fr", "es", "ru", "ja", "zh", "zh-Hant", "ko", "he"],
+      "convention": "English is the default at /v1/...; other languages prefix the language code: /v1/{lang}/wiki/{slug}/.",
+      "languages_enum": "/v1/enums/languages/"
+    },
+    "envelope": {
+      "shape": "{ apiVersion, kind, metadata, data, links }",
+      "documentation": "https://docs.wheelofheaven.world/reference/api/envelope/"
+    },
+    "versioning": "Strictly additive within /v1/. Breaking changes earn /v2/. URL permanence locked by Decision 14."
+  },
+  "links": {
+    "self": "/v1/",
+    "root": "/",
+    "llms_txt": "/llms.txt",
+    "sitemap": "/sitemap.xml",
+    "docs": "https://docs.wheelofheaven.world/reference/api/",
+    "website": "https://www.wheelofheaven.world"
+  }
+}
