@@ -56,6 +56,10 @@ SRC_BIBLIOGRAPHY = ROOT / "data" / "bibliography"
 OUT_DATA = ROOT / "data" / "extracted"
 OUT_CONTENT = ROOT / "content" / "v1"
 
+DEFAULT_LANG = "en"
+# Non-default languages with content directories in data/content/{lang}/.
+EXTRA_LANGS = ("de", "es", "fr", "ja", "ko", "ru", "zh", "zh-Hant", "he")
+
 FRONTMATTER_RE = re.compile(r"^\+\+\+\s*\n(.*?)\n\+\+\+\s*\n?", re.DOTALL)
 
 # Keys lifted from `[extra]` (or top-level) into the index entry.
@@ -154,23 +158,88 @@ def clean_generated_pages(directory: Path) -> None:
             path.unlink()
 
 
+def _lang_prefix(lang: str) -> str:
+    """URL prefix segment for non-default languages."""
+    return "" if lang == DEFAULT_LANG else f"/{lang}"
+
+
+def _ensure_lang_section_index(lang: str, kind: str, *, title: str, template: str, sort_by: str = "title", data_kind: str | None = None) -> None:
+    """For non-default languages, write the section _index.md that wires the
+    section to the language-aware data path. English _index.md files are
+    committed by hand; we don't touch them."""
+    if lang == DEFAULT_LANG:
+        return
+    section_dir = OUT_CONTENT / lang / kind
+    section_dir.mkdir(parents=True, exist_ok=True)
+    data_kind = data_kind or kind
+    body = (
+        "+++\n"
+        f'title = "{title}"\n'
+        f'sort_by = "{sort_by}"\n'
+        f'template = "{template}"\n'
+        "transparent = true\n"
+        "\n"
+        "[extra]\n"
+        f'lang = "{lang}"\n'
+        f'lang_prefix = "{_lang_prefix(lang)}"\n'
+        f'data_path = "data/extracted/{lang}/{data_kind}.json"\n'
+        "+++\n"
+    )
+    (section_dir / "_index.md").write_text(body, encoding="utf-8")
+
+
+def _ensure_lang_root_index(lang: str) -> None:
+    """Top-level _index.md for /v1/{lang}/. English root exists already."""
+    if lang == DEFAULT_LANG:
+        return
+    root = OUT_CONTENT / lang
+    root.mkdir(parents=True, exist_ok=True)
+    body = (
+        "+++\n"
+        f'title = "Wheel of Heaven API ({lang})"\n'
+        'render = false\n'
+        "+++\n"
+    )
+    (root / "_index.md").write_text(body, encoding="utf-8")
+
+
+def _add_lang_extras(fm_block: str, lang: str) -> str:
+    """Inject extra.lang and extra.lang_prefix into the patched
+    frontmatter block. Inserts at the [extra] table boundary, or creates
+    [extra] if absent."""
+    lang_prefix = _lang_prefix(lang)
+    if re.search(r"^lang\s*=", fm_block, re.MULTILINE):
+        return fm_block
+    extra_marker = re.search(r"^\[extra\]\s*$", fm_block, re.MULTILINE)
+    inject = f'\nlang = "{lang}"\nlang_prefix = "{lang_prefix}"'
+    if extra_marker:
+        head = fm_block[: extra_marker.end()]
+        tail = fm_block[extra_marker.end():]
+        return head + inject + tail
+    # No [extra] section — append one.
+    return fm_block.rstrip() + f"\n\n[extra]{inject}\n"
+
+
 def process_section(
     *,
     kind: str,
     src_subdir: str,
     page_template: str,
+    lang: str = DEFAULT_LANG,
 ) -> int:
-    """Process one content section.
+    """Process one content section in one language.
 
-    Reads data/content/{src_subdir}/*.md, emits one Zola page per
-    entry and a section index file at data/extracted/{kind}.json.
+    Reads {data/content,data/content/{lang}}/{src_subdir}/*.md, emits one
+    Zola page per entry and a section index file at
+    data/extracted/{lang}/{kind}.json (or data/extracted/{kind}.json for
+    the default language).
     """
-    src = SRC_CONTENT / src_subdir
+    src_root = SRC_CONTENT if lang == DEFAULT_LANG else SRC_CONTENT / lang
+    src = src_root / src_subdir
     if not src.exists():
-        print(f"  {kind}: source dir missing ({src}); skipping")
         return 0
 
-    dest_pages = OUT_CONTENT / kind
+    dest_pages = OUT_CONTENT / kind if lang == DEFAULT_LANG else OUT_CONTENT / lang / kind
     dest_pages.mkdir(parents=True, exist_ok=True)
     clean_generated_pages(dest_pages)
 
@@ -185,18 +254,22 @@ def process_section(
             continue
 
         slug = fm.get("slug") or md_file.stem
-        page_path = dest_pages / f"{slug}.md"
-        page_path.write_text(
-            patch_frontmatter(raw, fm, new_template=page_template),
-            encoding="utf-8",
-        )
 
-        # Index entry: minimal hot fields plus selected `[extra]` lifts.
+        patched = patch_frontmatter(raw, fm, new_template=page_template)
+        # Inject lang/lang_prefix into the patched frontmatter block.
+        m = FRONTMATTER_RE.match(patched)
+        if m:
+            new_block = _add_lang_extras(m.group(1), lang)
+            patched = f"+++\n{new_block}\n+++\n{patched[m.end():]}"
+
+        (dest_pages / f"{slug}.md").write_text(patched, encoding="utf-8")
+
+        lang_prefix = _lang_prefix(lang)
         index_entry: dict = {
             "slug": slug,
             "title": fm.get("title", ""),
             "description": fm.get("description", ""),
-            "url": f"/v1/{kind}/{slug}/",
+            "url": f"/v1{lang_prefix}/{kind}/{slug}/",
         }
         extra = fm.get("extra") or {}
         for key in INDEX_KEYS:
@@ -213,16 +286,19 @@ def process_section(
     else:
         entries.sort(key=lambda e: e.get("title", "").lower())
 
+    data_path = OUT_DATA / f"{kind}.json" if lang == DEFAULT_LANG else OUT_DATA / lang / f"{kind}.json"
     write_json(
-        OUT_DATA / f"{kind}.json",
+        data_path,
         {
             "version": "1.0",
             "generated": now_iso(),
+            "language": lang,
             "count": len(entries),
             "entries": entries,
         },
     )
-    print(f"  {kind}: {len(entries)} entries -> {dest_pages.relative_to(ROOT)}/")
+    if entries:
+        print(f"  [{lang}] {kind}: {len(entries)} entries -> {dest_pages.relative_to(ROOT)}/")
     return len(entries)
 
 
@@ -435,15 +511,49 @@ def process_glossary() -> int:
     return 1
 
 
+_SECTION_SPECS = (
+    # (kind, src_subdir, page_template, sort_by, title)
+    ("wiki", "wiki", "v1-wiki-page.json", "title", "Wiki"),
+    ("timeline", "timeline", "v1-timeline-page.json", "title", "Timeline"),
+    ("articles", "articles", "v1-article-page.json", "date", "Articles"),
+    ("news", "news", "v1-news-page.json", "date", "News"),
+)
+
+
+def process_all_languages() -> None:
+    """Run process_section across en + all EXTRA_LANGS for the content
+    sections that have translations."""
+    section_index_template = {
+        "wiki": "v1-wiki-index.json",
+        "timeline": "v1-timeline-index.json",
+        "articles": "v1-articles-index.json",
+        "news": "v1-news-index.json",
+    }
+    # Default English first.
+    for kind, src_subdir, page_tpl, _sort, _title in _SECTION_SPECS:
+        process_section(kind=kind, src_subdir=src_subdir, page_template=page_tpl)
+
+    # Then each non-default language.
+    for lang in EXTRA_LANGS:
+        _ensure_lang_root_index(lang)
+        for kind, src_subdir, page_tpl, sort_by, title in _SECTION_SPECS:
+            n = process_section(kind=kind, src_subdir=src_subdir, page_template=page_tpl, lang=lang)
+            if n:
+                _ensure_lang_section_index(
+                    lang,
+                    kind,
+                    title=title,
+                    template=section_index_template[kind],
+                    sort_by=sort_by,
+                )
+
+
 def main() -> int:
     print(f"Prebuild starting at {now_iso()}")
     OUT_DATA.mkdir(parents=True, exist_ok=True)
     OUT_CONTENT.mkdir(parents=True, exist_ok=True)
 
-    process_section(kind="wiki", src_subdir="wiki", page_template="v1-wiki-page.json")
-    process_section(kind="timeline", src_subdir="timeline", page_template="v1-timeline-page.json")
-    process_section(kind="articles", src_subdir="articles", page_template="v1-article-page.json")
-    process_section(kind="news", src_subdir="news", page_template="v1-news-page.json")
+    process_all_languages()
     process_traditions()
     process_sources()
     process_translations()

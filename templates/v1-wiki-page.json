@@ -1,10 +1,12 @@
 {%- set slug = page.slug -%}
+{%- set lang = page.extra.lang | default(value="en") -%}
+{%- set lang_prefix = page.extra.lang_prefix | default(value="") -%}
 {
   "apiVersion": "v1",
   "kind": "WikiEntry",
   "metadata": {
     "generated": "{{ now() | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
-    "language": "en",
+    "language": "{{ lang }}",
     "schemaUrl": "/v1/schema/wiki-entry/"
   },
   "data": {
@@ -23,9 +25,9 @@
     "extra": {% if page.extra %}{{ page.extra | json_encode | safe }}{% else %}{}{% endif %}
   },
   "links": {
-    "self": "/v1/wiki/{{ slug }}/",
-    "canonical_html": "https://www.wheelofheaven.world/wiki/{{ slug }}/",
-    "index": "/v1/wiki/",
+    "self": "/v1{{ lang_prefix }}/wiki/{{ slug }}/",
+    "canonical_html": "https://www.wheelofheaven.world{{ lang_prefix }}/wiki/{{ slug }}/",
+    "index": "/v1{{ lang_prefix }}/wiki/",
     "schema": "/v1/schema/wiki-entry/"
   }
 }

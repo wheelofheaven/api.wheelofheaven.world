@@ -12,6 +12,23 @@ public/
 !/content/v1/news/_index.md
 /content/v1/sources/traditions/*.md
 !/content/v1/sources/traditions/_index.md
+/content/v1/sources/*.md
+!/content/v1/sources/_index.md
+/content/v1/translations/*.md
+!/content/v1/translations/_index.md
+/content/v1/glossary/*.md
+!/content/v1/glossary/_index.md
+
+# Language mirror directories — entirely generated
+/content/v1/de/
+/content/v1/es/
+/content/v1/fr/
+/content/v1/he/
+/content/v1/ja/
+/content/v1/ko/
+/content/v1/ru/
+/content/v1/zh/
+/content/v1/zh-Hant/
 
 # Prebuild-generated data (regenerated from data/content + data/library)
 /data/extracted/

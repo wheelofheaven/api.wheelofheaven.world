@@ -1,10 +1,13 @@
-{%- set wiki = load_data(path="data/extracted/wiki.json") -%}
+{%- set lang = section.extra.lang | default(value="en") -%}
+{%- set lang_prefix = section.extra.lang_prefix | default(value="") -%}
+{%- set data_path = section.extra.data_path | default(value="data/extracted/wiki.json") -%}
+{%- set wiki = load_data(path=data_path) -%}
 {
   "apiVersion": "v1",
   "kind": "WikiIndex",
   "metadata": {
     "generated": "{{ wiki.generated }}",
-    "language": "en",
+    "language": "{{ lang }}",
     "count": {{ wiki.count }},
     "schemaUrl": "/v1/schema/wiki-entry/"
   },
@@ -14,7 +17,7 @@
 {%- endfor %}
   ],
   "links": {
-    "self": "/v1/wiki/",
+    "self": "/v1{{ lang_prefix }}/wiki/",
     "context": "/v1/context/",
     "schema": "/v1/schema/wiki-entry/",
     "search": "/v1/search/"

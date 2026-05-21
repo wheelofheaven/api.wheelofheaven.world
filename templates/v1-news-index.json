@@ -1,10 +1,13 @@
-{%- set news = load_data(path="data/extracted/news.json") -%}
+{%- set lang = section.extra.lang | default(value="en") -%}
+{%- set lang_prefix = section.extra.lang_prefix | default(value="") -%}
+{%- set data_path = section.extra.data_path | default(value="data/extracted/news.json") -%}
+{%- set news = load_data(path=data_path) -%}
 {
   "apiVersion": "v1",
   "kind": "NewsIndex",
   "metadata": {
     "generated": "{{ news.generated }}",
-    "language": "en",
+    "language": "{{ lang }}",
     "count": {{ news.count }},
     "schemaUrl": "/v1/schema/dispatch/"
   },
@@ -14,7 +17,7 @@
 {%- endfor %}
   ],
   "links": {
-    "self": "/v1/news/",
+    "self": "/v1{{ lang_prefix }}/news/",
     "schema": "/v1/schema/dispatch/"
   }
 }
