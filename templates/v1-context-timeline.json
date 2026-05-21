@@ -1,169 +1,38 @@
 {
   "apiVersion": "v1",
-  "kind": "ContextTimeline",
+  "kind": "ContextDocument",
   "metadata": {
-    "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
-    "purpose": "Precessional timeline and World Ages overview"
+    "generated": "{{ now() | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
+    "language": "en",
+    "purpose": "The twelve precessional ages as prose, for LLM-friendly chronological reference."
   },
   "data": {
-    "title": "The Precessional Timeline",
-    "description": "History structured by the 25,920-year precession cycle, divided into twelve World Ages of approximately 2,160 years each.",
-    "precession": {
-      "cycleDuration": 25920,
-      "ageDuration": 2160,
-      "direction": "retrograde",
-      "explanation": "Earth's axis slowly wobbles like a spinning top, causing the spring equinox sunrise to shift backward through the zodiac over millennia. This 'precession of the equinoxes' was known to ancient astronomers and forms the basis for the World Ages."
-    },
-    "currentPosition": {
-      "age": "Aquarius",
-      "transitionBegan": "~1945 CE",
-      "previousAge": "Pisces",
-      "significance": "The Age of Aquarius is prophesied as the era of revelation, scientific awakening, and humanity's coming of age."
-    },
-    "worldAges": [
-      {
-        "order": 1,
-        "name": "Age of Capricorn",
-        "symbol": "♑",
-        "approximateDates": "21,810 BCE - 19,650 BCE",
-        "themes": ["Arrival of the Elohim", "Earth selected as laboratory", "Initial surveys"],
-        "significance": "The Elohim discover Earth and begin planning the creation project."
-      },
-      {
-        "order": 2,
-        "name": "Age of Sagittarius",
-        "symbol": "♐",
-        "approximateDates": "19,650 BCE - 17,490 BCE",
-        "themes": ["Terraforming begins", "Atmosphere preparation", "Water systems"],
-        "significance": "Earth is prepared to support complex life."
-      },
-      {
-        "order": 3,
-        "name": "Age of Scorpio",
-        "symbol": "♏",
-        "approximateDates": "17,490 BCE - 15,330 BCE",
-        "themes": ["Plant creation", "Ecosystem development", "Botanical diversity"],
-        "significance": "Vegetation and plant life are genetically engineered."
-      },
-      {
-        "order": 4,
-        "name": "Age of Libra",
-        "symbol": "♎",
-        "approximateDates": "15,330 BCE - 13,170 BCE",
-        "themes": ["Animal creation", "Marine life", "Biodiversity"],
-        "significance": "Animals are created to populate the prepared ecosystems."
-      },
-      {
-        "order": 5,
-        "name": "Age of Virgo",
-        "symbol": "♍",
-        "approximateDates": "13,170 BCE - 11,010 BCE",
-        "themes": ["Human creation", "Garden of Eden", "Early humanity"],
-        "significance": "Humans are created 'in the image' of the Elohim."
-      },
-      {
-        "order": 6,
-        "name": "Age of Leo",
-        "symbol": "♌",
-        "approximateDates": "11,010 BCE - 8,850 BCE",
-        "themes": ["The Flood", "Cataclysm", "Restart of civilization"],
-        "significance": "The great flood destroys most of humanity; survivors restart civilization."
-      },
-      {
-        "order": 7,
-        "name": "Age of Cancer",
-        "symbol": "♋",
-        "approximateDates": "8,850 BCE - 6,690 BCE",
-        "themes": ["Post-flood recovery", "Early agriculture", "Resettlement"],
-        "significance": "Human civilization rebuilds in the post-diluvian world."
-      },
-      {
-        "order": 8,
-        "name": "Age of Gemini",
-        "symbol": "♊",
-        "approximateDates": "6,690 BCE - 4,530 BCE",
-        "themes": ["Tower of Babel", "Dispersion of peoples", "Multiple civilizations"],
-        "significance": "Humanity spreads across the Earth; languages and cultures diversify."
-      },
-      {
-        "order": 9,
-        "name": "Age of Taurus",
-        "symbol": "♉",
-        "approximateDates": "4,530 BCE - 2,370 BCE",
-        "themes": ["Bull worship", "Egypt and Mesopotamia", "Bronze Age"],
-        "significance": "Great civilizations arise with bull symbolism (Apis, Mithras precursors)."
-      },
-      {
-        "order": 10,
-        "name": "Age of Aries",
-        "symbol": "♈",
-        "approximateDates": "2,370 BCE - 210 BCE",
-        "themes": ["Ram symbolism", "Abraham to Moses", "Iron Age"],
-        "significance": "The age of the Patriarchs; ram sacrifice replaces bull worship."
-      },
-      {
-        "order": 11,
-        "name": "Age of Pisces",
-        "symbol": "♓",
-        "approximateDates": "210 BCE - 1945 CE",
-        "themes": ["Fish symbolism", "Christianity", "Faith over knowledge"],
-        "significance": "The age of Christ and Christianity; fish as sacred symbol."
-      },
-      {
-        "order": 12,
-        "name": "Age of Aquarius",
-        "symbol": "♒",
-        "approximateDates": "1945 CE - 4105 CE",
-        "themes": ["Revelation", "Science", "Potential contact"],
-        "significance": "The current age of awakening; humanity learns its true origins."
-      }
+    "title": "The twelve precessional ages",
+    "claim_type": "speculative",
+    "prose": "The corpus organizes its long-form content around the twelve precessional ages of one Great Year. Each age is approximately 2,160 years, named for the constellation against which the vernal equinox rises during that period. Precession itself is an observable astronomical fact (Hipparchus, ~150 BCE); the assignment of project-historical events to specific ages is the corpus's working chronology.",
+    "ages": [
+      {"name": "Age of Capricorn", "start_year": "-21810", "end_year": "-19650", "headline": "Arrival and initial survey.", "url": "/v1/timeline/age-of-capricorn/"},
+      {"name": "Age of Sagittarius", "start_year": "-19650", "end_year": "-17490", "headline": "Atmospheric and oceanographic engineering; continents raised.", "url": "/v1/timeline/age-of-sagittarius/"},
+      {"name": "Age of Scorpio", "start_year": "-17490", "end_year": "-15330", "headline": "First synthesis of life; primary biosphere established.", "url": "/v1/timeline/age-of-scorpio/"},
+      {"name": "Age of Libra", "start_year": "-15330", "end_year": "-13170", "headline": "Astronomical work; calibration of solar, lunar, and precessional motions.", "url": "/v1/timeline/age-of-libra/"},
+      {"name": "Age of Virgo", "start_year": "-13170", "end_year": "-11010", "headline": "Complex life forms; biosphere matures.", "url": "/v1/timeline/age-of-virgo/"},
+      {"name": "Age of Leo", "start_year": "-11010", "end_year": "-8850", "headline": "The creation of humanity by seven factional teams.", "url": "/v1/timeline/age-of-leo/"},
+      {"name": "Age of Cancer", "start_year": "-8850", "end_year": "-6690", "headline": "The Eden operation; exile of the makers; beginning of human history.", "url": "/v1/timeline/age-of-cancer/"},
+      {"name": "Age of Gemini", "start_year": "-6690", "end_year": "-4530", "headline": "The flood and its aftermath.", "url": "/v1/timeline/age-of-gemini/"},
+      {"name": "Age of Taurus", "start_year": "-4530", "end_year": "-2370", "headline": "Post-flood reconstruction; first major civilizations.", "url": "/v1/timeline/age-of-taurus/"},
+      {"name": "Age of Aries", "start_year": "-2370", "end_year": "-210", "headline": "The Hebrew prophetic mission; most biblical history.", "url": "/v1/timeline/age-of-aries/"},
+      {"name": "Age of Pisces", "start_year": "-210", "end_year": "1950", "headline": "Universal distribution of the message; major world religions take canonical form.", "url": "/v1/timeline/age-of-pisces/"},
+      {"name": "Age of Aquarius", "start_year": "1950", "end_year": "4110", "headline": "The age of disclosure. The current age.", "url": "/v1/timeline/age-of-aquarius/"}
     ],
-    "keyEvents": [
-      {
-        "date": "~22,000 BCE",
-        "event": "Elohim arrive on Earth",
-        "age": "Capricorn"
-      },
-      {
-        "date": "~13,000 BCE",
-        "event": "Creation of first humans",
-        "age": "Virgo"
-      },
-      {
-        "date": "~10,000 BCE",
-        "event": "The Great Flood",
-        "age": "Leo"
-      },
-      {
-        "date": "~6,000 BCE",
-        "event": "Tower of Babel dispersion",
-        "age": "Gemini"
-      },
-      {
-        "date": "~2,000 BCE",
-        "event": "Abraham's covenant",
-        "age": "Aries"
-      },
-      {
-        "date": "~0 CE",
-        "event": "Birth of Jesus",
-        "age": "Pisces"
-      },
-      {
-        "date": "1945 CE",
-        "event": "Dawn of Aquarian Age (atomic era)",
-        "age": "Aquarius"
-      },
-      {
-        "date": "1973 CE",
-        "event": "Raël's first contact",
-        "age": "Aquarius"
-      }
+    "framing_pages": [
+      {"name": "Preamble", "url": "/v1/timeline/preamble/", "purpose": "Pre-arrival framing."},
+      {"name": "In the Beginning", "url": "/v1/timeline/in-the-beginning/", "purpose": "Cosmological scene-setting."},
+      {"name": "The Wheel Keeps Turning", "url": "/v1/timeline/the-wheel-keeps-turning/", "purpose": "The long future."}
     ]
   },
   "links": {
-    "self": "/v1/context/timeline",
-    "parent": "/v1/context",
-    "website_timeline": "https://www.wheelofheaven.world/timeline"
+    "self": "/v1/context/timeline/",
+    "context": "/v1/context/",
+    "timeline_index": "/v1/timeline/"
   }
 }

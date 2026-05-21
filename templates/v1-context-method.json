@@ -1,0 +1,51 @@
+{
+  "apiVersion": "v1",
+  "kind": "ContextDocument",
+  "metadata": {
+    "generated": "{{ now() | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
+    "language": "en",
+    "purpose": "The corpus's editorial methodology — claim types, six-source minimum, editorial passes."
+  },
+  "data": {
+    "title": "Editorial methodology",
+    "claim_type": "direct",
+    "prose": "Wheel of Heaven is a working hypothesis offered to be tested. The methodology supporting that posture is concrete and machine-readable. Every page declares its claim type (direct, inferred, or speculative). Every new entry meets a six-source minimum spanning Raëlian, primary, scholarly, scientific, comparative, and critical layers. Every major rewrite under a given editorial pass is tagged with the pass's date code so future readers can tell at a glance which entries reflect the current framing.",
+    "claim_types": [
+      {"value": "direct", "use_for": "The claim is explicit in a primary source, or is a direct description of the project / methodology, or is scientifically established."},
+      {"value": "inferred", "use_for": "Reasonable reading of a source, not literally stated but consistent with it. Comparative-religion readings; framework summaries."},
+      {"value": "speculative", "use_for": "Interpretive synthesis or hypothesis that goes beyond what any single source states. Honesty about reach — not a weakness."}
+    ],
+    "six_source_rule": {
+      "target_breakdown": [
+        "1 Raëlian source (Tier 0)",
+        "1 ancient primary source (Tier 1)",
+        "1 scholarly contextual source (Tier 2)",
+        "1 scientific or historical context source (Tier 3)",
+        "1 source from a comparative tradition (Tier 1, different family)",
+        "1 critical / skeptical source (Tier 4)"
+      ],
+      "scope": "Hard gate on new entries. Existing entries from before the rule are grandfathered (flagged legacy_pre_six_source).",
+      "exemptions": "Newsroom dispatches are exempt — they require only the primary news source(s) plus at least one canon link."
+    },
+    "editorial_passes": {
+      "description": "Date-coded marker (YYYY-MM) recording the editorial campaign under which an entry was last fundamentally rewritten. Lets readers tell whether an entry reflects current framing or pre-dates a major reframe.",
+      "current_pass": "2026-05",
+      "current_pass_summary": "First major pass under the modern, working-hypothesis, human-civilization framing. Drops 'democratization' / 'knowledge base' / 'lore' register; tightens claim discipline; uses 'Elohim were a small advanced human civilization' rather than 'extraterrestrial'."
+    },
+    "translations": {
+      "policy": "English first; translations on demand.",
+      "supported_languages": ["en", "de", "fr", "es", "ru", "ja", "zh", "zh-Hant", "ko", "he"],
+      "translation_program": "The WoH Translation Program produces -woh translations of foundational texts (genesis-woh, exodus-woh, etc.) with machine-readable provenance: source text edition, glossary version, model versions used in drafting, reviewer, and lexical divergences from base translations. See /v1/translations/."
+    },
+    "endpoints": {
+      "claim_type_enum": "/v1/enums/claim-type/",
+      "authority_tier_enum": "/v1/enums/authority-tier/",
+      "translation_status_enum": "/v1/enums/translation-status/",
+      "translations_index": "/v1/translations/"
+    }
+  },
+  "links": {
+    "self": "/v1/context/method/",
+    "context": "/v1/context/"
+  }
+}

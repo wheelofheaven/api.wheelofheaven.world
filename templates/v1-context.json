@@ -1,101 +1,49 @@
-{%- set catalog = load_data(path="data/library/catalog.json") -%}
 {
   "apiVersion": "v1",
   "kind": "Context",
   "metadata": {
-    "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
-    "purpose": "LLM/AI context for understanding Wheel of Heaven"
+    "generated": "{{ now() | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
+    "language": "en",
+    "purpose": "Project overview optimized for LLM/AI ingestion."
   },
   "data": {
     "project": {
       "name": "Wheel of Heaven",
-      "tagline": "An encyclopedic encyclopedia of Ages past, present and future",
       "url": "https://www.wheelofheaven.world",
-      "description": "Wheel of Heaven is a comprehensive knowledge base exploring the hypothesis that life on Earth was intelligently designed by an extraterrestrial civilization known as the Elohim. The project synthesizes Raëlian teachings, biblical exegesis, ancient astronaut theory, and archaeoastronomy into a coherent narrative spanning cosmic time.",
-      "license": "CC0-1.0 (Public Domain)",
-      "languages": ["en", "fr", "de", "es", "ja", "ko", "ru", "zh", "zh-Hant"]
+      "author": "Zara Zinsfuss",
+      "license": "CC0-1.0",
+      "languages": ["en", "de", "fr", "es", "ru", "ja", "zh", "zh-Hant", "ko", "he"]
     },
-    "coreHypothesis": {
-      "summary": "Life on Earth was created through advanced genetic engineering by an extraterrestrial civilization called the Elohim, who were mistaken for gods by ancient humans.",
-      "keyPoints": [
-        "The Elohim are a scientifically advanced extraterrestrial civilization",
-        "They created all life on Earth through genetic engineering approximately 25,000 years ago",
-        "Biblical and ancient texts are historical accounts of their interactions with humanity",
-        "The word 'Elohim' in Hebrew is plural, meaning 'those who came from the sky'",
-        "Humanity is approaching a new age (Age of Aquarius) of potential reconnection with our creators"
-      ],
-      "precessionalCycle": {
-        "description": "The 25,920-year cycle of Earth's axial precession, divided into 12 'World Ages' of ~2,160 years each",
-        "currentAge": "Age of Aquarius (began ~1945 CE)",
-        "significance": "Each age marks a phase in humanity's relationship with the Elohim"
-      }
-    },
-    "traditions": [
-{%- for tradition in catalog.traditions %}
-      {
-        "id": "{{ tradition.id }}",
-        "name": {% if tradition.name %}{{ tradition.name | json_encode() | safe }}{% else %}{}{% endif %},
-        "description": {% if tradition.description %}{{ tradition.description | json_encode() | safe }}{% else %}{}{% endif %}
-      }{% if not loop.last %},{% endif %}
-{%- endfor %}
+    "summary": "Wheel of Heaven is a long reading of the ancient world's creation traditions through a single working hypothesis: that the beings the Hebrew Bible calls Elohim — a plural noun, masked by translation as the singular God — were a small advanced human civilization from elsewhere who came here, prepared the planet, designed life on Earth, and left a record in the religious texts. The reading runs across twelve ages of the precessional cycle, from the project's beginning approximately twenty-two thousand years ago to the present age and into the long future the next Great Year is opening.",
+    "stance": "Working hypothesis, not creed. Offered to be tried, evaluated, and tested against alternatives. Where the evidence shifts, the reading shifts. The Raëlian source material is the foundational canon (Tier 0); comparative material is read through that lens but without flattening tradition-specific differences.",
+    "what_it_is_not": [
+      "Not a Raëlian movement page — the author is a Raëlian but the site is not an institutional publication.",
+      "Not generic 'ancient astronaut' content — engaged critically, but a specific source-disciplined framework.",
+      "Not religious devotional content — religious texts read as historical testimony.",
+      "Not a finished synthesis — pages are revised; the reading is provisional."
     ],
-    "keyTerminology": [
-      {
-        "term": "Elohim",
-        "definition": "Hebrew plural noun meaning 'those who came from the sky'. In the Wheel of Heaven interpretation, this refers to the extraterrestrial creators of life on Earth."
-      },
-      {
-        "term": "Raël",
-        "definition": "Born Claude Vorilhon (1946-), French author who founded the Raëlian Movement after claiming contact with the Elohim in 1973."
-      },
-      {
-        "term": "World Age",
-        "definition": "A ~2,160-year period corresponding to the zodiacal age determined by axial precession. Currently transitioning from Pisces to Aquarius."
-      },
-      {
-        "term": "Precession of the Equinoxes",
-        "definition": "The 25,920-year cycle during which Earth's rotational axis traces a circle against the backdrop of stars, causing the zodiacal ages."
-      },
-      {
-        "term": "Ancient Astronaut Hypothesis",
-        "definition": "The theory that extraterrestrial beings visited Earth in antiquity and influenced the development of human civilizations."
-      },
-      {
-        "term": "Intelligent Design (in this context)",
-        "definition": "The creation of life through deliberate genetic engineering by the Elohim, not through supernatural means or random evolution alone."
-      }
-    ],
-    "contentSections": [
-      {
-        "name": "Wiki",
-        "path": "/wiki",
-        "description": "Encyclopedia entries defining key concepts, figures, and terminology"
-      },
-      {
-        "name": "Timeline",
-        "path": "/timeline",
-        "description": "Chronological exploration of World Ages from prehistory to the future"
-      },
-      {
-        "name": "Library",
-        "path": "/library",
-        "description": "Primary source texts including Raëlian scriptures, biblical texts, and related works"
-      },
-      {
-        "name": "Resources",
-        "path": "/resources",
-        "description": "Curated external resources including books, documentaries, and research"
-      }
+    "sections": [
+      {"name": "Wiki", "path": "/v1/wiki/", "use_for": "Definitional queries on terms, figures, concepts, places."},
+      {"name": "Timeline", "path": "/v1/timeline/", "use_for": "Specific dates, events, ages — the core long-form narrative."},
+      {"name": "Library", "path": "/v1/library/books/", "use_for": "The primary source texts the corpus reads from."},
+      {"name": "Articles", "path": "/v1/articles/", "use_for": "Long-form essays not fitting the timeline structure."},
+      {"name": "Sources", "path": "/v1/sources/", "use_for": "Bibliography — every cited work with authority tier, family, stance, licensing."},
+      {"name": "Tradition hubs", "path": "/v1/sources/traditions/", "use_for": "How a specific tradition (Hebrew, Mesopotamian, Islamic, etc.) sits relative to the canon."},
+      {"name": "Translations", "path": "/v1/translations/", "use_for": "WoH Translation provenance — the -woh book family with model versions and glossary version."},
+      {"name": "Glossary", "path": "/v1/glossary/", "use_for": "Canonical multilingual renderings of key terms."}
     ],
     "subContexts": {
-      "terminology": "/v1/context/terminology",
-      "hypothesis": "/v1/context/hypothesis",
-      "timeline": "/v1/context/timeline"
+      "hypothesis": "/v1/context/hypothesis/",
+      "terminology": "/v1/context/terminology/",
+      "timeline": "/v1/context/timeline/",
+      "sources": "/v1/context/sources/",
+      "method": "/v1/context/method/"
     }
   },
   "links": {
-    "self": "/v1/context",
-    "catalog": "/v1/catalog",
-    "website": "https://www.wheelofheaven.world"
+    "self": "/v1/context/",
+    "website": "https://www.wheelofheaven.world",
+    "llms_txt": "https://www.wheelofheaven.world/llms.txt",
+    "llms_full_txt": "https://www.wheelofheaven.world/llms-full.txt"
   }
 }

@@ -1,134 +1,80 @@
 {
   "apiVersion": "v1",
-  "kind": "ContextTerminology",
+  "kind": "ContextDocument",
   "metadata": {
-    "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
-    "purpose": "Key terminology for understanding Wheel of Heaven content"
+    "generated": "{{ now() | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
+    "language": "en",
+    "purpose": "Canonical terminology for the corpus, optimised for LLM ingestion. Authoritative source for naming choices when discussing the project."
   },
   "data": {
-    "categories": [
+    "title": "Key terminology",
+    "claim_type": "direct",
+    "terms": [
       {
-        "name": "Core Concepts",
-        "terms": [
-          {
-            "term": "Elohim",
-            "hebrew": "אֱלֹהִים",
-            "definition": "Hebrew plural noun traditionally translated as 'God' but literally meaning 'those who came from the sky' or 'the ones from above'. In Wheel of Heaven, refers to the extraterrestrial civilization that created life on Earth.",
-            "usage": "The Elohim created humanity in their image through genetic engineering."
-          },
-          {
-            "term": "Yahweh",
-            "hebrew": "יהוה",
-            "definition": "The leader of the Elohim scientists who created life on Earth. Often mistranslated as 'the LORD' in biblical texts.",
-            "usage": "Yahweh led the team of Elohim creators and later became president of their eternal council."
-          },
-          {
-            "term": "Satan/Lucifer",
-            "definition": "In Raëlian interpretation, a faction among the Elohim who opposed the creation experiment, fearing humanity might become a threat.",
-            "usage": "The 'serpent' in Eden represents the Elohim faction that wanted to give humans knowledge."
-          }
-        ]
+        "term": "Elohim",
+        "hebrew": "אֱלֹהִים",
+        "transliteration": "ʾĕlōhîm",
+        "definition": "Plural Hebrew noun, used throughout the Torah for the figures conventionally translated as God. The corpus reads the plural form at face value: a specific civilization of biological beings, not a deity. Always capitalize. Never translate as 'God' or 'gods' when speaking from inside the canon.",
+        "wiki": "/v1/wiki/elohim/"
       },
       {
-        "name": "Cosmological Terms",
-        "terms": [
-          {
-            "term": "Precession of the Equinoxes",
-            "definition": "The 25,920-year cycle of Earth's axial wobble that causes the apparent position of stars to shift over millennia, dividing history into zodiacal 'World Ages'.",
-            "usage": "The precession cycle provides the astronomical framework for the World Ages."
-          },
-          {
-            "term": "World Age",
-            "definition": "One of twelve ~2,160-year periods in the precessional cycle, each associated with a zodiacal constellation and marking distinct phases of human development.",
-            "usage": "We are currently transitioning from the Age of Pisces to the Age of Aquarius."
-          },
-          {
-            "term": "Age of Aquarius",
-            "definition": "The current World Age (beginning ~1945 CE), prophesied as the era of apocalypse (revelation), scientific awakening, and potential reunion with the Elohim.",
-            "usage": "The Age of Aquarius marks humanity's coming of age in cosmic terms."
-          },
-          {
-            "term": "Great Year",
-            "definition": "The complete 25,920-year precessional cycle, sometimes called a Platonic Year.",
-            "usage": "One Great Year encompasses all twelve World Ages."
-          }
-        ]
+        "term": "Yahweh",
+        "definition": "President of the Council of the Eternals on the Elohim civilization's home planet. Led the scientific team that established the Earth life-design project. Used for biblical YHWH references in canon voice; do not substitute 'God'.",
+        "wiki": "/v1/wiki/yahweh/"
       },
       {
-        "name": "Biblical Reinterpretations",
-        "terms": [
-          {
-            "term": "Genesis Creation",
-            "definition": "Reinterpreted as an account of the Elohim's genetic engineering project to create life on Earth, with 'days' representing long periods of scientific work.",
-            "usage": "The seven days of creation describe phases of terraforming and genetic engineering."
-          },
-          {
-            "term": "Garden of Eden",
-            "definition": "A laboratory or protected zone where the Elohim conducted their final human creation experiments.",
-            "usage": "Eden was located in the region corresponding to modern-day Israel."
-          },
-          {
-            "term": "The Flood",
-            "definition": "A nuclear or catastrophic event caused by the Elohim's home planet government to destroy the Earth experiment, with Noah warned by sympathetic Elohim.",
-            "usage": "Noah's ark was actually a spacecraft containing preserved DNA."
-          },
-          {
-            "term": "Tower of Babel",
-            "definition": "An attempt by humans to reach the Elohim (in space), which was thwarted to prevent premature contact.",
-            "usage": "The 'confusion of languages' was a deliberate separation of human groups."
-          }
-        ]
+        "term": "Raëlism / Raëlian",
+        "definition": "The modern religious-philosophical movement founded by Claude Vorilhon (Raël) following his reported 1973 contact with the Elohim. Foundational canon (Tier 0) for the corpus. Note the diaeresis on the ë. Do not write 'Raelism' or 'Raelianism'.",
+        "wiki": "/v1/wiki/raelism/"
       },
       {
-        "name": "Raëlian Movement",
-        "terms": [
-          {
-            "term": "Raël",
-            "definition": "Born Claude Vorilhon (1946-), French motorsport journalist who claims contact with the Elohim in 1973 and founded the Raëlian Movement.",
-            "usage": "Raël received the Messages and was designated as the final prophet."
-          },
-          {
-            "term": "The Messages",
-            "definition": "The collected teachings transmitted to Raël by the Elohim during their encounters in 1973 and 1975.",
-            "usage": "The Messages form the foundational texts of the Raëlian philosophy."
-          },
-          {
-            "term": "Embassy",
-            "definition": "A proposed building to welcome the Elohim's official return to Earth, with extraterritorial status.",
-            "usage": "The Embassy project is central to Raëlian organizational goals."
-          },
-          {
-            "term": "Sensual Meditation",
-            "definition": "A Raëlian practice focused on awakening consciousness through bodily awareness and sensory experience.",
-            "usage": "Sensual Meditation is taught as a path to harmony and well-being."
-          }
-        ]
+        "term": "Great Year",
+        "definition": "One complete precessional cycle of Earth's axis — approximately 25,920 years. The corpus's largest temporal unit. The first Great Year (the creation project) is closing; the second is beginning.",
+        "wiki": "/v1/wiki/great-year/"
       },
       {
-        "name": "Ancient Astronaut Theory",
-        "terms": [
-          {
-            "term": "Ancient Astronauts",
-            "definition": "The hypothesis that extraterrestrial beings visited Earth in antiquity and were interpreted as gods by ancient peoples.",
-            "usage": "Ancient astronaut theory provides a framework for reinterpreting mythological accounts."
-          },
-          {
-            "term": "Cargo Cult (analogy)",
-            "definition": "The phenomenon where technologically primitive peoples interpret advanced technology as divine, used as an analogy for ancient human encounters with the Elohim.",
-            "usage": "Ancient humans created 'cargo cult' religions around Elohim technology."
-          },
-          {
-            "term": "Paleocontact",
-            "definition": "Another term for ancient astronaut contact, emphasizing the prehistoric nature of these encounters.",
-            "usage": "Paleocontact evidence includes anomalous artifacts and textual accounts."
-          }
-        ]
+        "term": "World Age / Precessional Age",
+        "definition": "One of the twelve approximately-2,160-year periods that subdivide the Great Year, each named for its zodiacal constellation. The corpus's organizing framework for long-form narrative.",
+        "wiki": "/v1/wiki/world-age/"
+      },
+      {
+        "term": "Precession of the Equinoxes",
+        "definition": "The ~25,920-year wobble of Earth's axis that produces the slow westward drift of the vernal equinox through the constellations. Observed by Hipparchus (~150 BCE). The corpus's chronological backbone.",
+        "wiki": "/v1/wiki/precession/"
+      },
+      {
+        "term": "Council of the Eternals",
+        "definition": "Deliberative body of approximately 700 members on the Elohim home world; the governance structure under which the Earth project is conducted.",
+        "wiki": "/v1/wiki/council-of-the-eternals/"
+      },
+      {
+        "term": "Nephilim",
+        "hebrew": "נְפִילִים",
+        "definition": "The Hebrew term in Genesis 6 — 'the fallen ones'. Read in the corpus as the offspring of contact between Elohim officers and human women during the late pre-Flood period.",
+        "wiki": "/v1/wiki/nephilim/"
+      },
+      {
+        "term": "Hamlet's Mill",
+        "definition": "1969 study by Giorgio de Santillana and Hertha von Dechend on precessional encoding in ancient mythology. Foundational reference for the corpus's chronological method.",
+        "wiki": "/v1/wiki/hamlets-mill/"
+      },
+      {
+        "term": "Ancient Astronaut Hypothesis",
+        "definition": "The broader academic and popular label for readings that take ancient testimony of celestial visitors as historical rather than mythological. The corpus engages this literature critically — distinct from popular ancient-astronaut media.",
+        "wiki": "/v1/wiki/ancient-astronaut-hypothesis/"
       }
+    ],
+    "do_not_use": [
+      {"avoid": "aliens, gods (lowercase)", "use": "Elohim"},
+      {"avoid": "God (for canon references)", "use": "Yahweh (specific) or Elohim (plural collective)"},
+      {"avoid": "Raelism, Raelianism", "use": "Raëlism / Raëlian (with diaeresis)"},
+      {"avoid": "astrological ages", "use": "precessional ages / World Ages"},
+      {"avoid": "ancient aliens (pop-culture register)", "use": "Ancient Astronaut Hypothesis (academic register)"}
     ]
   },
   "links": {
-    "self": "/v1/context/terminology",
-    "parent": "/v1/context",
-    "wiki": "https://www.wheelofheaven.world/wiki"
+    "self": "/v1/context/terminology/",
+    "context": "/v1/context/",
+    "glossary": "/v1/glossary/"
   }
 }
