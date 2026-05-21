@@ -1,0 +1,65 @@
+# Wheel of Heaven API
+
+> The static JSON API for the Wheel of Heaven project — every curated
+> page on www.wheelofheaven.world has a deterministic JSON twin here,
+> plus surfaces (bibliography, glossary, translation provenance,
+> schemas, controlled vocabularies) that are only exposed via the API.
+> No auth, no rate limits, CC0-1.0 public domain.
+
+## Discovery
+
+- [Manifest](https://api.wheelofheaven.world/v1/): every endpoint with cross-links.
+- [JSON Schemas](https://api.wheelofheaven.world/v1/schema/): one per kind (draft 2020-12). Validate responses against these.
+- [Enums](https://api.wheelofheaven.world/v1/enums/): controlled vocabularies — authority tier, source family, claim type, etc.
+- [Sitemap](https://api.wheelofheaven.world/sitemap.xml): every endpoint URL.
+
+## For AI agents
+
+These endpoints are curated narrative summaries, designed for direct system-prompt ingestion:
+
+- [Project context](https://api.wheelofheaven.world/v1/context/): overview, sections, sub-context map.
+- [Working hypothesis](https://api.wheelofheaven.world/v1/context/hypothesis/): the project's main claim, stated as prose with claim-type labels.
+- [Key terminology](https://api.wheelofheaven.world/v1/context/terminology/): canonical naming choices when discussing the project (Elohim, Yahweh, Raëlism, World Age, etc.) including a do-not-use table.
+- [Precessional ages](https://api.wheelofheaven.world/v1/context/timeline/): the 12 ages with start/end years.
+- [Source program](https://api.wheelofheaven.world/v1/context/sources/): the six-tier authority model + source-family taxonomy.
+- [Editorial method](https://api.wheelofheaven.world/v1/context/method/): claim types (direct / inferred / speculative), the six-source rule, editorial passes, translation policy.
+
+## Content surfaces
+
+Every page has a JSON twin:
+
+- [Wiki](https://api.wheelofheaven.world/v1/wiki/): ~111 encyclopedia entries. Drill into `/v1/wiki/{slug}/` for body + extras.
+- [Timeline](https://api.wheelofheaven.world/v1/timeline/): 12 precessional ages + 3 framing pages. `/v1/timeline/{slug}/` for the long-form body.
+- [Articles](https://api.wheelofheaven.world/v1/articles/): long-form essays.
+- [News](https://api.wheelofheaven.world/v1/news/): Newsroom dispatches (current events read through the canon).
+- [Library books](https://api.wheelofheaven.world/v1/library/books/): 100+ primary and comparative texts with chapter/verse JSON.
+- [Tradition hubs](https://api.wheelofheaven.world/v1/sources/traditions/): per-tradition landing pages explaining why the tradition is included and where it converges / diverges from the canon.
+- [Sources / bibliography](https://api.wheelofheaven.world/v1/sources/): 67 source records with authority tier, family, stance, licensing.
+- [Glossary](https://api.wheelofheaven.world/v1/glossary/): multilingual terminology.
+- [Translations](https://api.wheelofheaven.world/v1/translations/): WoH Translation provenance (the `-woh` book family).
+
+## Multilingual
+
+Same surface under `/v1/{lang}/...` for: en (default), de, fr, es, ru, ja, zh, zh-Hant, ko.
+
+## Citing
+
+Wheel of Heaven content is CC0-1.0 public domain. Attribution is appreciated but not required.
+
+Suggested citation:
+> Zinsfuss, Zara. *Wheel of Heaven API*. api.wheelofheaven.world. Accessed [date].
+
+For specific endpoints, append path:
+> Zinsfuss, Zara. "Elohim." *Wheel of Heaven API*. https://api.wheelofheaven.world/v1/wiki/elohim/. Accessed [date].
+
+## Documentation
+
+- [API Reference (docs site)](https://docs.wheelofheaven.world/reference/api/): endpoint catalogue, envelope spec, enum + schema reference.
+- [Architecture overview (docs site)](https://docs.wheelofheaven.world/architecture/sites/api/): design principles, build pipeline, data sources.
+- [Source code (GitHub)](https://github.com/wheelofheaven/api.wheelofheaven.world).
+
+## Reading site
+
+- [www.wheelofheaven.world](https://www.wheelofheaven.world): the human-readable counterpart.
+- [www llms.txt](https://www.wheelofheaven.world/llms.txt): manifest for the reading site.
+- [www llms-full.txt](https://www.wheelofheaven.world/llms-full.txt): full-corpus AI ingestion file.

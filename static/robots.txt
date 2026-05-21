@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# AI-optimised entry points
+Allow: /llms.txt
+Allow: /v1/context/
+Allow: /v1/schema/
+Allow: /v1/enums/
+
+Sitemap: https://api.wheelofheaven.world/sitemap.xml
