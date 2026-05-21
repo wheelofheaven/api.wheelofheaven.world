@@ -1,0 +1,19 @@
+{%- set source = load_data(path="data/bibliography/sources/" ~ page.slug ~ ".json") -%}
+{
+  "apiVersion": "v1",
+  "kind": "Source",
+  "metadata": {
+    "generated": "{{ now() | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
+    "language": "en",
+    "schemaUrl": "/v1/schema/source/"
+  },
+  "data": {{ source | json_encode(pretty=true) | safe }},
+  "links": {
+    "self": "/v1/sources/{{ page.slug }}/",
+    "canonical_html": "https://www.wheelofheaven.world/sources/{{ page.slug }}/",
+    "index": "/v1/sources/",
+    "schema": "/v1/schema/source/"{% if source.library_slug %},
+    "library": "/v1/library/books/{{ source.library_slug }}/"{% endif %},
+    "traditions": "/v1/sources/traditions/"
+  }
+}

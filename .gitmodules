@@ -6,3 +6,7 @@
 	path = data/content
 	url = git@github.com:wheelofheaven/data-content.git
 	branch = main
+[submodule "data/bibliography"]
+	path = data/bibliography
+	url = git@github.com:wheelofheaven/data-bibliography.git
+	branch = main

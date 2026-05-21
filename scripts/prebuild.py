@@ -52,6 +52,7 @@ except ImportError:  # pragma: no cover - py3.10 fallback
 ROOT = Path(__file__).resolve().parent.parent
 SRC_CONTENT = ROOT / "data" / "content"
 SRC_LIBRARY = ROOT / "data" / "library"
+SRC_BIBLIOGRAPHY = ROOT / "data" / "bibliography"
 OUT_DATA = ROOT / "data" / "extracted"
 OUT_CONTENT = ROOT / "content" / "v1"
 
@@ -318,6 +319,63 @@ def process_translations() -> int:
     return len(entries)
 
 
+def process_sources() -> int:
+    """Mirror data-bibliography into per-source content stubs and the index.
+
+    /v1/sources/{id}/ is one stub per source record; /v1/sources/ is the
+    flat index loaded directly from data/bibliography/index.json.
+    """
+    if not SRC_BIBLIOGRAPHY.exists():
+        print("  sources: data/bibliography missing; skipping")
+        return 0
+    sources_dir = SRC_BIBLIOGRAPHY / "sources"
+    if not sources_dir.exists():
+        print("  sources: data/bibliography/sources missing; skipping")
+        return 0
+
+    dest_pages = OUT_CONTENT / "sources"
+    dest_pages.mkdir(parents=True, exist_ok=True)
+    # Clean any prior generated source pages (preserve _index.md and the traditions/ subdir).
+    for path in dest_pages.glob("*.md"):
+        if path.name != "_index.md":
+            path.unlink()
+
+    index_path = SRC_BIBLIOGRAPHY / "index.json"
+    index_data: list[dict] = []
+    if index_path.exists():
+        try:
+            index_data = json.loads(index_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            index_data = []
+
+    count = 0
+    for src_file in sorted(sources_dir.glob("*.json")):
+        src_id = src_file.stem
+        # Render a content stub binding the URL to the per-source template.
+        stub = (
+            "+++\n"
+            f'title = "{src_id}"\n'
+            f'slug = "{src_id}"\n'
+            'template = "v1-source-page.json"\n'
+            "+++\n"
+        )
+        (dest_pages / f"{src_id}.md").write_text(stub, encoding="utf-8")
+        count += 1
+
+    # Mirror the index into data/extracted so the /v1/sources/ template can load_data it.
+    write_json(
+        OUT_DATA / "sources.json",
+        {
+            "version": "1.0",
+            "generated": now_iso(),
+            "count": len(index_data),
+            "entries": index_data,
+        },
+    )
+    print(f"  sources: {count} entries -> {dest_pages.relative_to(ROOT)}/")
+    return count
+
+
 def process_glossary() -> int:
     """Copy data/content/i18n/glossary.json into data/extracted/."""
     src = SRC_CONTENT / "i18n" / "glossary.json"
@@ -346,6 +404,7 @@ def main() -> int:
     process_section(kind="articles", src_subdir="articles", page_template="v1-article-page.json")
     process_section(kind="news", src_subdir="news", page_template="v1-news-page.json")
     process_traditions()
+    process_sources()
     process_translations()
     process_glossary()
 

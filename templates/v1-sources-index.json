@@ -1,13 +1,18 @@
+{%- set sources = load_data(path="data/extracted/sources.json") -%}
 {
   "apiVersion": "v1",
   "kind": "SourceIndex",
   "metadata": {
-    "generated": "{{ now() | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
+    "generated": "{{ sources.generated }}",
     "language": "en",
-    "status": "pending",
+    "count": {{ sources.count }},
     "schemaUrl": "/v1/schema/source/"
   },
-  "data": [],
+  "data": [
+{%- for entry in sources.entries %}
+    {{ entry | json_encode(pretty=true) | indent(width=4) | safe }}{% if not loop.last %},{% endif %}
+{%- endfor %}
+  ],
   "links": {
     "self": "/v1/sources/",
     "traditions": "/v1/sources/traditions/",
