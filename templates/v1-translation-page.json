@@ -1,0 +1,19 @@
+{%- set meta = load_data(path="data/library/" ~ page.slug ~ "/_meta.json") -%}
+{
+  "apiVersion": "v1",
+  "kind": "Translation",
+  "metadata": {
+    "generated": "{{ now() | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
+    "language": "en",
+    "schemaUrl": "/v1/schema/translation/"
+  },
+  "data": {{ meta | json_encode(pretty=true) | safe }},
+  "links": {
+    "self": "/v1/translations/{{ page.slug }}/",
+    "library": "/v1/library/books/{{ page.slug }}/",
+    "canonical_html": "https://www.wheelofheaven.world/library/{{ page.slug }}/",
+    "index": "/v1/translations/",
+    "schema": "/v1/schema/translation/",
+    "glossary": "/v1/glossary/"
+  }
+}

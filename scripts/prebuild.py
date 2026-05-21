@@ -277,10 +277,17 @@ def process_traditions() -> int:
 
 
 def process_translations() -> int:
-    """Scan data/library/* for -woh translations and index their _meta.json."""
+    """Scan data/library/* for -woh translations and produce index + per-entry stubs."""
     if not SRC_LIBRARY.exists():
         print("  translations: library missing; skipping")
         return 0
+
+    dest_pages = OUT_CONTENT / "translations"
+    dest_pages.mkdir(parents=True, exist_ok=True)
+    for path in dest_pages.glob("*.md"):
+        if path.name != "_index.md":
+            path.unlink()
+
     entries: list[dict] = []
     for path in sorted(SRC_LIBRARY.iterdir()):
         if not path.is_dir() or not path.name.endswith("-woh"):
@@ -293,10 +300,11 @@ def process_translations() -> int:
         except json.JSONDecodeError:
             continue
         slug = meta.get("slug") or path.name
+        title = (meta.get("titles") or {}).get("en") or slug
         entries.append(
             {
                 "slug": slug,
-                "title": (meta.get("titles") or {}).get("en") or slug,
+                "title": title,
                 "code": meta.get("code", ""),
                 "originalLang": meta.get("originalLang", ""),
                 "primaryLang": meta.get("primaryLang", "en"),
@@ -305,6 +313,16 @@ def process_translations() -> int:
                 "library_url": f"/v1/library/books/{slug}/",
             }
         )
+
+        stub = (
+            "+++\n"
+            f"title = {_dumps(title)}\n"
+            f'slug = "{slug}"\n'
+            'template = "v1-translation-page.json"\n'
+            "+++\n"
+        )
+        (dest_pages / f"{slug}.md").write_text(stub, encoding="utf-8")
+
     entries.sort(key=lambda e: e["slug"])
     write_json(
         OUT_DATA / "translations.json",
@@ -315,7 +333,7 @@ def process_translations() -> int:
             "entries": entries,
         },
     )
-    print(f"  translations: {len(entries)} entries")
+    print(f"  translations: {len(entries)} entries -> {dest_pages.relative_to(ROOT)}/")
     return len(entries)
 
 
@@ -377,7 +395,7 @@ def process_sources() -> int:
 
 
 def process_glossary() -> int:
-    """Copy data/content/i18n/glossary.json into data/extracted/."""
+    """Copy data/content/i18n/glossary.json + per-term stubs."""
     src = SRC_CONTENT / "i18n" / "glossary.json"
     if not src.exists():
         print("  glossary: source missing; skipping")
@@ -389,8 +407,31 @@ def process_glossary() -> int:
         "source": raw,
     }
     write_json(OUT_DATA / "glossary.json", out)
+
+    dest_pages = OUT_CONTENT / "glossary"
+    dest_pages.mkdir(parents=True, exist_ok=True)
+    for path in dest_pages.glob("*.md"):
+        if path.name != "_index.md":
+            path.unlink()
+
     terms = raw.get("terms") or raw.get("entries") or []
-    print(f"  glossary: {len(terms) if isinstance(terms, list) else 'inline'} terms")
+    if isinstance(terms, list):
+        for term in terms:
+            term_id = term.get("id")
+            if not term_id:
+                continue
+            title = (term.get("translations") or {}).get("en") or term_id
+            stub = (
+                "+++\n"
+                f"title = {_dumps(title)}\n"
+                f'slug = "{term_id}"\n'
+                'template = "v1-glossary-page.json"\n'
+                "+++\n"
+            )
+            (dest_pages / f"{term_id}.md").write_text(stub, encoding="utf-8")
+        print(f"  glossary: {len(terms)} terms -> {dest_pages.relative_to(ROOT)}/")
+    else:
+        print("  glossary: terms not a list; index only")
     return 1
 
 

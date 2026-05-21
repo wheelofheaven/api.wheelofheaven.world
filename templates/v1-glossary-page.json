@@ -1,0 +1,23 @@
+{%- set glossary = load_data(path="data/extracted/glossary.json") -%}
+{%- set term_id = page.slug -%}
+{%- set term = "" -%}
+{%- for t in glossary.source.terms -%}
+{%- if t.id == term_id -%}
+{%- set_global term = t -%}
+{%- endif -%}
+{%- endfor -%}
+{
+  "apiVersion": "v1",
+  "kind": "GlossaryTerm",
+  "metadata": {
+    "generated": "{{ glossary.generated }}",
+    "language": "en",
+    "schemaUrl": "/v1/schema/glossary-term/"
+  },
+  "data": {% if term %}{{ term | json_encode(pretty=true) | safe }}{% else %}null{% endif %},
+  "links": {
+    "self": "/v1/glossary/{{ term_id }}/",
+    "index": "/v1/glossary/",
+    "schema": "/v1/schema/glossary-term/"
+  }
+}
