@@ -1,0 +1,33 @@
+{
+  "apiVersion": "v1",
+  "kind": "EnumIndex",
+  "metadata": {
+    "generated": "{{ now() | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
+    "language": "en"
+  },
+  "data": {
+    "names": [
+      "authority-tier",
+      "source-family",
+      "claim-type",
+      "event-type",
+      "relation-to-wheel",
+      "stance",
+      "licensing-status",
+      "translation-status",
+      "languages"
+    ]
+  },
+  "links": {
+    "self": "/v1/enums/",
+    "authority-tier": "/v1/enums/authority-tier/",
+    "source-family": "/v1/enums/source-family/",
+    "claim-type": "/v1/enums/claim-type/",
+    "event-type": "/v1/enums/event-type/",
+    "relation-to-wheel": "/v1/enums/relation-to-wheel/",
+    "stance": "/v1/enums/stance/",
+    "licensing-status": "/v1/enums/licensing-status/",
+    "translation-status": "/v1/enums/translation-status/",
+    "languages": "/v1/enums/languages/"
+  }
+}

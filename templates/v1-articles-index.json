@@ -1,0 +1,20 @@
+{%- set articles = load_data(path="data/extracted/articles.json") -%}
+{
+  "apiVersion": "v1",
+  "kind": "ArticleIndex",
+  "metadata": {
+    "generated": "{{ articles.generated }}",
+    "language": "en",
+    "count": {{ articles.count }},
+    "schemaUrl": "/v1/schema/article/"
+  },
+  "data": [
+{%- for entry in articles.entries %}
+    {{ entry | json_encode(pretty=true) | indent(width=4) | safe }}{% if not loop.last %},{% endif %}
+{%- endfor %}
+  ],
+  "links": {
+    "self": "/v1/articles/",
+    "schema": "/v1/schema/article/"
+  }
+}

@@ -4,24 +4,18 @@
   "kind": "TimelineIndex",
   "metadata": {
     "generated": "{{ timeline.generated }}",
-    "count": {{ timeline.count }}
+    "language": "en",
+    "count": {{ timeline.count }},
+    "schemaUrl": "/v1/schema/timeline-entry/"
   },
-  "entries": [
+  "data": [
 {%- for entry in timeline.entries %}
-    {
-      "slug": {{ entry.slug | json_encode() | safe }},
-      "title": {{ entry.title | json_encode() | safe }},
-      "description": {{ entry.description | json_encode() | safe }},
-      "weight": {{ entry.weight }},
-      "url": "/v1/timeline/{{ entry.slug }}"
-      {%- if entry.extra %},
-      "extra": {{ entry.extra | json_encode() | safe }}
-      {%- endif %}
-    }{% if not loop.last %},{% endif %}
+    {{ entry | json_encode(pretty=true) | indent(width=4) | safe }}{% if not loop.last %},{% endif %}
 {%- endfor %}
   ],
   "links": {
-    "self": "/v1/timeline",
-    "context": "/v1/context/timeline"
+    "self": "/v1/timeline/",
+    "context": "/v1/context/timeline/",
+    "schema": "/v1/schema/timeline-entry/"
   }
 }

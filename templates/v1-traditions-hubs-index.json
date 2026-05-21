@@ -1,0 +1,20 @@
+{%- set hubs = load_data(path="data/extracted/traditions_hubs.json") -%}
+{
+  "apiVersion": "v1",
+  "kind": "TraditionHubIndex",
+  "metadata": {
+    "generated": "{{ hubs.generated }}",
+    "language": "en",
+    "count": {{ hubs.count }},
+    "schemaUrl": "/v1/schema/tradition-hub/"
+  },
+  "data": [
+{%- for entry in hubs.entries %}
+    {{ entry | json_encode(pretty=true) | indent(width=4) | safe }}{% if not loop.last %},{% endif %}
+{%- endfor %}
+  ],
+  "links": {
+    "self": "/v1/sources/traditions/",
+    "schema": "/v1/schema/tradition-hub/"
+  }
+}

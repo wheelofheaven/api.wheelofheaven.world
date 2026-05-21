@@ -1,21 +1,37 @@
 [tools]
 zola = "0.21.0"
+python = "3.11"
+
+[tasks.prebuild]
+description = "Extract content from data submodules into Zola pages + index data"
+run = "python3 scripts/prebuild.py"
 
 [tasks.build]
 description = "Build the API"
 run = """
+python3 scripts/prebuild.py
 zola build
 bash scripts/postbuild.sh
 """
 
 [tasks.serve]
-description = "Start dev server"
-run = "zola serve --port 1198"
+description = "Start dev server (runs prebuild first)"
+run = """
+python3 scripts/prebuild.py
+zola serve --port 1198
+"""
 
 [tasks.check]
 description = "Check for errors"
-run = "zola check"
+run = """
+python3 scripts/prebuild.py
+zola check
+"""
 
 [tasks.clean]
-description = "Remove build output"
-run = "rm -rf public/"
+description = "Remove build output and generated content"
+run = """
+rm -rf public/
+rm -rf data/extracted/
+find content/v1/wiki content/v1/timeline content/v1/articles content/v1/news content/v1/sources/traditions -type f -name "*.md" ! -name "_index.md" -delete 2>/dev/null || true
+"""

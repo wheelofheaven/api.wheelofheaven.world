@@ -1,0 +1,21 @@
+{%- set translations = load_data(path="data/extracted/translations.json") -%}
+{
+  "apiVersion": "v1",
+  "kind": "TranslationIndex",
+  "metadata": {
+    "generated": "{{ translations.generated }}",
+    "language": "en",
+    "count": {{ translations.count }},
+    "schemaUrl": "/v1/schema/translation/"
+  },
+  "data": [
+{%- for entry in translations.entries %}
+    {{ entry | json_encode(pretty=true) | indent(width=4) | safe }}{% if not loop.last %},{% endif %}
+{%- endfor %}
+  ],
+  "links": {
+    "self": "/v1/translations/",
+    "library": "/v1/library/books/",
+    "schema": "/v1/schema/translation/"
+  }
+}

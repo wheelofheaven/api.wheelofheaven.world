@@ -1,0 +1,31 @@
+{%- set slug = page.slug -%}
+{
+  "apiVersion": "v1",
+  "kind": "WikiEntry",
+  "metadata": {
+    "generated": "{{ now() | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
+    "language": "en",
+    "schemaUrl": "/v1/schema/wiki-entry/"
+  },
+  "data": {
+    "slug": {{ slug | json_encode | safe }},
+    "title": {{ page.title | json_encode | safe }},
+    "description": {{ page.description | json_encode | safe }},
+    "claim_type": {{ page.extra.claim_type | default(value="") | json_encode | safe }},
+    "editorial_pass": {{ page.extra.editorial_pass | default(value="") | json_encode | safe }},
+    "translation_status": {{ page.extra.translation_status | default(value="en_only") | json_encode | safe }},
+    "category": {{ page.extra.category | default(value="") | json_encode | safe }},
+    "entry_type": {{ page.extra.entry_type | default(value="") | json_encode | safe }},
+    "alternative_names": {{ page.extra.alternative_names | default(value=[]) | json_encode | safe }},
+    "see_also": {{ page.extra.see_also | default(value=[]) | json_encode | safe }},
+    "references": {{ page.extra.references | default(value=[]) | json_encode | safe }},
+    "body_html": {{ page.content | json_encode | safe }},
+    "extra": {% if page.extra %}{{ page.extra | json_encode | safe }}{% else %}{}{% endif %}
+  },
+  "links": {
+    "self": "/v1/wiki/{{ slug }}/",
+    "canonical_html": "https://www.wheelofheaven.world/wiki/{{ slug }}/",
+    "index": "/v1/wiki/",
+    "schema": "/v1/schema/wiki-entry/"
+  }
+}

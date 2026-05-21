@@ -1,0 +1,21 @@
+{%- set catalog = load_data(path="data/library/catalog.json") -%}
+{
+  "apiVersion": "v1",
+  "kind": "LibraryOverview",
+  "metadata": {
+    "generated": "{{ now() | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
+    "language": "en",
+    "schemaUrl": "/v1/schema/library/"
+  },
+  "data": {
+    "version": "{{ catalog.version | default(value='1.0') }}",
+    "totalBooks": {{ catalog.books | length }},
+    "totalTraditions": {{ catalog.traditions | length }}
+  },
+  "links": {
+    "self": "/v1/library/",
+    "books": "/v1/library/books/",
+    "traditions": "/v1/library/traditions/",
+    "schema": "/v1/schema/library/"
+  }
+}

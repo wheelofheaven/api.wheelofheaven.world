@@ -1,0 +1,20 @@
+{%- set news = load_data(path="data/extracted/news.json") -%}
+{
+  "apiVersion": "v1",
+  "kind": "NewsIndex",
+  "metadata": {
+    "generated": "{{ news.generated }}",
+    "language": "en",
+    "count": {{ news.count }},
+    "schemaUrl": "/v1/schema/dispatch/"
+  },
+  "data": [
+{%- for entry in news.entries %}
+    {{ entry | json_encode(pretty=true) | indent(width=4) | safe }}{% if not loop.last %},{% endif %}
+{%- endfor %}
+  ],
+  "links": {
+    "self": "/v1/news/",
+    "schema": "/v1/schema/dispatch/"
+  }
+}

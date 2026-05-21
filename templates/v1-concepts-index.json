@@ -1,0 +1,16 @@
+{
+  "apiVersion": "v1",
+  "kind": "ConceptHubIndex",
+  "metadata": {
+    "generated": "{{ now() | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
+    "language": "en",
+    "count": 0,
+    "status": "pending",
+    "schemaUrl": "/v1/schema/concept-hub/"
+  },
+  "data": [],
+  "links": {
+    "self": "/v1/concepts/",
+    "schema": "/v1/schema/concept-hub/"
+  }
+}

@@ -1,0 +1,30 @@
+{%- set slug = page.slug -%}
+{
+  "apiVersion": "v1",
+  "kind": "Dispatch",
+  "metadata": {
+    "generated": "{{ now() | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
+    "language": "en",
+    "schemaUrl": "/v1/schema/dispatch/"
+  },
+  "data": {
+    "slug": {{ slug | json_encode | safe }},
+    "title": {{ page.title | json_encode | safe }},
+    "description": {{ page.description | json_encode | safe }},
+    "event_date": {{ page.extra.event_date | default(value="") | json_encode | safe }},
+    "event_type": {{ page.extra.event_type | default(value="") | json_encode | safe }},
+    "claim_type": {{ page.extra.claim_type | default(value="") | json_encode | safe }},
+    "translation_status": {{ page.extra.translation_status | default(value="en_only") | json_encode | safe }},
+    "summary": {{ page.extra.summary | default(value="") | json_encode | safe }},
+    "canon_links": {{ page.extra.canon_links | default(value=[]) | json_encode | safe }},
+    "sources": {{ page.extra.sources | default(value=[]) | json_encode | safe }},
+    "body_html": {{ page.content | json_encode | safe }},
+    "extra": {% if page.extra %}{{ page.extra | json_encode | safe }}{% else %}{}{% endif %}
+  },
+  "links": {
+    "self": "/v1/news/{{ slug }}/",
+    "canonical_html": "https://www.wheelofheaven.world/news/{{ slug }}/",
+    "index": "/v1/news/",
+    "schema": "/v1/schema/dispatch/"
+  }
+}

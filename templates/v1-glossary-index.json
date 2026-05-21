@@ -1,0 +1,15 @@
+{%- set glossary = load_data(path="data/extracted/glossary.json") -%}
+{
+  "apiVersion": "v1",
+  "kind": "GlossaryIndex",
+  "metadata": {
+    "generated": "{{ glossary.generated }}",
+    "language": "en",
+    "schemaUrl": "/v1/schema/glossary-term/"
+  },
+  "data": {{ glossary.source | json_encode(pretty=true) | safe }},
+  "links": {
+    "self": "/v1/glossary/",
+    "schema": "/v1/schema/glossary-term/"
+  }
+}
