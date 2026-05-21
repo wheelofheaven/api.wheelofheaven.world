@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.wheelofheaven.world/v1/schema/source/",
+  "title": "Source",
+  "description": "A bibliography source record. Returned by /v1/sources/{id}/.",
+  "type": "object",
+  "required": ["id", "title", "authority_tier", "source_family"],
+  "properties": {
+    "id": {"type": "string"},
+    "title": {"type": "string"},
+    "description": {"type": ["object", "string"], "description": "Per-language description; string is legacy."},
+    "authored_by": {"type": "array", "items": {"type": "string"}},
+    "topics": {"type": "array", "items": {"type": "string"}},
+    "authority_tier": {"type": "string", "enum": ["foundational", "primary", "scholarly", "scientific", "critical", "supplementary"]},
+    "source_family": {"type": "string", "description": "See /v1/enums/source-family/ for valid values."},
+    "relation_to_wheel": {"type": "string", "enum": ["foundational", "comparative_primary", "revelatory_continuation", "scientific_context", "critical_context", "supplementary"]},
+    "stance": {"type": "string", "enum": ["supportive", "neutral", "critical", "mixed"]},
+    "source_type": {"type": "string"},
+    "medium": {"type": "string"},
+    "library_slug": {"type": "string", "description": "Cross-link to /v1/library/books/{slug}/ if this source has been digitized."},
+    "publish_date": {"type": "string"},
+    "licensing_status": {"type": "string", "enum": ["public_domain", "licensed", "fair_use_excerpt", "metadata_only", "unknown"]},
+    "follow_url": {"type": "string", "format": "uri"},
+    "aliases": {"type": "array", "items": {"type": "string"}}
+  }
+}

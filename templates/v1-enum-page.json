@@ -1,0 +1,14 @@
+{%- set enum = load_data(path="data/enums/" ~ page.slug ~ ".json") -%}
+{
+  "apiVersion": "v1",
+  "kind": "Enum",
+  "metadata": {
+    "generated": "{{ now() | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
+    "language": "en"
+  },
+  "data": {{ enum | json_encode(pretty=true) | safe }},
+  "links": {
+    "self": "/v1/enums/{{ page.slug }}/",
+    "index": "/v1/enums/"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "source-family",
+  "title": "Source Family",
+  "description": "Tradition family for every source in the corpus. Decision 6 of strategy-decisions.md: no umbrella groupings — each family stands alone. Each family becomes a shelf under the Sources nav.",
+  "values": [
+    {"value": "raelian", "label": "Raëlian", "default_tier": "foundational", "description": "The Raëlian corpus (Tier 0, foundational canon)."},
+    {"value": "abrahamic", "label": "Abrahamic", "default_tier": "primary", "description": "Hebrew Bible, New Testament, mainstream Christian and Jewish primary sources."},
+    {"value": "second_temple", "label": "Second Temple", "default_tier": "primary", "description": "Apocrypha, pseudepigrapha, Dead Sea Scrolls."},
+    {"value": "islamic", "label": "Islamic", "default_tier": "primary", "description": "Qur'an, hadith, classical Islamic literature."},
+    {"value": "mormon", "label": "Mormon", "default_tier": "primary", "description": "Book of Mormon, Doctrine and Covenants, Pearl of Great Price."},
+    {"value": "bahai", "label": "Bahá'í", "default_tier": "primary", "description": "Bahá'í writings (per-book licensing review required)."},
+    {"value": "caodaist", "label": "Caodaist", "default_tier": "primary", "description": "Caodai scriptures."},
+    {"value": "oomoto", "label": "Ōmoto", "default_tier": "primary", "description": "Ōmoto (Deguchi Onisaburō, Divine Signposts)."},
+    {"value": "mesopotamian", "label": "Mesopotamian", "default_tier": "primary", "description": "Sumerian, Akkadian, Babylonian."},
+    {"value": "egyptian", "label": "Egyptian", "default_tier": "primary", "description": "Egyptian cosmological and sacred-kingship texts."},
+    {"value": "iranian", "label": "Iranian", "default_tier": "primary", "description": "Zoroastrian, Iranian apocalyptic."},
+    {"value": "vedic", "label": "Vedic", "default_tier": "primary", "description": "Vedic and Hindu primary sources."},
+    {"value": "buddhist", "label": "Buddhist", "default_tier": "primary", "description": "Buddhist cosmological and prophetic texts."},
+    {"value": "mesoamerican", "label": "Mesoamerican", "default_tier": "primary", "description": "Mayan, Aztec time-cycle texts."},
+    {"value": "western_esoteric", "label": "Western Esoteric", "default_tier": "primary", "description": "Hermetica, Renaissance occult, esoteric philosophy."},
+    {"value": "archaeoastronomy", "label": "Archaeoastronomy", "default_tier": "scholarly", "description": "Serious comparative-myth + astronomy work. Includes Hancock-style works that engage the archaeoastronomy topic."},
+    {"value": "science", "label": "Science", "default_tier": "scientific", "description": "Astronomy, genetics, archaeology, life sciences. Stance is 'supportive' (not neutral) for Intelligent Design / Creationism topics."},
+    {"value": "neo_euhemerism", "label": "Neo-Euhemerism", "default_tier": "supplementary", "description": "Modern Ancient Astronaut Theory proponent literature (post-Sitchin). Triggered by explicit Ancient Astronauts or Neo-Euhemerism topics."},
+    {"value": "criticism", "label": "Criticism", "default_tier": "critical", "description": "Skeptical / methodological critiques."},
+    {"value": "supplementary", "label": "Supplementary", "default_tier": "supplementary", "description": "Films, podcasts, web archives, manifestos, fiction."}
+  ]
+}

@@ -1,0 +1,14 @@
+{%- set schema = load_data(path="data/schemas/" ~ page.slug ~ ".json") -%}
+{
+  "apiVersion": "v1",
+  "kind": "JSONSchema",
+  "metadata": {
+    "generated": "{{ now() | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
+    "language": "en"
+  },
+  "data": {{ schema | json_encode(pretty=true) | safe }},
+  "links": {
+    "self": "/v1/schema/{{ page.slug }}/",
+    "index": "/v1/schema/"
+  }
+}

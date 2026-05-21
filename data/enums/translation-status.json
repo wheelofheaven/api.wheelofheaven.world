@@ -1,0 +1,10 @@
+{
+  "name": "translation-status",
+  "title": "Translation Status",
+  "description": "Translation completeness per language for a content entry. Decision 12 of strategy-decisions.md: English first, translations on demand.",
+  "values": [
+    {"value": "en_only", "label": "English Only", "description": "Source language only; no translations published yet."},
+    {"value": "partial", "label": "Partial", "description": "Some languages translated; not all."},
+    {"value": "complete", "label": "Complete", "description": "Translated into every supported language."}
+  ]
+}

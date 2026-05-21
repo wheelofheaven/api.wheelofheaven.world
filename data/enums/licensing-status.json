@@ -1,0 +1,12 @@
+{
+  "name": "licensing-status",
+  "title": "Licensing Status",
+  "description": "Redistribution status for a text in the Library. Decision 8 of strategy-decisions.md: no global rule, decided per book.",
+  "values": [
+    {"value": "public_domain", "label": "Public Domain", "description": "Full text may be hosted and redistributed freely."},
+    {"value": "licensed", "label": "Licensed", "description": "Full text hosted under an explicit license arrangement (e.g. Raëlian corpus, Decision 4)."},
+    {"value": "fair_use_excerpt", "label": "Fair-Use Excerpt", "description": "Excerpts under fair use, with citation. Typically ~10% or less of the work."},
+    {"value": "metadata_only", "label": "Metadata Only", "description": "Catalog entry and citation, but no body text. Default for any unknown-status non-public-domain non-Raëlian text."},
+    {"value": "unknown", "label": "Unknown", "description": "Licensing status has not yet been audited. Treat as metadata_only until reviewed."}
+  ]
+}

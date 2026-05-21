@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.wheelofheaven.world/v1/schema/library/",
+  "title": "LibraryOverview",
+  "description": "Top-level library statistics. Returned by /v1/library/.",
+  "type": "object",
+  "properties": {
+    "version": {"type": "string"},
+    "totalBooks": {"type": "integer"},
+    "totalTraditions": {"type": "integer"}
+  }
+}

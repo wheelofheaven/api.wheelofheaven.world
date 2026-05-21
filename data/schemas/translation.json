@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.wheelofheaven.world/v1/schema/translation/",
+  "title": "Translation",
+  "description": "A Wheel of Heaven Translation (the -woh book family) with machine-readable provenance: source text, glossary version, model versions used in drafting, reviewer, and divergences from the base translation. Returned by /v1/translations/{slug}/.",
+  "type": "object",
+  "required": ["slug", "title"],
+  "properties": {
+    "slug": {"type": "string", "description": "URL-safe identifier (ends in '-woh')."},
+    "title": {"type": "string"},
+    "code": {"type": "string"},
+    "originalLang": {"type": "string"},
+    "primaryLang": {"type": "string"},
+    "chapterCount": {"type": "integer"},
+    "track": {"type": "string", "const": "translation"},
+    "version": {"type": "string", "description": "Semantic version of the translation as a whole."},
+    "sourceText": {"type": "string", "description": "Human-readable label for the source-text edition translated from."},
+    "sourceUrl": {"type": "string", "format": "uri"},
+    "glossaryVersion": {"type": "string", "description": "Semantic version of the glossary this translation conforms to."},
+    "modelDrafts": {"type": "array", "items": {"type": "string"}, "description": "Model versions used in drafting (e.g. 'claude-opus-4-7')."},
+    "reviewer": {"type": "string"},
+    "reviewedAt": {"type": "string", "format": "date"},
+    "divergencesFromBase": {"type": "array", "items": {"type": "string"}, "description": "Notable lexical decisions diverging from a base translation, with gloss IDs."},
+    "library_url": {"type": "string", "description": "Cross-link to /v1/library/books/{slug}/."}
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "relation-to-wheel",
+  "title": "Relation to Wheel",
+  "description": "How a source relates to the Wheel of Heaven canon. Set on every source bibliography entry.",
+  "values": [
+    {"value": "foundational", "label": "Foundational", "description": "Constitutes the foundational canon. Raëlian sources only."},
+    {"value": "comparative_primary", "label": "Comparative Primary", "description": "A primary tradition the canon reads alongside the foundational corpus."},
+    {"value": "revelatory_continuation", "label": "Revelatory Continuation", "description": "A modern revelatory tradition treated as continuing the conversation the canon engages."},
+    {"value": "scientific_context", "label": "Scientific Context", "description": "Provides scientific / historical grounding."},
+    {"value": "critical_context", "label": "Critical Context", "description": "Methodological or skeptical critique that bounds the reading."},
+    {"value": "supplementary", "label": "Supplementary", "description": "Pedagogical or tangential — never primary support."}
+  ]
+}

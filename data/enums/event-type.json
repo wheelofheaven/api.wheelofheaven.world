@@ -1,0 +1,12 @@
+{
+  "name": "event-type",
+  "title": "Event Type",
+  "description": "Type of event for Newsroom Dispatches. Each dispatch reads a current event through the canon.",
+  "values": [
+    {"value": "announcement", "label": "Announcement", "description": "Official statement, release, declaration."},
+    {"value": "discovery", "label": "Discovery", "description": "Scientific finding, archaeological discovery, new data."},
+    {"value": "anniversary", "label": "Anniversary", "description": "Notable date or commemoration."},
+    {"value": "cultural-moment", "label": "Cultural Moment", "description": "Significant cultural or media event."},
+    {"value": "obituary", "label": "Obituary", "description": "Death of a significant figure in the corpus's source program."}
+  ]
+}

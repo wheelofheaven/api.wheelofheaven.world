@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.wheelofheaven.world/v1/schema/tradition-hub/",
+  "title": "TraditionHub",
+  "description": "A tradition hub — landing page for a source family (Hebrew/Biblical, Mesopotamian, Islamic, etc.). Each hub explains why the tradition is included, what it claims in its own voice, where it converges with and diverges from the canon. Returned by /v1/sources/traditions/{slug}/.",
+  "type": "object",
+  "required": ["slug", "title", "description", "source_family", "body_html"],
+  "properties": {
+    "slug": {"type": "string"},
+    "title": {"type": "string"},
+    "description": {"type": "string"},
+    "source_family": {"type": "string", "description": "Which source-family enum value this hub anchors."},
+    "claim_type": {"type": "string", "enum": ["direct", "inferred", "speculative", ""]},
+    "translation_status": {"type": "string", "enum": ["en_only", "partial", "complete"]},
+    "body_html": {"type": "string"},
+    "extra": {"type": "object"}
+  }
+}

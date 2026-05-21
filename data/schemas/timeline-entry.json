@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.wheelofheaven.world/v1/schema/timeline-entry/",
+  "title": "TimelineEntry",
+  "description": "A single precessional-age (or framing) entry in the project's timeline. Returned by /v1/timeline/{slug}/.",
+  "type": "object",
+  "required": ["slug", "title", "description"],
+  "properties": {
+    "slug": {"type": "string"},
+    "title": {"type": "string"},
+    "description": {"type": "string"},
+    "weight": {"type": "number", "description": "Sort order within the timeline."},
+    "symbol": {"type": "string", "description": "Zodiac glyph or other emoji marker."},
+    "color": {"type": "string", "description": "Palette key from the Bifrost theme."},
+    "zodiac_sign": {"type": "string"},
+    "start_year": {"type": "string", "description": "Year of the age's start (negative for BCE), as string to allow non-numeric prefixes like 'before -21810'."},
+    "end_year": {"type": "string"},
+    "genesis_day": {"type": "integer", "description": "Which day of the Genesis 1 creation account this age aligns with (0 if N/A)."},
+    "genesis_verse": {"type": "string"},
+    "claim_type": {"type": "string", "enum": ["direct", "inferred", "speculative", ""]},
+    "editorial_pass": {"type": "string", "pattern": "^([0-9]{4}-[0-9]{2})?$"},
+    "translation_status": {"type": "string", "enum": ["en_only", "partial", "complete"]},
+    "body_html": {"type": "string"},
+    "extra": {"type": "object"}
+  }
+}

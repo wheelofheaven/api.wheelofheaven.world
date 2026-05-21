@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.wheelofheaven.world/v1/schema/dispatch/",
+  "title": "Dispatch",
+  "description": "A Newsroom Dispatch: a current event read through the canon. Returned by /v1/news/{slug}/.",
+  "type": "object",
+  "required": ["slug", "title", "description", "event_date", "event_type", "canon_links"],
+  "properties": {
+    "slug": {"type": "string"},
+    "title": {"type": "string"},
+    "description": {"type": "string"},
+    "event_date": {"type": "string", "format": "date", "description": "When the event happened."},
+    "event_type": {"type": "string", "enum": ["announcement", "discovery", "anniversary", "cultural-moment", "obituary"]},
+    "claim_type": {"type": "string", "enum": ["direct", "inferred", "speculative", ""]},
+    "translation_status": {"type": "string", "enum": ["en_only", "partial", "complete"]},
+    "summary": {"type": "string"},
+    "canon_links": {
+      "type": "array",
+      "description": "Required: at least one canon entry (wiki/timeline/article) touched by this event.",
+      "minItems": 1,
+      "items": {"type": "object", "properties": {"title": {"type": "string"}, "path": {"type": "string"}}}
+    },
+    "sources": {
+      "type": "array",
+      "description": "Primary news source(s) for the event.",
+      "items": {"type": "object", "properties": {"title": {"type": "string"}, "url": {"type": "string"}, "outlet": {"type": "string"}, "date": {"type": "string"}}}
+    },
+    "body_html": {"type": "string"},
+    "extra": {"type": "object"}
+  }
+}

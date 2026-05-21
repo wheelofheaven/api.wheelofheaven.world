@@ -1,0 +1,43 @@
+{
+  "name": "authority-tier",
+  "title": "Authority Tier",
+  "description": "Source program authority tier (Decision 5 of strategy-source-program.md). Six tiers tracked in frontmatter on every source entry; constrains which sources may be cited as primary support for a claim.",
+  "values": [
+    {
+      "value": "foundational",
+      "label": "Foundational Canon",
+      "tier": 0,
+      "description": "The Raëlian corpus. Decision 1 locks this tier as Raëlian-exclusive. Highest within the project frame; no other tradition occupies it."
+    },
+    {
+      "value": "primary",
+      "label": "Primary Comparative",
+      "tier": 1,
+      "description": "Hebrew Bible, Qur'an, Book of Mormon, ancient texts. High; the comparative witness layer."
+    },
+    {
+      "value": "scholarly",
+      "label": "Scholarly Context",
+      "tier": 2,
+      "description": "Lexicons, philology, comparative religion academia. High for context, not for doctrinal weight."
+    },
+    {
+      "value": "scientific",
+      "label": "Scientific Context",
+      "tier": 3,
+      "description": "Astronomy, genetics, archaeology, origins-of-life. High for empirical claims."
+    },
+    {
+      "value": "critical",
+      "label": "Critical / Skeptical",
+      "tier": 4,
+      "description": "Critiques of ancient-astronaut readings, skeptical scholarship. High; they keep the corpus honest."
+    },
+    {
+      "value": "supplementary",
+      "label": "Supplementary",
+      "tier": 5,
+      "description": "Documentaries, lectures, encyclopedias, museum materials. Pedagogical only, never primary support for a claim."
+    }
+  ]
+}

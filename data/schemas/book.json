@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.wheelofheaven.world/v1/schema/book/",
+  "title": "Book",
+  "description": "A library book — primary or comparative text. Returned by /v1/library/books/{slug}/ (and the historical alias /v1/books/{slug}/).",
+  "type": "object",
+  "required": ["slug", "code", "primaryLang"],
+  "properties": {
+    "slug": {"type": "string", "description": "URL-safe identifier; matches data-library directory name."},
+    "code": {"type": "string", "description": "Short code (e.g. 'GEN', '1ENO', 'TBWTT')."},
+    "refId": {"type": "string", "description": "Stable reference ID."},
+    "titles": {"type": "object", "description": "Map of language code → title.", "additionalProperties": {"type": "string"}},
+    "subtitles": {"type": "object"},
+    "descriptions": {"type": "object"},
+    "tradition": {"type": "string"},
+    "collection": {"type": "string"},
+    "primaryLang": {"type": "string"},
+    "originalLang": {"type": "string"},
+    "availableLangs": {"type": "array", "items": {"type": "string"}},
+    "chapterCount": {"type": "integer"},
+    "chapters": {"type": "integer"},
+    "paragraphCount": {"type": "integer"},
+    "paragraphs": {"type": "integer"},
+    "publicationYear": {"type": ["integer", "string"]},
+    "schema": {"type": "array", "items": {"type": "string"}, "description": "Structure schema (e.g. ['book', 'chapters', 'verses'])."},
+    "status": {"type": "string", "description": "Editorial status (stable, draft, planned, etc.)."},
+    "licensing_status": {"type": "string", "enum": ["public_domain", "licensed", "fair_use_excerpt", "metadata_only", "unknown"]},
+    "translation": {"type": "object", "description": "For -woh translations: track, version, sourceText, glossaryVersion, modelDrafts, reviewer, divergencesFromBase."}
+  }
+}

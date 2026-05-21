@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.wheelofheaven.world/v1/schema/concept-hub/",
+  "title": "ConceptHub",
+  "description": "A concept hub — deeper-than-wiki treatment of a central concept (Elohim, Eden, Flood, etc.). Structure: definition → canon position → other traditions → scholarship → limits & challenges. Returned by /v1/concepts/{slug}/.",
+  "type": "object",
+  "required": ["slug", "title", "description", "body_html"],
+  "properties": {
+    "slug": {"type": "string"},
+    "title": {"type": "string"},
+    "description": {"type": "string"},
+    "claim_type": {"type": "string", "enum": ["direct", "inferred", "speculative", ""]},
+    "translation_status": {"type": "string", "enum": ["en_only", "partial", "complete"]},
+    "structure_type": {"type": "string", "const": "concept_hub"},
+    "body_html": {"type": "string"},
+    "extra": {"type": "object"}
+  }
+}

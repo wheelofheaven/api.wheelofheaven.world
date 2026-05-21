@@ -1,0 +1,25 @@
+{
+  "name": "claim-type",
+  "title": "Claim Type",
+  "description": "Epistemological label for the main claim of a page. Decision 11 of strategy-decisions.md. Required on every content page; rendered as a small badge near the title.",
+  "values": [
+    {
+      "value": "direct",
+      "label": "Direct",
+      "description": "The claim is explicit in a primary source — Raëlian, biblical, scientific, etc. — or is a direct description of the project / methodology.",
+      "badge_color": "cyan"
+    },
+    {
+      "value": "inferred",
+      "label": "Inferred",
+      "description": "The claim is a reasonable reading of a source, not literally stated but consistent with it. Comparative-religion readings, framework summaries, interpreting myth as compression.",
+      "badge_color": "yellow"
+    },
+    {
+      "value": "speculative",
+      "label": "Speculative",
+      "description": "Interpretive synthesis, re-framing, or hypothesis that goes beyond what any single source states. Speculative is not a weakness — it is a label of intellectual transparency.",
+      "badge_color": "lavender"
+    }
+  ]
+}

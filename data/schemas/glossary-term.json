@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.wheelofheaven.world/v1/schema/glossary-term/",
+  "title": "GlossaryTerm",
+  "description": "A multilingual glossary term used across the translation program and editorial work. Returned by /v1/glossary/{term_id}/.",
+  "type": "object",
+  "required": ["term_id"],
+  "properties": {
+    "term_id": {"type": "string", "description": "Stable identifier for the term."},
+    "translations": {"type": "object", "description": "Map of language code → preferred rendering.", "additionalProperties": {"type": "string"}},
+    "definition": {"type": "string"},
+    "notes": {"type": "string", "description": "Translator's notes, etymology, etc."},
+    "see_also": {"type": "array", "items": {"type": "string"}}
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "stance",
+  "title": "Stance",
+  "description": "A source's stance towards the Wheel of Heaven reading. Set per-source.",
+  "values": [
+    {"value": "supportive", "label": "Supportive", "description": "The source advances claims compatible with or directly supportive of the canon."},
+    {"value": "neutral", "label": "Neutral", "description": "The source neither argues for nor against the canon's framing."},
+    {"value": "critical", "label": "Critical", "description": "The source argues against, complicates, or rebuts claims relevant to the canon."},
+    {"value": "mixed", "label": "Mixed", "description": "The source supports the canon on some points and critiques on others."}
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "languages",
+  "title": "Supported Languages",
+  "description": "Languages the site and API publish in. English is canonical; other languages are translations from English source (Decision 12).",
+  "values": [
+    {"value": "en", "label": "English", "native_name": "English", "is_default": true},
+    {"value": "de", "label": "German", "native_name": "Deutsch", "is_default": false},
+    {"value": "fr", "label": "French", "native_name": "Français", "is_default": false},
+    {"value": "es", "label": "Spanish", "native_name": "Español", "is_default": false},
+    {"value": "ru", "label": "Russian", "native_name": "Русский", "is_default": false},
+    {"value": "ja", "label": "Japanese", "native_name": "日本語", "is_default": false},
+    {"value": "zh", "label": "Simplified Chinese", "native_name": "简体中文", "is_default": false},
+    {"value": "zh-Hant", "label": "Traditional Chinese", "native_name": "繁體中文", "is_default": false},
+    {"value": "ko", "label": "Korean", "native_name": "한국어", "is_default": false},
+    {"value": "he", "label": "Hebrew", "native_name": "עברית", "is_default": false}
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.wheelofheaven.world/v1/schema/wiki-entry/",
+  "title": "WikiEntry",
+  "description": "A single encyclopedia entry. Returned by /v1/wiki/{slug}/ inside a v1 envelope (kind: WikiEntry).",
+  "type": "object",
+  "required": ["slug", "title", "description", "body_html"],
+  "properties": {
+    "slug": {"type": "string", "description": "URL-safe identifier."},
+    "title": {"type": "string"},
+    "description": {"type": "string", "description": "SEO-grade summary (150-300 chars typical)."},
+    "claim_type": {"type": "string", "enum": ["direct", "inferred", "speculative", ""], "description": "Epistemological label for the main claim (Decision 11)."},
+    "editorial_pass": {"type": "string", "pattern": "^([0-9]{4}-[0-9]{2})?$", "description": "Date code (YYYY-MM) for when this entry was last fundamentally rewritten."},
+    "translation_status": {"type": "string", "enum": ["en_only", "partial", "complete"]},
+    "category": {"type": "string", "description": "Top-level category (e.g. 'Biblical Figures')."},
+    "entry_type": {"type": "string", "description": "Optional finer classification (figure | concept | place | event | civilization)."},
+    "alternative_names": {"type": "array", "items": {"type": "string"}},
+    "see_also": {"type": "array", "items": {"type": "object", "properties": {"title": {"type": "string"}, "path": {"type": "string"}}}},
+    "references": {"type": "array", "items": {"type": "object"}},
+    "body_html": {"type": "string", "description": "Markdown body rendered to HTML by Zola."},
+    "extra": {"type": "object", "description": "Pass-through of the source frontmatter [extra] table."}
+  }
+}
