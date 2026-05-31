@@ -1,4 +1,6 @@
 {%- set slug = page.extra.book_slug -%}
+{%- set lang = page.extra.lang | default(value="en") -%}
+{%- set lang_prefix = page.extra.lang_prefix | default(value="") -%}
 {%- set catalog = load_data(path="data/library/catalog.json") -%}
 {%- set_global book_entry = false -%}
 {%- for b in catalog.books -%}
@@ -7,16 +9,23 @@
   {%- endif -%}
 {%- endfor -%}
 {%- if book_entry -%}
+{%- set localized_title = slug -%}
+{%- if book_entry.titles and book_entry.titles[lang] -%}{%- set localized_title = book_entry.titles[lang] -%}
+{%- elif book_entry.titles and book_entry.titles.en -%}{%- set localized_title = book_entry.titles.en -%}{%- endif -%}
+{%- set has_lang = book_entry.completeLangs and lang in book_entry.completeLangs -%}
 {
   "apiVersion": "v1",
   "kind": "BookMeta",
   "metadata": {
     "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
-    "slug": "{{ slug }}"
+    "language": "{{ lang }}",
+    "slug": "{{ slug }}",
+    "fallback": {% if lang != "en" and not has_lang %}true{% else %}false{% endif %}
   },
   "data": {
     "slug": "{{ book_entry.slug }}",
     "code": "{{ book_entry.code }}",
+    "title": {{ localized_title | json_encode | safe }},
     "titles": {% if book_entry.titles %}{{ book_entry.titles | json_encode() | safe }}{% else %}{}{% endif %},
     "tradition": "{{ book_entry.tradition }}",
     "collection": "{{ book_entry.collection | default(value="") }}",
@@ -31,12 +40,12 @@
     "tags": {% if book_entry.tags %}{{ book_entry.tags | json_encode() | safe }}{% else %}[]{% endif %}
   },
   "links": {
-    "self": "/v1/library/books/{{ slug }}/meta",
-    "full": "/v1/library/books/{{ slug }}/",
-    "chapters": "/v1/library/books/{{ slug }}/chapters/",
-    "library": "/v1/library/",
+    "self": "/v1{{ lang_prefix }}/library/books/{{ slug }}/meta",
+    "full": "/v1{{ lang_prefix }}/library/books/{{ slug }}/",
+    "chapters": "/v1{{ lang_prefix }}/library/books/{{ slug }}/chapters/",
+    "library": "/v1{{ lang_prefix }}/library/",
     "schema": "/v1/schema/book/",
-    "alias": "/v1/books/{{ slug }}/meta"
+    "alias": "/v1{{ lang_prefix }}/books/{{ slug }}/meta"
   }
 }
 {%- else -%}

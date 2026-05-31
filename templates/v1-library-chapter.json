@@ -1,22 +1,52 @@
 {%- set slug = page.extra.book_slug -%}
 {%- set chapter_n = page.extra.chapter -%}
+{%- set lang = page.extra.lang | default(value="en") -%}
+{%- set lang_prefix = page.extra.lang_prefix | default(value="") -%}
 {%- set chapter_path = "data/library/" ~ slug ~ "/chapter-" ~ chapter_n ~ ".json" -%}
 {%- set chapter = load_data(path=chapter_path, required=false) -%}
 {%- if chapter -%}
+{%- set primary_lang = chapter.bookCode and chapter.bookCode or "en" -%}
+{%- set ch_title = "" -%}
+{%- if chapter.i18n and chapter.i18n[lang] -%}{%- set ch_title = chapter.i18n[lang] -%}
+{%- elif chapter.title -%}{%- set ch_title = chapter.title -%}{%- endif -%}
 {
   "apiVersion": "v1",
   "kind": "Chapter",
   "metadata": {
     "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
+    "language": "{{ lang }}",
     "book": "{{ slug }}",
     "chapter": {{ chapter_n }}
   },
-  "data": {{ chapter | json_encode(pretty=true) | safe }},
+  "data": {
+    "n": {{ chapter.n }},
+    "bookSlug": "{{ chapter.bookSlug | default(value=slug) }}",
+    "bookCode": "{{ chapter.bookCode | default(value="") }}",
+    "refId": "{{ chapter.refId | default(value="") }}",
+    "title": {{ ch_title | json_encode | safe }},
+    "i18n": {% if chapter.i18n %}{{ chapter.i18n | json_encode | safe }}{% else %}{}{% endif %},
+    "translation": {% if chapter.translation %}{{ chapter.translation | json_encode | safe }}{% else %}null{% endif %},
+    "paragraphs": [
+{%- for p in chapter.paragraphs %}
+{%- set text = "" -%}
+{%- if p.i18n and p.i18n[lang] -%}{%- set text = p.i18n[lang] -%}
+{%- elif p.text -%}{%- set text = p.text -%}{%- endif -%}
+      {
+        "n": {{ p.n }},
+        {% if p.speaker %}"speaker": {{ p.speaker | json_encode | safe }},
+        {% endif %}"refId": {{ p.refId | default(value="") | json_encode | safe }},
+        {% if p.verseRef %}"verseRef": {{ p.verseRef | json_encode | safe }},
+        {% endif %}"text": {{ text | json_encode | safe }},
+        "i18n": {% if p.i18n %}{{ p.i18n | json_encode | safe }}{% else %}{}{% endif %}
+      }{% if not loop.last %},{% endif %}
+{%- endfor %}
+    ]
+  },
   "links": {
-    "self": "/v1/library/books/{{ slug }}/chapters/{{ chapter_n }}",
-    "book": "/v1/library/books/{{ slug }}/",
-    "chapters": "/v1/library/books/{{ slug }}/chapters/",
-    "library": "/v1/library/",
+    "self": "/v1{{ lang_prefix }}/library/books/{{ slug }}/chapters/{{ chapter_n }}",
+    "book": "/v1{{ lang_prefix }}/library/books/{{ slug }}/",
+    "chapters": "/v1{{ lang_prefix }}/library/books/{{ slug }}/chapters/",
+    "library": "/v1{{ lang_prefix }}/library/",
     "schema": "/v1/schema/book/"
   }
 }

@@ -1,4 +1,6 @@
 {%- set tid = page.extra.tradition_id -%}
+{%- set lang = page.extra.lang | default(value="en") -%}
+{%- set lang_prefix = page.extra.lang_prefix | default(value="") -%}
 {%- set catalog = load_data(path="data/library/catalog.json") -%}
 {%- set_global tradition_entry = false -%}
 {%- for t in catalog.traditions -%}
@@ -7,18 +9,27 @@
   {%- endif -%}
 {%- endfor -%}
 {%- if tradition_entry -%}
+{%- set t_name = tid -%}
+{%- if tradition_entry.name and tradition_entry.name[lang] -%}{%- set t_name = tradition_entry.name[lang] -%}
+{%- elif tradition_entry.name and tradition_entry.name.en -%}{%- set t_name = tradition_entry.name.en -%}{%- endif -%}
+{%- set t_desc = "" -%}
+{%- if tradition_entry.description and tradition_entry.description[lang] -%}{%- set t_desc = tradition_entry.description[lang] -%}
+{%- elif tradition_entry.description and tradition_entry.description.en -%}{%- set t_desc = tradition_entry.description.en -%}{%- endif -%}
 {
   "apiVersion": "v1",
   "kind": "Tradition",
   "metadata": {
     "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
+    "language": "{{ lang }}",
     "id": "{{ tid }}"
   },
   "data": {
     "id": "{{ tradition_entry.id }}",
     "code": "{{ tradition_entry.code | default(value="") }}",
-    "name": {% if tradition_entry.name %}{{ tradition_entry.name | json_encode() | safe }}{% else %}{}{% endif %},
-    "description": {% if tradition_entry.description %}{{ tradition_entry.description | json_encode() | safe }}{% else %}{}{% endif %},
+    "name": {{ t_name | json_encode | safe }},
+    "names": {% if tradition_entry.name %}{{ tradition_entry.name | json_encode() | safe }}{% else %}{}{% endif %},
+    "description": {{ t_desc | json_encode | safe }},
+    "descriptions": {% if tradition_entry.description %}{{ tradition_entry.description | json_encode() | safe }}{% else %}{}{% endif %},
     "order": {{ tradition_entry.order | default(value=999) }},
     "icon": "{{ tradition_entry.icon | default(value="") }}",
     "books": [
@@ -26,25 +37,29 @@
 {%- for book in catalog.books -%}
   {%- if book.tradition == tid -%}
     {%- if not first %},{% endif -%}
-    {%- set_global first = false %}
+    {%- set_global first = false -%}
+    {%- set b_title = book.slug -%}
+    {%- if book.titles and book.titles[lang] -%}{%- set b_title = book.titles[lang] -%}
+    {%- elif book.titles and book.titles.en -%}{%- set b_title = book.titles.en -%}{%- endif %}
       {
         "slug": "{{ book.slug }}",
         "code": "{{ book.code }}",
+        "title": {{ b_title | json_encode | safe }},
         "primaryLang": "{{ book.primaryLang }}",
         "chapters": {{ book.chapters | default(value=0) }},
         "paragraphs": {{ book.paragraphs | default(value=0) }},
         "status": "{{ book.status | default(value="unknown") }}",
-        "url": "/v1/library/books/{{ book.slug }}/"
+        "url": "/v1{{ lang_prefix }}/library/books/{{ book.slug }}/"
       }
   {%- endif -%}
 {%- endfor %}
     ]
   },
   "links": {
-    "self": "/v1/library/traditions/{{ tid }}/",
-    "traditions": "/v1/library/traditions/",
-    "library": "/v1/library/",
-    "books": "/v1/library/books/"
+    "self": "/v1{{ lang_prefix }}/library/traditions/{{ tid }}/",
+    "traditions": "/v1{{ lang_prefix }}/library/traditions/",
+    "library": "/v1{{ lang_prefix }}/library/",
+    "books": "/v1{{ lang_prefix }}/library/books/"
   }
 }
 {%- else -%}

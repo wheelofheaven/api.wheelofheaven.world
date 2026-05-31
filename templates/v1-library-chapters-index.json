@@ -1,4 +1,6 @@
 {%- set slug = section.extra.book_slug | default(value=page.extra.book_slug) -%}
+{%- set lang = section.extra.lang | default(value=page.extra.lang) | default(value="en") -%}
+{%- set lang_prefix = section.extra.lang_prefix | default(value=page.extra.lang_prefix) | default(value="") -%}
 {%- set catalog = load_data(path="data/library/catalog.json") -%}
 {%- set_global book_entry = false -%}
 {%- for b in catalog.books -%}
@@ -14,25 +16,29 @@
   "kind": "ChapterList",
   "metadata": {
     "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
+    "language": "{{ lang }}",
     "slug": "{{ slug }}",
     "count": {% if book_meta and book_meta.chapterFiles %}{{ book_meta.chapterFiles | length }}{% else %}0{% endif %}
   },
   "data": [
 {%- if book_meta and book_meta.chapterFiles %}
 {%- for ch in book_meta.chapterFiles %}
+{%- set ch_title = "" -%}
+{%- if ch.i18n and ch.i18n[lang] -%}{%- set ch_title = ch.i18n[lang] -%}
+{%- elif ch.title -%}{%- set ch_title = ch.title -%}{%- endif -%}
     {
       "n": {{ ch.n }},
-      "title": {{ ch.title | default(value="") | json_encode() | safe }},
+      "title": {{ ch_title | json_encode | safe }},
       "paragraphs": {{ ch.paragraphs | default(value=0) }},
-      "url": "/v1/library/books/{{ slug }}/chapters/{{ ch.n }}"
+      "url": "/v1{{ lang_prefix }}/library/books/{{ slug }}/chapters/{{ ch.n }}"
     }{% if not loop.last %},{% endif %}
 {%- endfor %}
 {%- endif %}
   ],
   "links": {
-    "self": "/v1/library/books/{{ slug }}/chapters/",
-    "book": "/v1/library/books/{{ slug }}/",
-    "library": "/v1/library/"
+    "self": "/v1{{ lang_prefix }}/library/books/{{ slug }}/chapters/",
+    "book": "/v1{{ lang_prefix }}/library/books/{{ slug }}/",
+    "library": "/v1{{ lang_prefix }}/library/"
   }
 }
 {%- else -%}

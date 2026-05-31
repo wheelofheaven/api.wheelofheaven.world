@@ -1,36 +1,44 @@
-{% set catalog = load_data(path="data/library/catalog.json") -%}
+{%- set lang = section.extra.lang | default(value="en") -%}
+{%- set lang_prefix = section.extra.lang_prefix | default(value="") -%}
+{%- set catalog = load_data(path="data/library/catalog.json") -%}
 {
   "apiVersion": "v1",
   "kind": "BookList",
   "metadata": {
     "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
+    "language": "{{ lang }}",
     "count": {{ catalog.books | length }}
   },
   "data": [
 {%- for book in catalog.books %}
+{%- set title = book.slug -%}
+{%- if book.titles and book.titles[lang] -%}{%- set title = book.titles[lang] -%}
+{%- elif book.titles and book.titles.en -%}{%- set title = book.titles.en -%}{%- endif -%}
     {
       "slug": "{{ book.slug }}",
       "code": "{{ book.code }}",
+      "title": {{ title | json_encode | safe }},
       "tradition": "{{ book.tradition }}",
       "collection": "{{ book.collection | default(value="") }}",
       "primaryLang": "{{ book.primaryLang }}",
       "availableLangs": {{ book.availableLangs | default(value=[]) | json_encode() | safe }},
+      "completeLangs": {{ book.completeLangs | default(value=[]) | json_encode() | safe }},
       "chapters": {{ book.chapters | default(value=0) }},
       "paragraphs": {{ book.paragraphs | default(value=0) }},
       "status": "{{ book.status | default(value="unknown") }}",
       "links": {
-        "self": "/v1/library/books/{{ book.slug }}/",
-        "meta": "/v1/library/books/{{ book.slug }}/meta",
-        "chapters": "/v1/library/books/{{ book.slug }}/chapters/"
+        "self": "/v1{{ lang_prefix }}/library/books/{{ book.slug }}/",
+        "meta": "/v1{{ lang_prefix }}/library/books/{{ book.slug }}/meta",
+        "chapters": "/v1{{ lang_prefix }}/library/books/{{ book.slug }}/chapters/"
       }
     }{% if not loop.last %},{% endif %}
 {%- endfor %}
   ],
   "links": {
-    "self": "/v1/library/books/",
-    "library": "/v1/library/",
-    "traditions": "/v1/library/traditions/",
+    "self": "/v1{{ lang_prefix }}/library/books/",
+    "library": "/v1{{ lang_prefix }}/library/",
+    "traditions": "/v1{{ lang_prefix }}/library/traditions/",
     "schema": "/v1/schema/book/",
-    "alias": "/v1/books/"
+    "alias": "/v1{{ lang_prefix }}/books/"
   }
 }

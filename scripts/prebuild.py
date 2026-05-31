@@ -470,39 +470,83 @@ def process_sources() -> int:
     return count
 
 
-def process_library() -> int:
+def process_library(lang: str = DEFAULT_LANG) -> int:
     """Generate the library-prefixed content tree from data/library/catalog.json
-    and per-book chapter files.
+    and per-book chapter files, for one language.
 
     For every book in the catalog, emit:
-      content/v1/library/books/{slug}/_index.md          (Book detail section)
-      content/v1/library/books/{slug}/meta.md            (BookMeta page)
-      content/v1/library/books/{slug}/chapters/_index.md (ChapterList section)
-      content/v1/library/books/{slug}/chapters/{n}.md    (one per chapter)
+      content/v1{lang_dir}/library/books/{slug}/_index.md          (Book detail section)
+      content/v1{lang_dir}/library/books/{slug}/meta.md            (BookMeta page)
+      content/v1{lang_dir}/library/books/{slug}/chapters/_index.md (ChapterList section)
+      content/v1{lang_dir}/library/books/{slug}/chapters/{n}.md    (one per chapter)
 
     For every tradition in the catalog, emit:
-      content/v1/library/traditions/{slug}.md            (Tradition page)
+      content/v1{lang_dir}/library/traditions/{slug}.md            (Tradition page)
 
     The library-prefixed paths are canonical. The legacy /v1/books/,
     /v1/catalog/, /v1/traditions/ surfaces remain live as aliases.
+    For non-default languages, the tree is mirrored under /v1/{lang}/library/.
     """
     catalog_path = SRC_LIBRARY / "catalog.json"
     if not catalog_path.exists():
-        print("  library: catalog.json missing; skipping")
+        print(f"  [{lang}] library: catalog.json missing; skipping")
         return 0
     try:
         catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
     except json.JSONDecodeError as exc:
-        print(f"  library: catalog.json parse error: {exc}", file=sys.stderr)
+        print(f"  [{lang}] library: catalog.json parse error: {exc}", file=sys.stderr)
         return 0
 
-    books_root = OUT_CONTENT / "library" / "books"
-    traditions_root = OUT_CONTENT / "library" / "traditions"
+    lang_prefix = _lang_prefix(lang)
+    library_root = OUT_CONTENT / "library" if lang == DEFAULT_LANG else OUT_CONTENT / lang / "library"
+    books_root = library_root / "books"
+    traditions_root = library_root / "traditions"
     books_root.mkdir(parents=True, exist_ok=True)
     traditions_root.mkdir(parents=True, exist_ok=True)
 
+    # For non-default langs, emit the section _index.md stubs that bind
+    # /v1/{lang}/library, /v1/{lang}/library/books, and
+    # /v1/{lang}/library/traditions to their templates with lang extras.
+    if lang != DEFAULT_LANG:
+        (library_root / "_index.md").write_text(
+            "+++\n"
+            f'title = "Library ({lang})"\n'
+            'template = "v1-library-index.json"\n'
+            "transparent = true\n"
+            "\n"
+            "[extra]\n"
+            f'lang = "{lang}"\n'
+            f'lang_prefix = "{lang_prefix}"\n'
+            "+++\n",
+            encoding="utf-8",
+        )
+        (books_root / "_index.md").write_text(
+            "+++\n"
+            f'title = "Library Books ({lang})"\n'
+            'template = "v1-library-books-index.json"\n'
+            "transparent = true\n"
+            "\n"
+            "[extra]\n"
+            f'lang = "{lang}"\n'
+            f'lang_prefix = "{lang_prefix}"\n'
+            "+++\n",
+            encoding="utf-8",
+        )
+        (traditions_root / "_index.md").write_text(
+            "+++\n"
+            f'title = "Library Traditions ({lang})"\n'
+            'template = "v1-library-traditions-index.json"\n'
+            "transparent = true\n"
+            "\n"
+            "[extra]\n"
+            f'lang = "{lang}"\n'
+            f'lang_prefix = "{lang_prefix}"\n'
+            "+++\n",
+            encoding="utf-8",
+        )
+
     # Clean previously generated per-book directories (preserve the
-    # committed _index.md at the books-root level).
+    # committed _index.md at the books-root level for the English tree).
     for path in books_root.iterdir():
         if path.is_dir():
             # Wipe the subtree — it'll be regenerated below.
@@ -514,12 +558,17 @@ def process_library() -> int:
                     sub.rmdir()
             path.rmdir()
 
-    # Per-tradition pages.
+    # Per-tradition pages. For the default language we wipe any prior
+    # tradition stubs; for non-default langs the directory only contains
+    # the just-written _index.md plus our about-to-be-written stubs.
+    for path in traditions_root.glob("*.md"):
+        if path.name != "_index.md":
+            path.unlink()
     for tradition in catalog.get("traditions", []):
         tid = tradition.get("id")
         if not tid:
             continue
-        name = (tradition.get("name") or {}).get("en") or tid
+        name = (tradition.get("name") or {}).get(lang) or (tradition.get("name") or {}).get("en") or tid
         stub = (
             "+++\n"
             f"title = {_dumps(name)}\n"
@@ -527,6 +576,8 @@ def process_library() -> int:
             "\n"
             "[extra]\n"
             f'tradition_id = "{tid}"\n'
+            f'lang = "{lang}"\n'
+            f'lang_prefix = "{lang_prefix}"\n'
             "+++\n"
         )
         (traditions_root / f"{tid}.md").write_text(stub, encoding="utf-8")
@@ -537,12 +588,13 @@ def process_library() -> int:
         slug = book.get("slug")
         if not slug:
             continue
-        title = (book.get("titles") or {}).get("en") or slug
+        titles = book.get("titles") or {}
+        title = titles.get(lang) or titles.get("en") or slug
 
         book_dir = books_root / slug
         book_dir.mkdir(parents=True, exist_ok=True)
 
-        # Book detail section (URL: /v1/library/books/{slug}/).
+        # Book detail section (URL: /v1{lang_prefix}/library/books/{slug}/).
         book_index_md = (
             "+++\n"
             f"title = {_dumps(title)}\n"
@@ -551,11 +603,13 @@ def process_library() -> int:
             "\n"
             "[extra]\n"
             f'book_slug = "{slug}"\n'
+            f'lang = "{lang}"\n'
+            f'lang_prefix = "{lang_prefix}"\n'
             "+++\n"
         )
         (book_dir / "_index.md").write_text(book_index_md, encoding="utf-8")
 
-        # Book meta page (URL: /v1/library/books/{slug}/meta/).
+        # Book meta page (URL: /v1{lang_prefix}/library/books/{slug}/meta/).
         meta_md = (
             "+++\n"
             f"title = {_dumps(title + ' (meta)')}\n"
@@ -563,11 +617,13 @@ def process_library() -> int:
             "\n"
             "[extra]\n"
             f'book_slug = "{slug}"\n'
+            f'lang = "{lang}"\n'
+            f'lang_prefix = "{lang_prefix}"\n'
             "+++\n"
         )
         (book_dir / "meta.md").write_text(meta_md, encoding="utf-8")
 
-        # Chapters section (URL: /v1/library/books/{slug}/chapters/).
+        # Chapters section (URL: /v1{lang_prefix}/library/books/{slug}/chapters/).
         chapters_dir = book_dir / "chapters"
         chapters_dir.mkdir(parents=True, exist_ok=True)
         chapters_index_md = (
@@ -578,6 +634,8 @@ def process_library() -> int:
             "\n"
             "[extra]\n"
             f'book_slug = "{slug}"\n'
+            f'lang = "{lang}"\n'
+            f'lang_prefix = "{lang_prefix}"\n'
             "+++\n"
         )
         (chapters_dir / "_index.md").write_text(chapters_index_md, encoding="utf-8")
@@ -593,6 +651,8 @@ def process_library() -> int:
                 "[extra]\n"
                 f'book_slug = "{slug}"\n'
                 f"chapter = {n}\n"
+                f'lang = "{lang}"\n'
+                f'lang_prefix = "{lang_prefix}"\n'
                 "+++\n"
             )
             (chapters_dir / f"{n}.md").write_text(chapter_md, encoding="utf-8")
@@ -600,7 +660,7 @@ def process_library() -> int:
 
         book_count += 1
 
-    print(f"  library: {book_count} books, {chapter_count} chapter pages, "
+    print(f"  [{lang}] library: {book_count} books, {chapter_count} chapter pages, "
           f"{len(catalog.get('traditions', []))} traditions "
           f"-> {books_root.relative_to(ROOT)}/")
     return book_count
@@ -694,6 +754,9 @@ def main() -> int:
     process_sources()
     process_translations()
     process_library()
+    for lang in EXTRA_LANGS:
+        _ensure_lang_root_index(lang)
+        process_library(lang=lang)
     process_glossary()
 
     print("Prebuild complete.")
