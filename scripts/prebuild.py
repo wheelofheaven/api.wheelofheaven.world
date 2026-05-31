@@ -588,6 +588,12 @@ def process_library(lang: str = DEFAULT_LANG) -> int:
         slug = book.get("slug")
         if not slug:
             continue
+        # For non-default languages, only emit books that have translation
+        # coverage in {lang}. Per-language listings are honest about
+        # coverage; for the full corpus, hit the English tree.
+        available = book.get("availableLangs") or []
+        if lang != DEFAULT_LANG and lang not in available:
+            continue
         titles = book.get("titles") or {}
         title = titles.get(lang) or titles.get("en") or slug
 

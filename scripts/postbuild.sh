@@ -16,11 +16,11 @@ cd "$(dirname "$0")/.."
 
 echo "Postbuild: preparing public/ for Cloudflare Pages..."
 
-# Mirror every generated index.html as index.json for explicit-extension consumers.
-# (Keep the .html original so CF Pages' directory-index resolution still serves it.)
-find public -name "index.html" -print0 | while IFS= read -r -d '' html_file; do
-  cp "$html_file" "${html_file%.html}.json"
-done
+# Note: explicit-extension URLs like /v1/wiki/elohim/index.json are handled
+# by the /v1/*/index.json -> /v1/:splat/ 200 rewrite in _redirects below.
+# We no longer mirror the JSON content as a sibling file because that
+# doubles file count and bumps us against Cloudflare Pages' 20,000-file
+# deployment cap.
 
 # Top-level _headers: every served path returns application/json.
 cat > public/_headers << 'EOF'

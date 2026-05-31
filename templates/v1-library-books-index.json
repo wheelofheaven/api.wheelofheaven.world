@@ -1,19 +1,30 @@
 {%- set lang = section.extra.lang | default(value="en") -%}
 {%- set lang_prefix = section.extra.lang_prefix | default(value="") -%}
 {%- set catalog = load_data(path="data/library/catalog.json") -%}
+{%- set_global filtered_count = 0 -%}
+{%- for book in catalog.books -%}
+  {%- if lang == "en" or (book.availableLangs and lang in book.availableLangs) -%}
+    {%- set_global filtered_count = filtered_count + 1 -%}
+  {%- endif -%}
+{%- endfor -%}
 {
   "apiVersion": "v1",
   "kind": "BookList",
   "metadata": {
     "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
     "language": "{{ lang }}",
-    "count": {{ catalog.books | length }}
+    "count": {{ filtered_count }},
+    "totalBooks": {{ catalog.books | length }}
   },
   "data": [
-{%- for book in catalog.books %}
+{%- set_global first = true -%}
+{%- for book in catalog.books -%}
+{%- if lang == "en" or (book.availableLangs and lang in book.availableLangs) -%}
+{%- if not first %},{% endif -%}
+{%- set_global first = false -%}
 {%- set title = book.slug -%}
 {%- if book.titles and book.titles[lang] -%}{%- set title = book.titles[lang] -%}
-{%- elif book.titles and book.titles.en -%}{%- set title = book.titles.en -%}{%- endif -%}
+{%- elif book.titles and book.titles.en -%}{%- set title = book.titles.en -%}{%- endif %}
     {
       "slug": "{{ book.slug }}",
       "code": "{{ book.code }}",
@@ -31,7 +42,8 @@
         "meta": "/v1{{ lang_prefix }}/library/books/{{ book.slug }}/meta",
         "chapters": "/v1{{ lang_prefix }}/library/books/{{ book.slug }}/chapters/"
       }
-    }{% if not loop.last %},{% endif %}
+    }
+{%- endif -%}
 {%- endfor %}
   ],
   "links": {

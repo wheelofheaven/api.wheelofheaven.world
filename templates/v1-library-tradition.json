@@ -35,7 +35,7 @@
     "books": [
 {%- set_global first = true -%}
 {%- for book in catalog.books -%}
-  {%- if book.tradition == tid -%}
+  {%- if book.tradition == tid and (lang == "en" or (book.availableLangs and lang in book.availableLangs)) -%}
     {%- if not first %},{% endif -%}
     {%- set_global first = false -%}
     {%- set b_title = book.slug -%}
