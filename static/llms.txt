@@ -54,6 +54,7 @@ For specific endpoints, append path:
 
 ## Documentation
 
+- [AI & LLM Ingestion guide (docs site)](https://docs.wheelofheaven.world/ai-ingestion/): canonical reference for using the corpus with AI systems — quickstart, llms.txt + llms-full.txt, the API surface for agents, the curated `/v1/context/*` endpoints, library + bibliography extraction, RAG patterns, system-prompt templates, and attribution.
 - [API Reference (docs site)](https://docs.wheelofheaven.world/reference/api/): endpoint catalogue, envelope spec, enum + schema reference.
 - [Architecture overview (docs site)](https://docs.wheelofheaven.world/architecture/sites/api/): design principles, build pipeline, data sources.
 - [Source code (GitHub)](https://github.com/wheelofheaven/api.wheelofheaven.world).
