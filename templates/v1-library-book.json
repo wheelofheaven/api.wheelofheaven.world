@@ -28,7 +28,6 @@
     "slug": "{{ book_entry.slug }}",
     "code": "{{ book_entry.code }}",
     "title": {{ localized_title | json_encode | safe }},
-    "titles": {% if book_entry.titles %}{{ book_entry.titles | json_encode() | safe }}{% else %}{}{% endif %},
     "tradition": "{{ book_entry.tradition }}",
     "collection": "{{ book_entry.collection | default(value="") }}",
     "author": "{{ book_entry.author | default(value="") }}",

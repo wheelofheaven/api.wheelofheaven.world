@@ -21,9 +21,7 @@
       "id": "{{ tradition.id }}",
       "code": "{{ tradition.code | default(value="") }}",
       "name": {{ t_name | json_encode | safe }},
-      "names": {% if tradition.name %}{{ tradition.name | json_encode() | safe }}{% else %}{}{% endif %},
       "description": {{ t_desc | json_encode | safe }},
-      "descriptions": {% if tradition.description %}{{ tradition.description | json_encode() | safe }}{% else %}{}{% endif %},
       "order": {{ tradition.order | default(value=999) }},
       "icon": "{{ tradition.icon | default(value="") }}",
       "links": {

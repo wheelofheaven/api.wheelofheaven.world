@@ -24,7 +24,6 @@
     "bookCode": "{{ chapter.bookCode | default(value="") }}",
     "refId": "{{ chapter.refId | default(value="") }}",
     "title": {{ ch_title | json_encode | safe }},
-    "i18n": {% if chapter.i18n %}{{ chapter.i18n | json_encode | safe }}{% else %}{}{% endif %},
     "translation": {% if chapter.translation %}{{ chapter.translation | json_encode | safe }}{% else %}null{% endif %},
     "paragraphs": [
 {%- for p in chapter.paragraphs %}
@@ -36,8 +35,7 @@
         {% if p.speaker %}"speaker": {{ p.speaker | json_encode | safe }},
         {% endif %}"refId": {{ p.refId | default(value="") | json_encode | safe }},
         {% if p.verseRef %}"verseRef": {{ p.verseRef | json_encode | safe }},
-        {% endif %}"text": {{ text | json_encode | safe }},
-        "i18n": {% if p.i18n %}{{ p.i18n | json_encode | safe }}{% else %}{}{% endif %}
+        {% endif %}"text": {{ text | json_encode | safe }}
       }{% if not loop.last %},{% endif %}
 {%- endfor %}
     ]

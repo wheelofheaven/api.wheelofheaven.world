@@ -27,9 +27,7 @@
     "id": "{{ tradition_entry.id }}",
     "code": "{{ tradition_entry.code | default(value="") }}",
     "name": {{ t_name | json_encode | safe }},
-    "names": {% if tradition_entry.name %}{{ tradition_entry.name | json_encode() | safe }}{% else %}{}{% endif %},
     "description": {{ t_desc | json_encode | safe }},
-    "descriptions": {% if tradition_entry.description %}{{ tradition_entry.description | json_encode() | safe }}{% else %}{}{% endif %},
     "order": {{ tradition_entry.order | default(value=999) }},
     "icon": "{{ tradition_entry.icon | default(value="") }}",
     "books": [
