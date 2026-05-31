@@ -470,6 +470,142 @@ def process_sources() -> int:
     return count
 
 
+def process_library() -> int:
+    """Generate the library-prefixed content tree from data/library/catalog.json
+    and per-book chapter files.
+
+    For every book in the catalog, emit:
+      content/v1/library/books/{slug}/_index.md          (Book detail section)
+      content/v1/library/books/{slug}/meta.md            (BookMeta page)
+      content/v1/library/books/{slug}/chapters/_index.md (ChapterList section)
+      content/v1/library/books/{slug}/chapters/{n}.md    (one per chapter)
+
+    For every tradition in the catalog, emit:
+      content/v1/library/traditions/{slug}.md            (Tradition page)
+
+    The library-prefixed paths are canonical. The legacy /v1/books/,
+    /v1/catalog/, /v1/traditions/ surfaces remain live as aliases.
+    """
+    catalog_path = SRC_LIBRARY / "catalog.json"
+    if not catalog_path.exists():
+        print("  library: catalog.json missing; skipping")
+        return 0
+    try:
+        catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        print(f"  library: catalog.json parse error: {exc}", file=sys.stderr)
+        return 0
+
+    books_root = OUT_CONTENT / "library" / "books"
+    traditions_root = OUT_CONTENT / "library" / "traditions"
+    books_root.mkdir(parents=True, exist_ok=True)
+    traditions_root.mkdir(parents=True, exist_ok=True)
+
+    # Clean previously generated per-book directories (preserve the
+    # committed _index.md at the books-root level).
+    for path in books_root.iterdir():
+        if path.is_dir():
+            # Wipe the subtree — it'll be regenerated below.
+            for sub in path.rglob("*"):
+                if sub.is_file():
+                    sub.unlink()
+            for sub in sorted(path.rglob("*"), reverse=True):
+                if sub.is_dir():
+                    sub.rmdir()
+            path.rmdir()
+
+    # Per-tradition pages.
+    for tradition in catalog.get("traditions", []):
+        tid = tradition.get("id")
+        if not tid:
+            continue
+        name = (tradition.get("name") or {}).get("en") or tid
+        stub = (
+            "+++\n"
+            f"title = {_dumps(name)}\n"
+            f'template = "v1-library-tradition.json"\n'
+            "\n"
+            "[extra]\n"
+            f'tradition_id = "{tid}"\n'
+            "+++\n"
+        )
+        (traditions_root / f"{tid}.md").write_text(stub, encoding="utf-8")
+
+    book_count = 0
+    chapter_count = 0
+    for book in catalog.get("books", []):
+        slug = book.get("slug")
+        if not slug:
+            continue
+        title = (book.get("titles") or {}).get("en") or slug
+
+        book_dir = books_root / slug
+        book_dir.mkdir(parents=True, exist_ok=True)
+
+        # Book detail section (URL: /v1/library/books/{slug}/).
+        book_index_md = (
+            "+++\n"
+            f"title = {_dumps(title)}\n"
+            'template = "v1-library-book.json"\n'
+            'transparent = true\n'
+            "\n"
+            "[extra]\n"
+            f'book_slug = "{slug}"\n'
+            "+++\n"
+        )
+        (book_dir / "_index.md").write_text(book_index_md, encoding="utf-8")
+
+        # Book meta page (URL: /v1/library/books/{slug}/meta/).
+        meta_md = (
+            "+++\n"
+            f"title = {_dumps(title + ' (meta)')}\n"
+            'template = "v1-library-book-meta.json"\n'
+            "\n"
+            "[extra]\n"
+            f'book_slug = "{slug}"\n'
+            "+++\n"
+        )
+        (book_dir / "meta.md").write_text(meta_md, encoding="utf-8")
+
+        # Chapters section (URL: /v1/library/books/{slug}/chapters/).
+        chapters_dir = book_dir / "chapters"
+        chapters_dir.mkdir(parents=True, exist_ok=True)
+        chapters_index_md = (
+            "+++\n"
+            f"title = {_dumps(title + ' (chapters)')}\n"
+            'template = "v1-library-chapters-index.json"\n'
+            'transparent = true\n'
+            "\n"
+            "[extra]\n"
+            f'book_slug = "{slug}"\n'
+            "+++\n"
+        )
+        (chapters_dir / "_index.md").write_text(chapters_index_md, encoding="utf-8")
+
+        # Per-chapter pages.
+        n_chapters = int(book.get("chapters") or 0)
+        for n in range(1, n_chapters + 1):
+            chapter_md = (
+                "+++\n"
+                f"title = {_dumps(title + ' c' + str(n))}\n"
+                'template = "v1-library-chapter.json"\n'
+                "\n"
+                "[extra]\n"
+                f'book_slug = "{slug}"\n'
+                f"chapter = {n}\n"
+                "+++\n"
+            )
+            (chapters_dir / f"{n}.md").write_text(chapter_md, encoding="utf-8")
+            chapter_count += 1
+
+        book_count += 1
+
+    print(f"  library: {book_count} books, {chapter_count} chapter pages, "
+          f"{len(catalog.get('traditions', []))} traditions "
+          f"-> {books_root.relative_to(ROOT)}/")
+    return book_count
+
+
 def process_glossary() -> int:
     """Copy data/content/i18n/glossary.json + per-term stubs."""
     src = SRC_CONTENT / "i18n" / "glossary.json"
@@ -557,6 +693,7 @@ def main() -> int:
     process_traditions()
     process_sources()
     process_translations()
+    process_library()
     process_glossary()
 
     print("Prebuild complete.")

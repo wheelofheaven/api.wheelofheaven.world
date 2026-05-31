@@ -1,0 +1,47 @@
+{%- set slug = section.extra.book_slug | default(value=page.extra.book_slug) -%}
+{%- set catalog = load_data(path="data/library/catalog.json") -%}
+{%- set_global book_entry = false -%}
+{%- for b in catalog.books -%}
+  {%- if b.slug == slug -%}
+    {%- set_global book_entry = b -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- set meta_path = "data/library/" ~ slug ~ "/_meta.json" -%}
+{%- set book_meta = load_data(path=meta_path, required=false) -%}
+{%- if book_entry -%}
+{
+  "apiVersion": "v1",
+  "kind": "ChapterList",
+  "metadata": {
+    "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
+    "slug": "{{ slug }}",
+    "count": {% if book_meta and book_meta.chapterFiles %}{{ book_meta.chapterFiles | length }}{% else %}0{% endif %}
+  },
+  "data": [
+{%- if book_meta and book_meta.chapterFiles %}
+{%- for ch in book_meta.chapterFiles %}
+    {
+      "n": {{ ch.n }},
+      "title": {{ ch.title | default(value="") | json_encode() | safe }},
+      "paragraphs": {{ ch.paragraphs | default(value=0) }},
+      "url": "/v1/library/books/{{ slug }}/chapters/{{ ch.n }}"
+    }{% if not loop.last %},{% endif %}
+{%- endfor %}
+{%- endif %}
+  ],
+  "links": {
+    "self": "/v1/library/books/{{ slug }}/chapters/",
+    "book": "/v1/library/books/{{ slug }}/",
+    "library": "/v1/library/"
+  }
+}
+{%- else -%}
+{
+  "apiVersion": "v1",
+  "kind": "Error",
+  "error": {
+    "code": 404,
+    "message": "Book not found: {{ slug }}"
+  }
+}
+{%- endif -%}

@@ -1,0 +1,31 @@
+{% set catalog = load_data(path="data/library/catalog.json") -%}
+{
+  "apiVersion": "v1",
+  "kind": "TraditionList",
+  "metadata": {
+    "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
+    "count": {{ catalog.traditions | length }}
+  },
+  "data": [
+{%- for tradition in catalog.traditions %}
+    {
+      "id": "{{ tradition.id }}",
+      "code": "{{ tradition.code | default(value="") }}",
+      "name": {% if tradition.name %}{{ tradition.name | json_encode() | safe }}{% else %}{}{% endif %},
+      "description": {% if tradition.description %}{{ tradition.description | json_encode() | safe }}{% else %}{}{% endif %},
+      "order": {{ tradition.order | default(value=999) }},
+      "icon": "{{ tradition.icon | default(value="") }}",
+      "links": {
+        "self": "/v1/library/traditions/{{ tradition.id }}/",
+        "alias": "/v1/traditions/"
+      }
+    }{% if not loop.last %},{% endif %}
+{%- endfor %}
+  ],
+  "links": {
+    "self": "/v1/library/traditions/",
+    "library": "/v1/library/",
+    "books": "/v1/library/books/",
+    "alias": "/v1/traditions/"
+  }
+}

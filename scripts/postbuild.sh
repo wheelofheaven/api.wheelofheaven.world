@@ -63,6 +63,18 @@ cat > public/_redirects << 'EOF'
 # (Both keep working; the directory form is canonical.)
 /v1/*/index.json /v1/:splat/ 200
 
+# Library URL canonicalisation. Bare /v1/books/ and /v1/traditions/ stay live
+# as alias *listings*, but per-item paths under them route to the
+# library-prefixed canonical pages. Per Decision 14, /v1/ URL permanence is
+# preserved via 301 to the canonical URL.
+/v1/books/:slug/meta /v1/library/books/:slug/meta 301
+/v1/books/:slug/chapters /v1/library/books/:slug/chapters/ 301
+/v1/books/:slug/chapters/:n /v1/library/books/:slug/chapters/:n 301
+/v1/books/:slug/ /v1/library/books/:slug/ 301
+/v1/books/:slug /v1/library/books/:slug/ 301
+/v1/traditions/:slug/ /v1/library/traditions/:slug/ 301
+/v1/traditions/:slug /v1/library/traditions/:slug/ 301
+
 # Trailing-slash normalisation (CF Pages also does this by default; keep explicit).
 EOF
 

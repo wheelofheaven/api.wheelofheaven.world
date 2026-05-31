@@ -1,4 +1,4 @@
-{%- set slug = page.extra.book_slug -%}
+{%- set slug = section.extra.book_slug | default(value=page.extra.book_slug) -%}
 {%- set catalog = load_data(path="data/library/catalog.json") -%}
 {%- set_global book_entry = false -%}
 {%- for b in catalog.books -%}
@@ -7,9 +7,11 @@
   {%- endif -%}
 {%- endfor -%}
 {%- if book_entry -%}
+{%- set meta_path = "data/library/" ~ slug ~ "/_meta.json" -%}
+{%- set book_meta = load_data(path=meta_path, required=false) -%}
 {
   "apiVersion": "v1",
-  "kind": "BookMeta",
+  "kind": "Book",
   "metadata": {
     "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
     "slug": "{{ slug }}"
@@ -28,15 +30,26 @@
     "chapters": {{ book_entry.chapters | default(value=0) }},
     "paragraphs": {{ book_entry.paragraphs | default(value=0) }},
     "status": "{{ book_entry.status | default(value="unknown") }}",
-    "tags": {% if book_entry.tags %}{{ book_entry.tags | json_encode() | safe }}{% else %}[]{% endif %}
+    "tags": {% if book_entry.tags %}{{ book_entry.tags | json_encode() | safe }}{% else %}[]{% endif %},
+    "chapterIndex": {% if book_meta and book_meta.chapterFiles %}[
+      {%- for ch in book_meta.chapterFiles %}
+      {
+        "n": {{ ch.n }},
+        "title": {{ ch.title | default(value="") | json_encode() | safe }},
+        "paragraphs": {{ ch.paragraphs | default(value=0) }},
+        "url": "/v1/library/books/{{ slug }}/chapters/{{ ch.n }}"
+      }{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    ]{% else %}[]{% endif %}
   },
   "links": {
-    "self": "/v1/books/{{ slug }}/meta",
-    "canonical": "/v1/library/books/{{ slug }}/meta",
-    "full": "/v1/library/books/{{ slug }}/",
+    "self": "/v1/library/books/{{ slug }}/",
+    "meta": "/v1/library/books/{{ slug }}/meta",
     "chapters": "/v1/library/books/{{ slug }}/chapters/",
     "library": "/v1/library/",
-    "catalog": "/v1/catalog"
+    "tradition": "/v1/library/traditions/{{ book_entry.tradition }}/",
+    "schema": "/v1/schema/book/",
+    "alias": "/v1/books/{{ slug }}/"
   }
 }
 {%- else -%}

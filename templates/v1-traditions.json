@@ -5,5 +5,10 @@
   "metadata": {
     "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}"
   },
-  "data": {{ catalog.traditions | json_encode(pretty=true) | safe }}
+  "data": {{ catalog.traditions | json_encode(pretty=true) | safe }},
+  "links": {
+    "self": "/v1/traditions/",
+    "canonical": "/v1/library/traditions/",
+    "library": "/v1/library/"
+  }
 }

@@ -35,7 +35,10 @@
   },
   "links": {
     "self": "/v1/books/{{ slug }}",
-    "meta": "/v1/books/{{ slug }}/meta",
+    "canonical": "/v1/library/books/{{ slug }}/",
+    "meta": "/v1/library/books/{{ slug }}/meta",
+    "chapters": "/v1/library/books/{{ slug }}/chapters/",
+    "library": "/v1/library/",
     "catalog": "/v1/catalog"
   }
 }

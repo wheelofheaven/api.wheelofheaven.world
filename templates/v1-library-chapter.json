@@ -1,0 +1,32 @@
+{%- set slug = page.extra.book_slug -%}
+{%- set chapter_n = page.extra.chapter -%}
+{%- set chapter_path = "data/library/" ~ slug ~ "/chapter-" ~ chapter_n ~ ".json" -%}
+{%- set chapter = load_data(path=chapter_path, required=false) -%}
+{%- if chapter -%}
+{
+  "apiVersion": "v1",
+  "kind": "Chapter",
+  "metadata": {
+    "generated": "{{ now() | date(format="%Y-%m-%dT%H:%M:%SZ") }}",
+    "book": "{{ slug }}",
+    "chapter": {{ chapter_n }}
+  },
+  "data": {{ chapter | json_encode(pretty=true) | safe }},
+  "links": {
+    "self": "/v1/library/books/{{ slug }}/chapters/{{ chapter_n }}",
+    "book": "/v1/library/books/{{ slug }}/",
+    "chapters": "/v1/library/books/{{ slug }}/chapters/",
+    "library": "/v1/library/",
+    "schema": "/v1/schema/book/"
+  }
+}
+{%- else -%}
+{
+  "apiVersion": "v1",
+  "kind": "Error",
+  "error": {
+    "code": 404,
+    "message": "Chapter not found: {{ slug }} #{{ chapter_n }}"
+  }
+}
+{%- endif -%}

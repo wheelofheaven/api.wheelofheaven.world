@@ -19,6 +19,11 @@ public/
 /content/v1/glossary/*.md
 !/content/v1/glossary/_index.md
 
+# Library tree — per-book + per-chapter pages regenerated from data/library/.
+/content/v1/library/books/*/
+/content/v1/library/traditions/*.md
+!/content/v1/library/traditions/_index.md
+
 # Language mirror directories — entirely generated
 /content/v1/de/
 /content/v1/es/

@@ -19,8 +19,7 @@
       "paragraphs": {{ book.paragraphs | default(value=0) }},
       "status": "{{ book.status | default(value="unknown") }}",
       "links": {
-        "self": "/v1/books/{{ book.slug }}",
-        "canonical": "/v1/library/books/{{ book.slug }}/",
+        "self": "/v1/library/books/{{ book.slug }}/",
         "meta": "/v1/library/books/{{ book.slug }}/meta",
         "chapters": "/v1/library/books/{{ book.slug }}/chapters/"
       }
@@ -28,8 +27,10 @@
 {%- endfor %}
   ],
   "links": {
-    "self": "/v1/books/",
-    "canonical": "/v1/library/books/",
-    "library": "/v1/library/"
+    "self": "/v1/library/books/",
+    "library": "/v1/library/",
+    "traditions": "/v1/library/traditions/",
+    "schema": "/v1/schema/book/",
+    "alias": "/v1/books/"
   }
 }

@@ -31,12 +31,12 @@
     "tags": {% if book_entry.tags %}{{ book_entry.tags | json_encode() | safe }}{% else %}[]{% endif %}
   },
   "links": {
-    "self": "/v1/books/{{ slug }}/meta",
-    "canonical": "/v1/library/books/{{ slug }}/meta",
+    "self": "/v1/library/books/{{ slug }}/meta",
     "full": "/v1/library/books/{{ slug }}/",
     "chapters": "/v1/library/books/{{ slug }}/chapters/",
     "library": "/v1/library/",
-    "catalog": "/v1/catalog"
+    "schema": "/v1/schema/book/",
+    "alias": "/v1/books/{{ slug }}/meta"
   }
 }
 {%- else -%}
