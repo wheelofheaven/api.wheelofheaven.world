@@ -25,8 +25,10 @@
     "refId": "{{ chapter.refId | default(value="") }}",
     "title": {{ ch_title | json_encode | safe }},
     "translation": {% if chapter.translation %}{{ chapter.translation | json_encode | safe }}{% else %}null{% endif %},
+    "segments": {% if chapter.segments %}{{ chapter.segments | json_encode(pretty=true) | safe }}{% else %}[]{% endif %},
+    "lines": {% if chapter.lines %}{{ chapter.lines | json_encode(pretty=true) | safe }}{% else %}[]{% endif %},
     "paragraphs": [
-{%- for p in chapter.paragraphs %}
+{%- for p in chapter.paragraphs | default(value=[]) %}
 {%- set text = "" -%}
 {%- if p.i18n and p.i18n[lang] -%}{%- set text = p.i18n[lang] -%}
 {%- elif p.text -%}{%- set text = p.text -%}{%- endif -%}
