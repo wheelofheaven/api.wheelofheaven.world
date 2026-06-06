@@ -23,8 +23,62 @@
     "paragraphs": {"type": "integer"},
     "publicationYear": {"type": ["integer", "string"]},
     "schema": {"type": "array", "items": {"type": "string"}, "description": "Structure schema (e.g. ['book', 'chapters', 'verses'])."},
+    "chapterIndex": {
+      "type": "array",
+      "description": "Per-chapter navigation data. Paragraph books populate `paragraphs`; line/segment texts populate `lines` and `segments`.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "n": {"type": "integer"},
+          "title": {"type": "string"},
+          "paragraphs": {"type": "integer"},
+          "lines": {"type": "integer"},
+          "segments": {"type": "integer"},
+          "url": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
     "status": {"type": "string", "description": "Editorial status (stable, draft, planned, etc.)."},
     "licensing_status": {"type": "string", "enum": ["public_domain", "licensed", "fair_use_excerpt", "metadata_only", "unknown"]},
+    "version": {
+      "type": ["object", "null"],
+      "description": "Structured version and provenance metadata exported from data-library `_meta.json` when available.",
+      "properties": {
+        "schemaVersion": {"type": "integer"},
+        "title": {"type": "string"},
+        "shortTitle": {"type": "string"},
+        "type": {"type": "string", "enum": ["source-text", "translation", "curated-translation", "edition", "adaptation", "composite"]},
+        "language": {"type": "string"},
+        "sourceLanguage": {"type": "string"},
+        "refSystem": {"type": "string"},
+        "scope": {"type": "string"},
+        "license": {
+          "type": "object",
+          "properties": {
+            "status": {"type": "string", "enum": ["project-cc0", "public-domain", "licensed", "source-restricted", "mixed", "unknown"]},
+            "spdx": {"type": "string"},
+            "url": {"type": "string"},
+            "detail": {"type": "string"}
+          },
+          "additionalProperties": true
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "sourceRecordId": {"type": "string"},
+            "sourceUrl": {"type": "string"},
+            "baseText": {"type": "string"},
+            "method": {"type": "string"},
+            "citation": {"type": "string"},
+            "witnesses": {"type": "array", "items": {"type": "object"}}
+          },
+          "additionalProperties": true
+        },
+        "responsibility": {"type": "object"}
+      },
+      "additionalProperties": true
+    },
     "translation": {"type": "object", "description": "For -woh translations: track, version, sourceText, glossaryVersion, modelDrafts, reviewer, divergencesFromBase."}
   }
 }

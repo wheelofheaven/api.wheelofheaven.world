@@ -29,6 +29,10 @@ https://api.wheelofheaven.world
 | `/v1/books/{slug}/meta` | Book metadata only |
 | `/v1/search` | Lightweight search index |
 
+Book and book metadata responses include `data.version` when a
+`data-library` record defines structured version/provenance metadata in its
+`_meta.json`.
+
 ### Context Endpoints (for AI/LLM)
 
 The `/v1/context` endpoints provide structured context optimized for AI systems:

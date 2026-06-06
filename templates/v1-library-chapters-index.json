@@ -30,6 +30,8 @@
       "n": {{ ch.n }},
       "title": {{ ch_title | json_encode | safe }},
       "paragraphs": {{ ch.paragraphs | default(value=0) }},
+      "lines": {{ ch.lines | default(value=0) }},
+      "segments": {{ ch.segments | default(value=0) }},
       "url": "/v1{{ lang_prefix }}/library/books/{{ slug }}/chapters/{{ ch.n }}"
     }{% if not loop.last %},{% endif %}
 {%- endfor %}

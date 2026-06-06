@@ -9,6 +9,8 @@
   {%- endif -%}
 {%- endfor -%}
 {%- if book_entry -%}
+{%- set meta_path = "data/library/" ~ slug ~ "/_meta.json" -%}
+{%- set book_meta = load_data(path=meta_path, required=false) -%}
 {%- set localized_title = slug -%}
 {%- if book_entry.titles and book_entry.titles[lang] -%}{%- set localized_title = book_entry.titles[lang] -%}
 {%- elif book_entry.titles and book_entry.titles.en -%}{%- set localized_title = book_entry.titles.en -%}{%- endif -%}
@@ -36,7 +38,8 @@
     "chapters": {{ book_entry.chapters | default(value=0) }},
     "paragraphs": {{ book_entry.paragraphs | default(value=0) }},
     "status": "{{ book_entry.status | default(value="unknown") }}",
-    "tags": {% if book_entry.tags %}{{ book_entry.tags | json_encode() | safe }}{% else %}[]{% endif %}
+    "tags": {% if book_entry.tags %}{{ book_entry.tags | json_encode() | safe }}{% else %}[]{% endif %},
+    "version": {% if book_meta and book_meta.version %}{{ book_meta.version | json_encode(pretty=true) | safe }}{% else %}null{% endif %}
   },
   "links": {
     "self": "/v1{{ lang_prefix }}/library/books/{{ slug }}/meta",
