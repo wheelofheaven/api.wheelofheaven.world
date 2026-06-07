@@ -1,0 +1,5 @@
+{# API stub: inline citation marker. `text` is the display label; `title` is hover info. #}
+{%- set _id = id | default(value="") -%}
+{%- set _text = text | default(value="[" ~ _id ~ "]") -%}
+{%- set _title = title | default(value="") -%}
+<sup class="cite" data-cite-id="{{ _id }}"{% if _title %} title="{{ _title }}"{% endif %}>{{ _text }}</sup>

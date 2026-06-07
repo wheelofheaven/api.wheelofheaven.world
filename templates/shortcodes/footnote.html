@@ -1,0 +1,3 @@
+{# API stub: inline footnote marker. Footnote bodies live in frontmatter `footnotes[]` and are exposed via the `extra` field of the JSON payload. #}
+{%- set _id = id | default(value="") -%}
+<sup class="footnote" data-footnote-id="{{ _id }}">[{{ _id }}]</sup>

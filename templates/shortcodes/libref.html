@@ -1,0 +1,9 @@
+{# API stub: paired-tag inline library reference.
+   Body is the visible label (already in target lang). #}
+{%- set _book = book | default(value="") -%}
+{%- set _chapter = chapter | default(value=0) -%}
+{%- set _verse = verse | default(value=0) -%}
+{%- set _to_verse = to_verse | default(value=0) -%}
+{%- set _href = "/library/" ~ _book ~ "/" -%}
+{%- if _chapter and _verse -%}{%- set _href = _href ~ "#c" ~ _chapter ~ "p" ~ _verse -%}{%- endif -%}
+<a class="libref" href="{{ _href }}">{{ body | safe }}</a>

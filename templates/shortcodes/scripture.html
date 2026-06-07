@@ -1,0 +1,22 @@
+{# API stub: scripture quote. Both forms supported.
+
+   Inline:  {{ scripture(book=..., chapter=N, verse=N, english="...", hebrew="...", translit="...") }}
+   Paired:  {% scripture(book=..., chapter=N, verse=N) %}body{% end %}
+
+   `english`/body holds the target-lang gloss (the only lang-varying field).
+   `hebrew` and `translit` are source-script + romanisation, language-neutral —
+   they are the source text, not translations of it, so they stay. #}
+{%- set _book = book | default(value="") -%}
+{%- set _chapter = chapter | default(value=0) -%}
+{%- set _verse = verse | default(value=0) -%}
+{%- set _english = english | default(value="") -%}
+{%- set _hebrew = hebrew | default(value="") -%}
+{%- set _translit = translit | default(value="") -%}
+{%- set _href = "/library/" ~ _book ~ "/" -%}
+{%- if _chapter and _verse -%}{%- set _href = _href ~ "#c" ~ _chapter ~ "p" ~ _verse -%}{%- endif -%}
+{%- set _body_or_english = body | default(value=_english) -%}
+<blockquote class="scripture" data-source="{{ _href }}">
+  {%- if _hebrew %}<span class="scripture__source" lang="he">{{ _hebrew }}</span>{% endif -%}
+  {%- if _translit %}<span class="scripture__translit"><em>{{ _translit }}</em></span>{% endif -%}
+  {%- if _body_or_english %}<span class="scripture__gloss">{{ _body_or_english | safe }}</span>{% endif -%}
+</blockquote>

@@ -60,7 +60,7 @@ DEFAULT_LANG = "en"
 # Non-default languages with content directories in data/content/{lang}/.
 EXTRA_LANGS = ("de", "es", "fr", "ja", "ko", "ru", "zh", "zh-Hant", "he")
 
-FRONTMATTER_RE = re.compile(r"^\+\+\+\s*\n(.*?)\n\+\+\+\s*\n?", re.DOTALL)
+FRONTMATTER_RE = re.compile(r"^\s*\+\+\+\s*\n(.*?)\n\+\+\+\s*\n?", re.DOTALL)
 
 # Keys lifted from `[extra]` (or top-level) into the index entry.
 INDEX_KEYS = (
@@ -83,7 +83,7 @@ INDEX_KEYS = (
 
 
 def parse_toml_frontmatter(raw: str) -> tuple[dict, str]:
-    if not raw.startswith("+++"):
+    if not raw.lstrip().startswith("+++"):
         return {}, raw
     m = FRONTMATTER_RE.match(raw)
     if not m:

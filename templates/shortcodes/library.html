@@ -1,0 +1,13 @@
+{# API stub: paired-tag library quote.
+   Manual mode: path= + title=. Auto mode: book + chapter + verse.
+   Body is already in target lang. #}
+{%- set _path = path | default(value="") -%}
+{%- set _title = title | default(value="") -%}
+{%- set _book = book | default(value="") -%}
+{%- set _chapter = chapter | default(value=0) -%}
+{%- set _verse = verse | default(value=0) -%}
+{%- if not _path and _book -%}
+  {%- set _path = "/library/" ~ _book ~ "/" -%}
+  {%- if _chapter and _verse -%}{%- set _path = _path ~ "#c" ~ _chapter ~ "p" ~ _verse -%}{%- endif -%}
+{%- endif -%}
+<blockquote class="library-quote" data-source="{{ _path }}">{{ body | safe }}</blockquote>
