@@ -1,0 +1,6 @@
+{#- API stub: inline claim-type badge (direct|framework|inferred|speculative).
+    bifrost renders a translated coloured pill; the API emits a minimal typed
+    span (no i18n dependency). Inline form, no body:
+      {{ claim_badge(type="direct") }} -#}
+{%- set _type = type | default(value="") -%}
+<span class="claim-badge claim-badge--{{ _type }}" data-claim-type="{{ _type }}">{{ _type }}</span>

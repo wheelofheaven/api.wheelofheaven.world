@@ -1,0 +1,9 @@
+{#- API stub: diagram. bifrost inlines a localized theme-aware SVG; the API has
+    no diagram SVG assets, so emit a lightweight placeholder that preserves the
+    machine-useful fields — the diagram `name` (a consumer can fetch the real
+    SVG from the assets CDN) plus the `alt` description and `caption`.
+    Inline form, no body:  {{ diagram(name="…", alt="…", caption="…") }} -#}
+{%- set _name = name | default(value="") -%}
+{%- set _alt = alt | default(value="") -%}
+{%- set _caption = caption | default(value="") -%}
+<figure class="diagram" data-diagram="{{ _name }}"{% if _alt %} aria-label="{{ _alt }}"{% endif %}>{% if _caption %}<figcaption>{{ _caption }}</figcaption>{% endif %}</figure>
