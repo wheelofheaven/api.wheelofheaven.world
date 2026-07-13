@@ -1,0 +1,18 @@
+{%- set ego = load_data(path=page.extra.ego_path) -%}
+{
+  "apiVersion": "v1",
+  "kind": "GraphNode",
+  "metadata": {
+    "generated": "{{ now() | date(format='%Y-%m-%dT%H:%M:%SZ') }}",
+    "language": "en",
+    "schemaUrl": "/v1/schema/graph-node/",
+    "description": "Ego-network for a single content node: the node plus its outgoing and incoming typed edges and its immediate neighbours. For AI traversal of /v1/graph/."
+  },
+  "data": {{ ego | json_encode(pretty=true) | safe }},
+  "links": {
+    "self": {{ ego.node.graph_url | json_encode | safe }},
+    "node": {{ ego.node.url | json_encode | safe }},
+    "graph": "/v1/graph/",
+    "schema": "/v1/schema/graph-node/"
+  }
+}

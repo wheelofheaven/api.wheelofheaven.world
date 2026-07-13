@@ -18,6 +18,8 @@ public/
 !/content/v1/translations/_index.md
 /content/v1/glossary/*.md
 !/content/v1/glossary/_index.md
+# Content graph — section index + per-node ego pages, fully generated (G2).
+/content/v1/graph/
 
 # Library tree — per-book + per-chapter pages regenerated from data/library/.
 /content/v1/library/books/*/

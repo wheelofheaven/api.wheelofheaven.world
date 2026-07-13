@@ -1,0 +1,23 @@
+{# G1 (Decision 15 — see .claude/plans/strategy-distribution-2026.md §"The graph
+   / relatedness surface"). Turns a page's curated `see_also` blocks into typed
+   graph edges for the API `links.related` surface. `see_also` entries are
+   `{ title, path (e.g. "wiki/yahweh"), description }`; each becomes a typed
+   edge `{ slug, title, kind, type: "see_also", url }`. Empty input -> []. #}
+{# `p` is normalised to a language-relative path: leading/trailing slashes are
+   stripped, and a redundant leading language segment is removed if present
+   (some translated source files author see_also as "/de/wiki/x/" instead of the
+   convention "wiki/x" — e.g. de/wiki/eden.md, */wiki/great-year.md,
+   */wiki/precession.md; see .claude/plans strategy notes). lang_prefix re-adds
+   the correct one, so this keeps the URL and kind correct regardless. #}
+{% macro related_from_see_also(see_also, lang_prefix="") -%}
+[
+{%- for s in see_also -%}
+{%- set p = s.path | trim_start_matches(pat="/") | trim_end_matches(pat="/") | trim_start_matches(pat="zh-Hant/") | trim_start_matches(pat="en/") | trim_start_matches(pat="de/") | trim_start_matches(pat="es/") | trim_start_matches(pat="fr/") | trim_start_matches(pat="ja/") | trim_start_matches(pat="ko/") | trim_start_matches(pat="ru/") | trim_start_matches(pat="zh/") | trim_start_matches(pat="he/") -%}
+{%- set segs = p | split(pat="/") -%}
+{%- set section = segs | first -%}
+{%- set url = "/v1" ~ lang_prefix ~ "/" ~ p ~ "/" -%}
+{"slug": {{ segs | last | json_encode | safe }}, "title": {{ s.title | default(value="") | json_encode | safe }}, "kind": "{% if section == "wiki" %}WikiEntry{% elif section == "articles" %}Article{% elif section == "timeline" %}TimelineEntry{% elif section == "news" %}NewsArticle{% elif section == "library" %}Book{% elif section == "sources" %}Source{% else %}Resource{% endif %}", "type": "see_also", "url": {{ url | json_encode | safe }} }
+{%- if not loop.last -%},{%- endif -%}
+{%- endfor -%}
+]
+{%- endmacro related_from_see_also %}

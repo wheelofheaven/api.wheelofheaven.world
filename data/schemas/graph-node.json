@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.wheelofheaven.world/v1/schema/graph-node/",
+  "title": "GraphNode",
+  "description": "Ego-network for a single content node: the node plus its outgoing and incoming typed edges and its immediate neighbours. Returned by /v1/graph/{section}/{slug}/.",
+  "type": "object",
+  "required": ["node", "out", "in", "neighbors"],
+  "properties": {
+    "generated": {"type": "string", "format": "date-time"},
+    "language": {"type": "string"},
+    "node": {"$ref": "https://api.wheelofheaven.world/v1/schema/content-graph/#/$defs/node"},
+    "out": {"type": "array", "items": {"$ref": "https://api.wheelofheaven.world/v1/schema/content-graph/#/$defs/edge"}, "description": "Edges where this node is the source."},
+    "in": {"type": "array", "items": {"$ref": "https://api.wheelofheaven.world/v1/schema/content-graph/#/$defs/edge"}, "description": "Edges where this node is the target."},
+    "neighbors": {
+      "type": "array",
+      "description": "Unique adjacent nodes (summary form).",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string"},
+          "title": {"type": "string"},
+          "kind": {"type": "string"},
+          "url": {"type": "string"},
+          "graph_url": {"type": "string"}
+        }
+      }
+    }
+  }
+}

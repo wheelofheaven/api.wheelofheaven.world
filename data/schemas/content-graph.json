@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.wheelofheaven.world/v1/schema/content-graph/",
+  "title": "ContentGraph",
+  "description": "Typed relatedness graph over the English content corpus (wiki, articles, timeline, news). A denormalised projection of the per-resource links.related surface. Returned by /v1/graph/.",
+  "type": "object",
+  "required": ["nodes", "edges", "stats"],
+  "properties": {
+    "generated": {"type": "string", "format": "date-time"},
+    "language": {"type": "string"},
+    "stats": {
+      "type": "object",
+      "properties": {
+        "nodes": {"type": "integer"},
+        "edges": {"type": "integer"},
+        "nodes_by_kind": {"type": "object"},
+        "edges_by_type": {"type": "object"},
+        "orphans": {"type": "integer"},
+        "asymmetric_see_also": {"type": "integer"},
+        "dangling_links": {"type": "integer"}
+      }
+    },
+    "nodes": {"type": "array", "items": {"$ref": "#/$defs/node"}},
+    "edges": {"type": "array", "items": {"$ref": "#/$defs/edge"}},
+    "qa": {
+      "type": "object",
+      "description": "Editorial dividend: structural issues the graph build surfaces.",
+      "properties": {
+        "orphans": {"type": "array", "items": {"type": "string"}, "description": "Node ids with zero edges (in or out)."},
+        "asymmetric_see_also": {
+          "type": "array",
+          "items": {"type": "object", "properties": {"from": {"type": "string"}, "to": {"type": "string"}}},
+          "description": "A has see_also->B but B has no see_also->A."
+        },
+        "dangling": {
+          "type": "array",
+          "items": {"type": "object", "properties": {"source": {"type": "string"}, "path": {"type": "string"}, "reason": {"type": "string", "enum": ["internal_missing", "external"]}, "via": {"type": "string", "enum": ["see_also", "in_body"]}}},
+          "description": "Curated/in-body links whose target is a broken internal slug or points outside the content graph."
+        }
+      }
+    }
+  },
+  "$defs": {
+    "node": {
+      "type": "object",
+      "required": ["id", "section", "slug", "kind", "title", "url"],
+      "properties": {
+        "id": {"type": "string", "description": "Canonical node id, 'section/slug'."},
+        "section": {"type": "string", "enum": ["wiki", "articles", "timeline", "news"]},
+        "slug": {"type": "string"},
+        "kind": {"type": "string", "enum": ["WikiEntry", "Article", "TimelineEntry", "NewsArticle"]},
+        "title": {"type": "string"},
+        "url": {"type": "string", "description": "The content endpoint, /v1/{section}/{slug}/."},
+        "graph_url": {"type": "string", "description": "The ego-network endpoint, /v1/graph/{section}/{slug}/."},
+        "claim_type": {"type": "string"},
+        "category": {"type": "string"},
+        "degree": {"type": "object", "properties": {"out": {"type": "integer"}, "in": {"type": "integer"}, "total": {"type": "integer"}}}
+      }
+    },
+    "edge": {
+      "type": "object",
+      "required": ["source", "target", "type"],
+      "properties": {
+        "source": {"type": "string", "description": "Source node id."},
+        "target": {"type": "string", "description": "Target node id."},
+        "type": {"type": "string", "enum": ["see_also", "in_body"], "description": "Directed, typed edge. see_also = curated relatedness; in_body = prose cross-link."}
+      }
+    }
+  }
+}

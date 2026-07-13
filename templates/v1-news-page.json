@@ -1,3 +1,4 @@
+{%- import "macros/edges.html" as edges -%}
 {%- set slug = page.slug -%}
 {%- set lang = page.extra.lang | default(value="en") -%}
 {%- set lang_prefix = page.extra.lang_prefix | default(value="") -%}
@@ -27,6 +28,7 @@
     "self": "/v1{{ lang_prefix }}/news/{{ slug }}/",
     "canonical_html": "https://www.wheelofheaven.world{{ lang_prefix }}/news/{{ slug }}/",
     "index": "/v1{{ lang_prefix }}/news/",
-    "schema": "/v1/schema/dispatch/"
+    "schema": "/v1/schema/dispatch/",
+    "related": {{ edges::related_from_see_also(see_also=page.extra.see_also | default(value=[]) | concat(with=page.extra.canon_links | default(value=[])), lang_prefix=lang_prefix) | safe }}
   }
 }

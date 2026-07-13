@@ -16,7 +16,9 @@
       "tradition-hub",
       "concept-hub",
       "glossary-term",
-      "translation"
+      "translation",
+      "content-graph",
+      "graph-node"
     ]
   },
   "links": {
@@ -30,6 +32,8 @@
     "tradition-hub": "/v1/schema/tradition-hub/",
     "concept-hub": "/v1/schema/concept-hub/",
     "glossary-term": "/v1/schema/glossary-term/",
-    "translation": "/v1/schema/translation/"
+    "translation": "/v1/schema/translation/",
+    "content-graph": "/v1/schema/content-graph/",
+    "graph-node": "/v1/schema/graph-node/"
   }
 }

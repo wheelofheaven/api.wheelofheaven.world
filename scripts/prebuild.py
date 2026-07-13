@@ -713,6 +713,221 @@ def process_glossary() -> int:
     return 1
 
 
+# ---------------------------------------------------------------------------
+# Content graph (Decision 15, G2 — see the wheelofheaven repo
+# .claude/plans/strategy-distribution-2026.md §"The graph / relatedness
+# surface"). Builds a typed graph over the English content nodes
+# (wiki/articles/timeline/news) from curated see_also/canon_links edges plus
+# in-body {% wiki(slug="...") %} cross-links, and emits:
+#   data/extracted/graph.json                     — the full graph (the dataset)
+#   data/extracted/graph_nodes/{sec}__{slug}.json — per-node ego networks
+#   content/v1/graph/ pages                        — /v1/graph/ + /v1/graph/{sec}/{slug}/
+# plus an orphan / asymmetric-see_also QA report (printed + embedded in data.qa).
+# ---------------------------------------------------------------------------
+
+GRAPH_SECTIONS = ("wiki", "articles", "timeline", "news")
+GRAPH_SECTION_KIND = {
+    "wiki": "WikiEntry",
+    "articles": "Article",
+    "timeline": "TimelineEntry",
+    "news": "NewsArticle",
+}
+_GRAPH_LANG_CODES = {"en", "de", "es", "fr", "ja", "ko", "ru", "zh", "zh-Hant", "he"}
+_WIKI_SHORTCODE_RE = re.compile(r'\{%\s*wiki\(\s*slug\s*=\s*"([a-z0-9-]+)"\s*\)\s*%\}')
+
+
+def _graph_resolve(path: str, nodes: dict) -> tuple[str | None, str]:
+    """Resolve a see_also/canon_link path to a node id.
+
+    Returns (node_id, status): 'ok' (internal, resolved), 'internal_missing'
+    (content section but unknown slug — a broken link), or 'external' (points
+    outside the content graph, e.g. library/sources). A redundant leading
+    language segment is tolerated (see project_see_also_langprefix_bug)."""
+    segs = [s for s in path.strip().strip("/").split("/") if s]
+    if segs and segs[0] in _GRAPH_LANG_CODES:
+        segs = segs[1:]
+    if len(segs) >= 2 and segs[0] in GRAPH_SECTIONS:
+        nid = f"{segs[0]}/{segs[1]}"
+        return (nid, "ok") if nid in nodes else (None, "internal_missing")
+    return (None, "external")
+
+
+def build_graph() -> None:
+    nodes: dict[str, dict] = {}
+    curated: dict[str, list] = {}
+    bodies: dict[str, str] = {}
+
+    for section in GRAPH_SECTIONS:
+        d = SRC_CONTENT / section
+        if not d.exists():
+            continue
+        for md in sorted(d.glob("*.md")):
+            if md.name == "_index.md":
+                continue
+            fm, body = parse_toml_frontmatter(md.read_text(encoding="utf-8"))
+            if not fm.get("title"):
+                continue
+            slug = fm.get("slug") or md.stem
+            nid = f"{section}/{slug}"
+            extra = fm.get("extra") or {}
+            nodes[nid] = {
+                "id": nid,
+                "section": section,
+                "slug": slug,
+                "kind": GRAPH_SECTION_KIND[section],
+                "title": fm.get("title", ""),
+                "url": f"/v1/{section}/{slug}/",
+                "graph_url": f"/v1/graph/{section}/{slug}/",
+                "claim_type": extra.get("claim_type", ""),
+                "category": extra.get("category", ""),
+            }
+            curated[nid] = list(extra.get("see_also") or []) + list(extra.get("canon_links") or [])
+            bodies[nid] = body
+
+    edges: list[dict] = []
+    seen: set = set()
+    dangling: list[dict] = []
+
+    def add_edge(s: str, t: str, ty: str) -> None:
+        key = (s, t, ty)
+        if key in seen or s == t:
+            return
+        seen.add(key)
+        edges.append({"source": s, "target": t, "type": ty})
+
+    for nid in nodes:
+        for item in curated.get(nid, []):
+            if not isinstance(item, dict):
+                continue
+            path = item.get("path")
+            if not path:
+                continue
+            tid, status = _graph_resolve(path, nodes)
+            if status == "ok":
+                add_edge(nid, tid, "see_also")
+            else:
+                dangling.append({"source": nid, "path": path, "reason": status, "via": "see_also"})
+        for m in _WIKI_SHORTCODE_RE.finditer(bodies.get(nid, "")):
+            tid = f"wiki/{m.group(1)}"
+            if tid in nodes:
+                add_edge(nid, tid, "in_body")
+            else:
+                dangling.append({"source": nid, "path": tid, "reason": "internal_missing", "via": "in_body"})
+
+    out_deg = {nid: 0 for nid in nodes}
+    in_deg = {nid: 0 for nid in nodes}
+    for e in edges:
+        out_deg[e["source"]] += 1
+        in_deg[e["target"]] += 1
+    for nid, n in nodes.items():
+        n["degree"] = {"out": out_deg[nid], "in": in_deg[nid], "total": out_deg[nid] + in_deg[nid]}
+
+    see_pairs = {(e["source"], e["target"]) for e in edges if e["type"] == "see_also"}
+    asymmetric = [{"from": s, "to": t} for (s, t) in sorted(see_pairs) if (t, s) not in see_pairs]
+    orphans = sorted(nid for nid in nodes if nodes[nid]["degree"]["total"] == 0)
+
+    by_kind: dict = {}
+    for n in nodes.values():
+        by_kind[n["kind"]] = by_kind.get(n["kind"], 0) + 1
+    by_type: dict = {}
+    for e in edges:
+        by_type[e["type"]] = by_type.get(e["type"], 0) + 1
+
+    graph = {
+        "generated": now_iso(),
+        "language": DEFAULT_LANG,
+        "stats": {
+            "nodes": len(nodes),
+            "edges": len(edges),
+            "nodes_by_kind": by_kind,
+            "edges_by_type": by_type,
+            "orphans": len(orphans),
+            "asymmetric_see_also": len(asymmetric),
+            "dangling_links": len(dangling),
+        },
+        "nodes": sorted(nodes.values(), key=lambda n: n["id"]),
+        "edges": edges,
+        "qa": {
+            "orphans": orphans,
+            "asymmetric_see_also": asymmetric,
+            "dangling": sorted(dangling, key=lambda d: (d["source"], d["path"])),
+        },
+    }
+    write_json(OUT_DATA / "graph.json", graph)
+
+    ego_dir = OUT_DATA / "graph_nodes"
+    if ego_dir.exists():
+        for f in ego_dir.glob("*.json"):
+            f.unlink()
+    ego_dir.mkdir(parents=True, exist_ok=True)
+
+    adj_out: dict = {nid: [] for nid in nodes}
+    adj_in: dict = {nid: [] for nid in nodes}
+    for e in edges:
+        adj_out[e["source"]].append(e)
+        adj_in[e["target"]].append(e)
+
+    def _summary(nid: str) -> dict:
+        n = nodes[nid]
+        return {"id": n["id"], "title": n["title"], "kind": n["kind"],
+                "url": n["url"], "graph_url": n["graph_url"]}
+
+    for nid, n in nodes.items():
+        neighbor_ids = {e["target"] for e in adj_out[nid]} | {e["source"] for e in adj_in[nid]}
+        ego = {
+            "generated": now_iso(),
+            "language": DEFAULT_LANG,
+            "node": n,
+            "out": adj_out[nid],
+            "in": adj_in[nid],
+            "neighbors": [_summary(x) for x in sorted(neighbor_ids)],
+        }
+        write_json(ego_dir / f'{n["section"]}__{n["slug"]}.json', ego)
+
+    _generate_graph_pages(nodes)
+
+    print(f"  graph: {len(nodes)} nodes, {len(edges)} edges "
+          f"({', '.join(f'{k}:{v}' for k, v in sorted(by_type.items()))}) -> content/v1/graph/")
+    print(f"  graph QA: {len(orphans)} orphans, {len(asymmetric)} asymmetric see_also, "
+          f"{len(dangling)} dangling links")
+    if orphans:
+        shown = ", ".join(orphans[:12])
+        print(f"    orphans: {shown}{' …' if len(orphans) > 12 else ''}")
+
+
+def _generate_graph_pages(nodes: dict) -> None:
+    graph_dir = OUT_CONTENT / "graph"
+    graph_dir.mkdir(parents=True, exist_ok=True)
+    for f in graph_dir.glob("*.md"):
+        f.unlink()
+
+    (graph_dir / "_index.md").write_text(
+        "+++\n"
+        'title = "Content Graph"\n'
+        'template = "v1-graph-index.json"\n'
+        "\n"
+        "[extra]\n"
+        'lang = "en"\n'
+        "+++\n",
+        encoding="utf-8",
+    )
+
+    for nid, n in sorted(nodes.items()):
+        section, slug = n["section"], n["slug"]
+        page = (
+            "+++\n"
+            f"title = {_dumps('graph:' + nid)}\n"
+            'template = "v1-graph-node.json"\n'
+            f'path = "v1/graph/{section}/{slug}"\n'
+            "\n"
+            "[extra]\n"
+            'lang = "en"\n'
+            f'ego_path = "data/extracted/graph_nodes/{section}__{slug}.json"\n'
+            "+++\n"
+        )
+        (graph_dir / f"node-{section}-{slug}.md").write_text(page, encoding="utf-8")
+
+
 _SECTION_SPECS = (
     # (kind, src_subdir, page_template, sort_by, title)
     ("wiki", "wiki", "v1-wiki-page.json", "title", "Wiki"),
@@ -764,6 +979,7 @@ def main() -> int:
         _ensure_lang_root_index(lang)
         process_library(lang=lang)
     process_glossary()
+    build_graph()
 
     print("Prebuild complete.")
     return 0

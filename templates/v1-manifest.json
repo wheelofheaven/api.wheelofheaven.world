@@ -38,6 +38,10 @@
       "search": {
         "search_index": "/v1/search/"
       },
+      "graph": {
+        "content_graph": "/v1/graph/",
+        "node_ego_network": "/v1/graph/{section}/{slug}/"
+      },
       "context": {
         "overview": "/v1/context/",
         "hypothesis": "/v1/context/hypothesis/",

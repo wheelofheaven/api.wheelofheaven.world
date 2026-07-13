@@ -1,0 +1,18 @@
+{%- set g = load_data(path="data/extracted/graph.json") -%}
+{
+  "apiVersion": "v1",
+  "kind": "ContentGraph",
+  "metadata": {
+    "generated": {{ g.generated | json_encode | safe }},
+    "language": {{ g.language | default(value="en") | json_encode | safe }},
+    "schemaUrl": "/v1/schema/content-graph/",
+    "description": "Typed relatedness graph over the English content corpus (wiki, articles, timeline, news). Nodes are content resources; edges are typed (see_also | in_body). A denormalised projection of the per-resource links.related surface. CC0-1.0."
+  },
+  "data": {{ g | json_encode(pretty=true) | safe }},
+  "links": {
+    "self": "/v1/graph/",
+    "index": "/v1/",
+    "schema": "/v1/schema/content-graph/",
+    "website": "https://www.wheelofheaven.world/"
+  }
+}
