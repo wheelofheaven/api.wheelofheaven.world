@@ -40,7 +40,9 @@
       },
       "graph": {
         "content_graph": "/v1/graph/",
-        "node_ego_network": "/v1/graph/{section}/{slug}/"
+        "node_ego_network": "/v1/graph/{section}/{slug}/",
+        "dataset_json": "/v1/graph/content-graph.json",
+        "dataset_graphml": "/v1/graph/content-graph.graphml"
       },
       "context": {
         "overview": "/v1/context/",

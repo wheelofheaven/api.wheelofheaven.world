@@ -44,3 +44,6 @@ public/
 .DS_Store
 *.swp
 *.swo
+
+# Generated dataset downloads (G2)
+/static/v1/graph/

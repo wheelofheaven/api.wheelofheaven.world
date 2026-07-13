@@ -854,6 +854,7 @@ def build_graph() -> None:
         },
     }
     write_json(OUT_DATA / "graph.json", graph)
+    _write_graph_datasets(graph)
 
     ego_dir = OUT_DATA / "graph_nodes"
     if ego_dir.exists():
@@ -893,6 +894,65 @@ def build_graph() -> None:
     if orphans:
         shown = ", ".join(orphans[:12])
         print(f"    orphans: {shown}{' …' if len(orphans) > 12 else ''}")
+
+
+def _write_graph_datasets(graph: dict) -> None:
+    """Packaged, citable dataset downloads (Decision 15, G2). A self-describing
+    content-graph.json plus a GraphML twin, emitted as static files served at
+    /v1/graph/content-graph.{json,graphml}. Landing page + schema.org/Dataset
+    markup live on www at /datasets/content-graph/."""
+    dl_dir = ROOT / "static" / "v1" / "graph"
+    dl_dir.mkdir(parents=True, exist_ok=True)
+    dataset = {
+        "name": "Wheel of Heaven Content Graph",
+        "description": (
+            "A typed relatedness graph over the English Wheel of Heaven corpus "
+            "(wiki, articles, timeline, news). Nodes are content resources; edges "
+            "are typed (see_also = curated relatedness, in_body = prose cross-link)."
+        ),
+        "license": "CC0-1.0",
+        "landing_page": "https://www.wheelofheaven.world/datasets/content-graph/",
+        "api": "https://api.wheelofheaven.world/v1/graph/",
+        "schema": "https://api.wheelofheaven.world/v1/schema/content-graph/",
+        "generated": graph["generated"],
+        "language": graph["language"],
+        "stats": graph["stats"],
+        "nodes": graph["nodes"],
+        "edges": graph["edges"],
+        "qa": graph["qa"],
+    }
+    (dl_dir / "content-graph.json").write_text(
+        _dumps(dataset, indent=2, ensure_ascii=False), encoding="utf-8")
+    (dl_dir / "content-graph.graphml").write_text(_graphml(graph), encoding="utf-8")
+
+
+def _graphml(graph: dict) -> str:
+    """Render the graph as GraphML (for Gephi / network-analysis tools)."""
+    from xml.sax.saxutils import escape as _xml_escape
+
+    def esc(s: Any) -> str:
+        return _xml_escape(str(s), {'"': "&quot;"})
+
+    node_keys = ("title", "kind", "section", "claim_type", "category", "url")
+    out = ['<?xml version="1.0" encoding="UTF-8"?>',
+           '<graphml xmlns="http://graphml.graphdrawing.org/xmlns">']
+    for k in node_keys:
+        out.append(f'  <key id="{k}" for="node" attr.name="{k}" attr.type="string"/>')
+    out.append('  <key id="type" for="edge" attr.name="type" attr.type="string"/>')
+    out.append('  <graph edgedefault="directed">')
+    for n in graph["nodes"]:
+        out.append(f'    <node id="{esc(n["id"])}">')
+        for k in node_keys:
+            v = n.get(k)
+            if v:
+                out.append(f'      <data key="{k}">{esc(v)}</data>')
+        out.append("    </node>")
+    for i, e in enumerate(graph["edges"]):
+        out.append(f'    <edge id="e{i}" source="{esc(e["source"])}" '
+                   f'target="{esc(e["target"])}"><data key="type">{esc(e["type"])}</data></edge>')
+    out.append("  </graph>")
+    out.append("</graphml>")
+    return "\n".join(out) + "\n"
 
 
 def _generate_graph_pages(nodes: dict) -> None:
