@@ -52,7 +52,9 @@
         "theomachy_crossrefs_csv": "/v1/datasets/theomachy-crossrefs.csv",
         "theomachy_crossrefs_json": "/v1/datasets/theomachy-crossrefs.json",
         "world_ages_csv": "/v1/datasets/world-ages.csv",
-        "world_ages_json": "/v1/datasets/world-ages.json"
+        "world_ages_json": "/v1/datasets/world-ages.json",
+        "prophets_and_religions_csv": "/v1/datasets/prophets-and-religions.csv",
+        "prophets_and_religions_json": "/v1/datasets/prophets-and-religions.json"
       },
       "context": {
         "overview": "/v1/context/",
