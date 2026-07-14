@@ -44,6 +44,10 @@
         "dataset_json": "/v1/graph/content-graph.json",
         "dataset_graphml": "/v1/graph/content-graph.graphml"
       },
+      "datasets": {
+        "flood_myths_csv": "/v1/datasets/flood-myths.csv",
+        "flood_myths_json": "/v1/datasets/flood-myths.json"
+      },
       "context": {
         "overview": "/v1/context/",
         "hypothesis": "/v1/context/hypothesis/",

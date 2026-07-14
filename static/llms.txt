@@ -13,6 +13,7 @@
 - [Enums](https://api.wheelofheaven.world/v1/enums/): controlled vocabularies — authority tier, source family, claim type, etc.
 - [Sitemap](https://api.wheelofheaven.world/sitemap.xml): every endpoint URL.
 - [Content graph](https://api.wheelofheaven.world/v1/graph/): the typed relatedness graph (nodes + `see_also`/`in_body` edges) over the corpus, with an orphan / asymmetric-`see_also` QA block. Per-node ego-networks at `/v1/graph/{section}/{slug}/` for cheap AI traversal. Downloadable CC0 dataset: [content-graph.json](https://api.wheelofheaven.world/v1/graph/content-graph.json) + [GraphML](https://api.wheelofheaven.world/v1/graph/content-graph.graphml) (landing page: [www /datasets/content-graph/](https://www.wheelofheaven.world/datasets/content-graph/)).
+- [Flood-Myth Concordance](https://api.wheelofheaven.world/v1/datasets/flood-myths.json): a comparative CC0 dataset of 8 ancient flood traditions (survivor, decreeing power, warner, cause, vessel, birds, landing, aftermath) as [JSON](https://api.wheelofheaven.world/v1/datasets/flood-myths.json) + [CSV](https://api.wheelofheaven.world/v1/datasets/flood-myths.csv) (landing page: [www /datasets/flood-myths/](https://www.wheelofheaven.world/datasets/flood-myths/)).
 
 ## For AI agents
 
