@@ -1,0 +1,152 @@
+{
+  "name": "Wheel of Heaven Precessional World Ages",
+  "description": "The twelve precessional World Ages (the “Great Year” of the equinoxes) as reckoned by the Wheel of Heaven corpus: for each age, its zodiac sign and symbol, its start and end year, the Genesis “day” the corpus maps it to (where applicable), and a one-line summary — with a link to the full timeline entry. CC0 public domain.",
+  "license": "CC0-1.0",
+  "landing_page": "https://www.wheelofheaven.world/datasets/world-ages/",
+  "columns": [
+    "id",
+    "age",
+    "zodiac",
+    "symbol",
+    "start_year",
+    "end_year",
+    "genesis_day",
+    "url",
+    "summary"
+  ],
+  "count": 12,
+  "rows": [
+    {
+      "id": "age-of-capricorn",
+      "age": "Age of Capricorn",
+      "zodiac": "Capricorn",
+      "symbol": "♑",
+      "start_year": "-21810",
+      "end_year": "-19650",
+      "genesis_day": 1,
+      "url": "https://www.wheelofheaven.world/timeline/age-of-capricorn/",
+      "summary": "The first age of the Great Year, when the Elohim scientists arrived at a formless, water-covered Earth, surveyed it from orbit, and laid the groundwork for a multi-millennial project of creation."
+    },
+    {
+      "id": "age-of-sagittarius",
+      "age": "Age of Sagittarius",
+      "zodiac": "Sagittarius",
+      "symbol": "♐",
+      "start_year": "-19650",
+      "end_year": "-17490",
+      "genesis_day": 2,
+      "url": "https://www.wheelofheaven.world/timeline/age-of-sagittarius/",
+      "summary": "The second age of the Great Year, when the Elohim separated the atmospheric waters from the ocean, cleared the sky, and raised the first continent from the seabed."
+    },
+    {
+      "id": "age-of-scorpio",
+      "age": "Age of Scorpio",
+      "zodiac": "Scorpio",
+      "symbol": "♏",
+      "start_year": "-17490",
+      "end_year": "-15330",
+      "genesis_day": 3,
+      "url": "https://www.wheelofheaven.world/timeline/age-of-scorpio/",
+      "summary": "The third age of the Great Year, when the first life appears on Earth — plant cells synthesized from chemistry, designed by teams of scientists and artists, establishing the foundation of the biosphere."
+    },
+    {
+      "id": "age-of-libra",
+      "age": "Age of Libra",
+      "zodiac": "Libra",
+      "symbol": "♎",
+      "start_year": "-15330",
+      "end_year": "-13170",
+      "genesis_day": 4,
+      "url": "https://www.wheelofheaven.world/timeline/age-of-libra/",
+      "summary": "The fourth age of the Great Year, when the Elohim formalize their relationship to the sky — calibrating local time, mapping the constellations, and building the astronomical infrastructure the project requires."
+    },
+    {
+      "id": "age-of-virgo",
+      "age": "Age of Virgo",
+      "zodiac": "Virgo",
+      "symbol": "♍",
+      "start_year": "-13170",
+      "end_year": "-11010",
+      "genesis_day": 5,
+      "url": "https://www.wheelofheaven.world/timeline/age-of-virgo/",
+      "summary": "The fifth age of the Great Year, when the first animal life appears — fish in the ocean, birds in the air, and the great tanninim (dragons/dinosaurs) on the land, establishing the moving world."
+    },
+    {
+      "id": "age-of-leo",
+      "age": "Age of Leo",
+      "zodiac": "Leo",
+      "symbol": "♌",
+      "start_year": "-11010",
+      "end_year": "-8850",
+      "genesis_day": 6,
+      "url": "https://www.wheelofheaven.world/timeline/age-of-leo/",
+      "summary": "The sixth age of the Great Year, when the creation program reaches its culmination — land animals, then human beings made in the image of their makers by seven factional teams, and the founding of the Garden of Eden."
+    },
+    {
+      "id": "age-of-cancer",
+      "age": "Age of Cancer",
+      "zodiac": "Cancer",
+      "symbol": "♋",
+      "start_year": "-8850",
+      "end_year": "-6690",
+      "genesis_day": 7,
+      "url": "https://www.wheelofheaven.world/timeline/age-of-cancer/",
+      "summary": "The seventh age of the Great Year — the Day of Rest and its consequences. The Eden expulsion, Cain and Abel, the exiled creators mating with human women, the Nephilim, and the rise of a pre-flood civilization that will alarm the home world."
+    },
+    {
+      "id": "age-of-gemini",
+      "age": "Age of Gemini",
+      "zodiac": "Gemini",
+      "symbol": "♊",
+      "start_year": "-6690",
+      "end_year": "-4530",
+      "genesis_day": 8,
+      "url": "https://www.wheelofheaven.world/timeline/age-of-gemini/",
+      "summary": "The eighth age of the Great Year — the flood, the ark in orbit, the shattering of the supercontinent, the Noahic covenant as a formal alliance between exiled creators and human survivors, the Tower of Babel, and the war in heaven."
+    },
+    {
+      "id": "age-of-taurus",
+      "age": "Age of Taurus",
+      "zodiac": "Taurus",
+      "symbol": "♉",
+      "start_year": "-4530",
+      "end_year": "-2370",
+      "genesis_day": "",
+      "url": "https://www.wheelofheaven.world/timeline/age-of-taurus/",
+      "summary": "The ninth age of the Great Year — the pardon of the exiled creators, the rise of the post-flood civilizations, the vengeance movement at Sodom and Gomorrah, the Dead Sea as crater, Abraham's loyalty test, and the worldwide bull-cult."
+    },
+    {
+      "id": "age-of-aries",
+      "age": "Age of Aries",
+      "zodiac": "Aries",
+      "symbol": "♈",
+      "start_year": "-2370",
+      "end_year": "-210",
+      "genesis_day": "",
+      "url": "https://www.wheelofheaven.world/timeline/age-of-aries/",
+      "summary": "The tenth age of the Great Year — Moses, the Exodus, the Law at Sinai, the horns of the ram-age prophet, the conquest of Canaan, the prophetic tradition, the Hebrews' failure to spread the message, the Council's cultivation of Persia and Greece, and the worldwide Axial Age preparation for Pisces."
+    },
+    {
+      "id": "age-of-pisces",
+      "age": "Age of Pisces",
+      "zodiac": "Pisces",
+      "symbol": "♓",
+      "start_year": "-210",
+      "end_year": "1950",
+      "genesis_day": "",
+      "url": "https://www.wheelofheaven.world/timeline/age-of-pisces/",
+      "summary": "The eleventh age of the Great Year — Jesus as alliance project, the fish-and-virgin doubled signature, Islam and the question of Petra, the medieval synthesis across all civilizations, the scientific revolution, and the late-Piscean prophetic movements preparing for Aquarius."
+    },
+    {
+      "id": "age-of-aquarius",
+      "age": "Age of Aquarius",
+      "zodiac": "Aquarius",
+      "symbol": "♒",
+      "start_year": "1950",
+      "end_year": "4110",
+      "genesis_day": "",
+      "url": "https://www.wheelofheaven.world/timeline/age-of-aquarius/",
+      "summary": "The twelfth and current age of the Great Year — the age of revelation, in which the accumulated content of all previous ages becomes legible to a humanity at last equipped to understand it. The 1946 threshold, the 1973 contact, the embassy project, the Golden Age, and humanity's eventual participation in the creation cycle."
+    }
+  ]
+}

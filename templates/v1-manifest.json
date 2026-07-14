@@ -50,7 +50,9 @@
         "divine_council_index_csv": "/v1/datasets/divine-council-index.csv",
         "divine_council_index_json": "/v1/datasets/divine-council-index.json",
         "theomachy_crossrefs_csv": "/v1/datasets/theomachy-crossrefs.csv",
-        "theomachy_crossrefs_json": "/v1/datasets/theomachy-crossrefs.json"
+        "theomachy_crossrefs_json": "/v1/datasets/theomachy-crossrefs.json",
+        "world_ages_csv": "/v1/datasets/world-ages.csv",
+        "world_ages_json": "/v1/datasets/world-ages.json"
       },
       "context": {
         "overview": "/v1/context/",
