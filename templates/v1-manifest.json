@@ -48,7 +48,9 @@
         "flood_myths_csv": "/v1/datasets/flood-myths.csv",
         "flood_myths_json": "/v1/datasets/flood-myths.json",
         "divine_council_index_csv": "/v1/datasets/divine-council-index.csv",
-        "divine_council_index_json": "/v1/datasets/divine-council-index.json"
+        "divine_council_index_json": "/v1/datasets/divine-council-index.json",
+        "theomachy_crossrefs_csv": "/v1/datasets/theomachy-crossrefs.csv",
+        "theomachy_crossrefs_json": "/v1/datasets/theomachy-crossrefs.json"
       },
       "context": {
         "overview": "/v1/context/",

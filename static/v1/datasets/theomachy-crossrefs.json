@@ -1,0 +1,117 @@
+{
+  "name": "Wheel of Heaven Theomachy Cross-References",
+  "description": "A cross-reference of the combat myth (chaoskampf) across the ancient traditions: a storm/order god defeating a chaos, sea, or dragon adversary. For each, the champion, the adversary, the form chaos takes, the weapon, the outcome, and the primary reference, with links to the digitized texts. CC0 public domain.",
+  "license": "CC0-1.0",
+  "landing_page": "https://www.wheelofheaven.world/datasets/theomachy-crossrefs/",
+  "columns": [
+    "id",
+    "tradition",
+    "source_text",
+    "reference",
+    "champion",
+    "adversary",
+    "chaos_form",
+    "weapon",
+    "outcome",
+    "woh_library"
+  ],
+  "count": 8,
+  "rows": [
+    {
+      "id": "babylonian-marduk-tiamat",
+      "tradition": "Babylonian (Akkadian)",
+      "source_text": "Enūma Eliš",
+      "reference": "Tablet IV",
+      "champion": "Marduk (storm / order god)",
+      "adversary": "Tiamat (and her champion Qingu)",
+      "chaos_form": "Primordial salt-sea",
+      "weapon": "The four winds, a net, bow, and mace",
+      "outcome": "Tiamat's body split to form sky and earth; Marduk enthroned as king",
+      "woh_library": ""
+    },
+    {
+      "id": "ugaritic-baal-yam",
+      "tradition": "Ugaritic (Canaanite)",
+      "source_text": "Baal Cycle",
+      "reference": "KTU 1.2; 1.5",
+      "champion": "Baal (the storm-god)",
+      "adversary": "Yam (Sea/Judge River); the serpent Lôtan (= Leviathan)",
+      "chaos_form": "Sea; seven-headed serpent",
+      "weapon": "The maces Yagrush and Ayamur (forged by Kothar-wa-Ḫasis)",
+      "outcome": "Yam defeated; Baal acclaimed king",
+      "woh_library": "https://www.wheelofheaven.world/library/baal-cycle-woh/"
+    },
+    {
+      "id": "hebrew-yahweh-leviathan",
+      "tradition": "Hebrew / Biblical",
+      "source_text": "Psalms, Isaiah, Job",
+      "reference": "Ps 74:13–14; Isa 27:1; 51:9–10; Job 26:12–13",
+      "champion": "Yahweh",
+      "adversary": "Leviathan (Lôtan), Rahab, Tannin, the Sea",
+      "chaos_form": "Sea-dragon / twisting serpent",
+      "weapon": "Yahweh's rebuke and might",
+      "outcome": "The chaos-monster crushed at creation, re-enacted at the Exodus — the combat demythologized into poetry",
+      "woh_library": "https://www.wheelofheaven.world/library/psalms/"
+    },
+    {
+      "id": "greek-zeus-typhon",
+      "tradition": "Greek",
+      "source_text": "Hesiod, Theogony",
+      "reference": "Theogony 820–880",
+      "champion": "Zeus",
+      "adversary": "Typhoeus (Typhon)",
+      "chaos_form": "Hundred-headed earth-born monster",
+      "weapon": "The thunderbolt",
+      "outcome": "Typhon blasted and hurled to Tartarus (later, beneath Mt. Etna)",
+      "woh_library": ""
+    },
+    {
+      "id": "vedic-indra-vritra",
+      "tradition": "Vedic / Hindu",
+      "source_text": "Rig Veda",
+      "reference": "RV 1.32; Book 10",
+      "champion": "Indra",
+      "adversary": "Vṛtra (the dragon, ahi)",
+      "chaos_form": "Dragon enclosing the waters",
+      "weapon": "The vajra (thunderbolt, forged by Tvaṣṭṛ)",
+      "outcome": "Vṛtra slain; the pent-up seven rivers released",
+      "woh_library": "https://www.wheelofheaven.world/library/rig-veda-book-10/"
+    },
+    {
+      "id": "hittite-stormgod-illuyanka",
+      "tradition": "Hittite / Anatolian",
+      "source_text": "Illuyanka Myth",
+      "reference": "CTH 321",
+      "champion": "The Storm-god (Tarḫunna)",
+      "adversary": "The serpent Illuyanka",
+      "chaos_form": "Serpent / dragon",
+      "weapon": "Aided by the goddess Inara and the mortal Ḫupašiya",
+      "outcome": "The serpent defeated (two versions); recited at the purulli festival",
+      "woh_library": ""
+    },
+    {
+      "id": "egyptian-ra-apophis",
+      "tradition": "Egyptian",
+      "source_text": "Coffin Texts / Book of the Dead",
+      "reference": "Spells against Apep",
+      "champion": "Ra (the sun), defended by Set",
+      "adversary": "Apep (Apophis)",
+      "chaos_form": "Chaos-serpent of the netherworld",
+      "weapon": "Knives and spears",
+      "outcome": "Apep repelled each night on the solar barque, but never finally destroyed",
+      "woh_library": ""
+    },
+    {
+      "id": "christian-michael-dragon",
+      "tradition": "Christian",
+      "source_text": "Revelation",
+      "reference": "Revelation 12:7–9",
+      "champion": "Michael and his angels",
+      "adversary": "The great dragon (the ancient serpent, the Devil)",
+      "chaos_form": "Seven-headed dragon",
+      "weapon": "",
+      "outcome": "The dragon defeated and cast down to the earth — the combat myth in eschatological key",
+      "woh_library": "https://www.wheelofheaven.world/library/revelation/"
+    }
+  ]
+}
