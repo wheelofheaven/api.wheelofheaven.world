@@ -1,0 +1,141 @@
+{
+  "name": "Wheel of Heaven Divine-Council Index",
+  "description": "An index of the divine council — the assembly of divine beings that governs and decides — across the ancient traditions: the presiding figure, the council term (in the original), the members, the function, and the primary reference, with links to the digitized texts. CC0 public domain.",
+  "license": "CC0-1.0",
+  "landing_page": "https://www.wheelofheaven.world/datasets/divine-council-index/",
+  "columns": [
+    "id",
+    "tradition",
+    "source_text",
+    "reference",
+    "council_term",
+    "presiding_figure",
+    "members",
+    "function",
+    "woh_library"
+  ],
+  "count": 11,
+  "rows": [
+    {
+      "id": "ugaritic-baal-cycle",
+      "tradition": "Ugaritic (Canaanite)",
+      "source_text": "Baal Cycle",
+      "reference": "KTU 1.1–1.6",
+      "council_term": "puḫru môʿidi / pḫr mʿd (“the assembled council”); bn ilm (“sons of El”)",
+      "presiding_figure": "El, the aged father of the gods",
+      "members": "The sons of El / the seventy sons of Athirat",
+      "function": "El presides while the assembly debates and confers kingship (Baal, Yam, Mot contend)",
+      "woh_library": "https://www.wheelofheaven.world/library/baal-cycle-woh/"
+    },
+    {
+      "id": "hebrew-psalm-82",
+      "tradition": "Hebrew / Biblical",
+      "source_text": "Psalms",
+      "reference": "Psalm 82:1",
+      "council_term": "ʿădat-ʾēl (“the divine council / assembly of El”)",
+      "presiding_figure": "Elohim (God) takes his stand",
+      "members": "The ʾĕlōhîm (“gods”), judged for unjust rule and sentenced to “die like men”",
+      "function": "Judgment and demotion of the council gods",
+      "woh_library": "https://www.wheelofheaven.world/library/psalms/"
+    },
+    {
+      "id": "hebrew-1kings-22",
+      "tradition": "Hebrew / Biblical",
+      "source_text": "1 Kings (Micaiah's vision)",
+      "reference": "1 Kings 22:19–23",
+      "council_term": "ṣəbāʾ haššāmayim (“the host of heaven”)",
+      "presiding_figure": "Yahweh, enthroned",
+      "members": "The host of heaven, standing on his right and left",
+      "function": "Deliberation — a spirit volunteers as a “lying spirit” to entice Ahab",
+      "woh_library": "https://www.wheelofheaven.world/library/1-kings/"
+    },
+    {
+      "id": "hebrew-job-court",
+      "tradition": "Hebrew / Biblical",
+      "source_text": "Job (heavenly court)",
+      "reference": "Job 1:6; 2:1",
+      "council_term": "bənê hāʾĕlōhîm (“the sons of God”)",
+      "presiding_figure": "Yahweh",
+      "members": "The sons of God, with ha-śāṭān (“the Accuser”) among them",
+      "function": "The court presents itself; the wager over Job",
+      "woh_library": "https://www.wheelofheaven.world/library/job-woh/"
+    },
+    {
+      "id": "hebrew-deut-32",
+      "tradition": "Hebrew / Biblical",
+      "source_text": "Deuteronomy (Song of Moses)",
+      "reference": "Deuteronomy 32:8–9",
+      "council_term": "bənê ʾĕlōhîm / bənê ʾēl (“sons of God,” LXX & 4QDeut)",
+      "presiding_figure": "ʿElyon (the Most High) apportions",
+      "members": "The sons of God — one set over each nation; Yahweh's allotment is Israel",
+      "function": "Division of the nations among the council members",
+      "woh_library": "https://www.wheelofheaven.world/library/deuteronomy/"
+    },
+    {
+      "id": "hebrew-isaiah-6",
+      "tradition": "Hebrew / Biblical",
+      "source_text": "Isaiah (throne vision)",
+      "reference": "Isaiah 6:1–8",
+      "council_term": "The seraphim before the throne",
+      "presiding_figure": "Yahweh, “high and lifted up”",
+      "members": "The seraphim",
+      "function": "Commissioning — “Whom shall I send, and who will go for us?” (the council plural)",
+      "woh_library": "https://www.wheelofheaven.world/library/isaiah/"
+    },
+    {
+      "id": "babylonian-enuma-elish",
+      "tradition": "Babylonian (Akkadian)",
+      "source_text": "Enūma Eliš",
+      "reference": "Tablets II–VI",
+      "council_term": "puḫur ilāni (“the assembly of the gods”)",
+      "presiding_figure": "Anšar, then Marduk (elected)",
+      "members": "The great gods (the Anunnaki)",
+      "function": "The assembly grants Marduk kingship and the Tablet of Destinies to fight Tiamat",
+      "woh_library": ""
+    },
+    {
+      "id": "babylonian-atrahasis",
+      "tradition": "Babylonian (Akkadian)",
+      "source_text": "Atra-ḫasīs",
+      "reference": "Tablets I–III",
+      "council_term": "puḫrum (“the assembly”)",
+      "presiding_figure": "Enlil",
+      "members": "The great gods; Enki (Ea) dissents",
+      "function": "The assembly decrees the flood under oath — a decision Enki argues against",
+      "woh_library": "https://www.wheelofheaven.world/library/atrahasis-woh/"
+    },
+    {
+      "id": "second-temple-watchers",
+      "tradition": "Second Temple / Apocrypha",
+      "source_text": "Book of the Watchers (1 Enoch)",
+      "reference": "1 Enoch 6–16; 14",
+      "council_term": "The “Holy Ones” / the heavenly host before the throne",
+      "presiding_figure": "The Great Glory / the Lord of Spirits",
+      "members": "The Holy Ones; the Watchers (rebel members who descend)",
+      "function": "The heavenly court; the archangels petition; judgment on the Watchers",
+      "woh_library": "https://www.wheelofheaven.world/library/book-of-enoch-woh/"
+    },
+    {
+      "id": "anatolian-song-of-emergence",
+      "tradition": "Hurrian-Hittite",
+      "source_text": "Song of Emergence (Kingship in Heaven)",
+      "reference": "CTH 344",
+      "council_term": "The gods of heaven, in dynastic succession",
+      "presiding_figure": "The reigning sky-king (Alalu → Anu → Kumarbi → Teshub)",
+      "members": "The divine dynasty",
+      "function": "The succession of divine kingship in heaven",
+      "woh_library": ""
+    },
+    {
+      "id": "mormon-council-in-heaven",
+      "tradition": "Latter-day Saint",
+      "source_text": "Book of Moses / Book of Abraham",
+      "reference": "Moses 4:1–4; Abraham 3:22–28",
+      "council_term": "The “council in heaven”; the “noble and great ones”",
+      "presiding_figure": "God the Father",
+      "members": "The premortal spirits / the noble and great ones",
+      "function": "The premortal council debates the plan and the choice of a Redeemer",
+      "woh_library": "https://www.wheelofheaven.world/library/book-of-moses/"
+    }
+  ]
+}
