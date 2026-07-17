@@ -47,3 +47,6 @@ public/
 
 # Generated dataset downloads (G2)
 /static/v1/graph/
+
+# Distribution packaging output (HuggingFace + Kaggle upload folders; derived)
+scripts/dist/
