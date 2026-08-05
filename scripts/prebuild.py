@@ -252,6 +252,10 @@ def process_section(
         fm, body = parse_toml_frontmatter(raw)
         if not fm.get("title"):
             continue
+        # Drafts must not reach the API at all: Zola already skips draft
+        # pages, so listing them in the index advertises URLs that 404.
+        if fm.get("draft") is True:
+            continue
 
         slug = fm.get("slug") or md_file.stem
 
@@ -319,6 +323,8 @@ def process_traditions() -> int:
         raw = md_file.read_text(encoding="utf-8")
         fm, body = parse_toml_frontmatter(raw)
         if not fm.get("title"):
+            continue
+        if fm.get("draft") is True:
             continue
         slug = fm.get("slug") or md_file.stem
         (dest_pages / f"{slug}.md").write_text(
