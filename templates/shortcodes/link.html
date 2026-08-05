@@ -1,0 +1,6 @@
+{# API stub: plain anchor. No i18n prefixing — API consumers resolve paths
+   against www.wheelofheaven.world themselves. #}
+{%- set href = url | default(value="") -%}
+{%- set link_text = text | default(value=href) -%}
+{%- set is_external = href is starting_with("http://") or href is starting_with("https://") -%}
+<a href="{{ href }}"{% if title %} title="{{ title }}"{% endif %}{% if is_external %} rel="noopener noreferrer"{% endif %}>{{ link_text }}</a>

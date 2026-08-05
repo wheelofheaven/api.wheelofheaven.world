@@ -1,0 +1,7 @@
+{# API stub: info box. Mirrors bifrost info.html semantics without theme CSS deps. #}
+{%- set box_type = type | default(value="info") -%}
+{%- set box_title = title | default(value="") -%}
+<div class="info-box info-box--{{ box_type }}">
+{%- if box_title %}<div class="info-box__title">{{ box_title }}</div>{% endif -%}
+<div class="info-box__content">{{ body | markdown | safe }}</div>
+</div>

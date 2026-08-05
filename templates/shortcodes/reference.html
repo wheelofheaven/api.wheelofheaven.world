@@ -1,0 +1,4 @@
+{# API stub: keyed/numbered reference marker. #}
+{%- set ref_id = key | default(value=number | default(value="unknown")) -%}
+{%- set display_text = text | default(value=ref_id) -%}
+<sup class="reference" data-ref="{{ ref_id }}">[{{ display_text }}]</sup>

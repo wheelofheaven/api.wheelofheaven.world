@@ -1,0 +1,7 @@
+{# API stub: definition box. Mirrors bifrost definition.html semantics. #}
+{%- set def_term = term | default(value="") -%}
+{%- set def_type = type | default(value="standard") -%}
+<div class="definition-box definition-box--{{ def_type }}">
+{%- if def_term %}<div class="definition-box__term">{{ def_term }}</div>{% endif -%}
+<div class="definition-box__content">{{ body | markdown | safe }}</div>
+</div>

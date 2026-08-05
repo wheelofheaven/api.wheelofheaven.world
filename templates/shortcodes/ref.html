@@ -1,0 +1,3 @@
+{# API stub: numeric reference marker. #}
+{%- set ref_num = num | default(value="?") -%}
+<sup class="ref" data-ref="{{ ref_num }}"{% if title %} title="{{ title }}"{% endif %}>[{{ ref_num }}]</sup>

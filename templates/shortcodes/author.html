@@ -1,0 +1,15 @@
+{# API stub: author blockquote. No authors.toml lookup — renders attribution
+   from the inline args only (name/work/year/url, falling back to the key). #}
+{%- set author_key = author | default(value="") -%}
+{%- set author_name = name | default(value=author_key) -%}
+{%- set author_work = work | default(value="") -%}
+{%- set author_year = year | default(value="") -%}
+{%- set author_url = url | default(value="") -%}
+<blockquote class="author-quote">
+<div class="author-quote__content">{{ body | markdown | safe }}</div>
+<cite class="author-quote__attribution">
+{{- author_name -}}
+{%- if author_work %}, {% if author_url %}<a href="{{ author_url }}" rel="noopener noreferrer">{{ author_work }}</a>{% else %}{{ author_work }}{% endif %}{% endif -%}
+{%- if author_year %} ({{ author_year }}){% endif -%}
+</cite>
+</blockquote>
