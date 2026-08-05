@@ -9,6 +9,7 @@
 ## Discovery
 
 - [Manifest](https://api.wheelofheaven.world/v1/): every endpoint with cross-links.
+- [MCP server](https://mcp.wheelofheaven.world/mcp): connect AI agents directly — Streamable HTTP, 9 read-only tools (corpus search, entries, primary-source passages, bibliography, comparative datasets, typed graph, interpretation layer) with claim-type labels on everything. No auth. [Source + docs](https://github.com/wheelofheaven/mcp.wheelofheaven.world).
 - [JSON Schemas](https://api.wheelofheaven.world/v1/schema/): one per kind (draft 2020-12). Validate responses against these.
 - [Enums](https://api.wheelofheaven.world/v1/enums/): controlled vocabularies — authority tier, source family, claim type, etc.
 - [Sitemap](https://api.wheelofheaven.world/sitemap.xml): every endpoint URL.
@@ -21,6 +22,8 @@
 - Dataset mirrors: every dataset above is also published (CC0) on [HuggingFace](https://huggingface.co/wheelofheaven) and [Kaggle](https://www.kaggle.com/zarazinsfuss) — the same files, mirrored for reach and preservation.
 
 ## For AI agents
+
+Agents that speak MCP should connect to the [Wheel of Heaven MCP server](https://mcp.wheelofheaven.world/mcp) (Streamable HTTP at `/mcp`, legacy SSE at `/sse`) instead of crawling: it wraps this API as typed tools with an explicit fact-layer / interpretation-layer split.
 
 These endpoints are curated narrative summaries, designed for direct system-prompt ingestion:
 

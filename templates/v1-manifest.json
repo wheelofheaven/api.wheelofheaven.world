@@ -10,6 +10,7 @@
     "documentation": "https://docs.wheelofheaven.world/reference/api/",
     "strategy": "https://github.com/wheelofheaven/wheelofheaven/blob/main/.claude/plans/strategy-api.md",
     "source": "https://github.com/wheelofheaven/api.wheelofheaven.world",
+    "mcp": "https://mcp.wheelofheaven.world/mcp",
     "license": "CC0-1.0",
     "sections": {
       "encyclopedia": {
