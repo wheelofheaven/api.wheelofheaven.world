@@ -2,6 +2,7 @@
   "name": "Wheel of Heaven Flood-Myth Concordance",
   "description": "A comparative table of the ancient Near Eastern and Indo-European flood traditions — survivor, decreeing power, warner, cause, vessel, birds, landing place, and aftermath — with links to the digitized source texts. CC0 public domain.",
   "license": "CC0-1.0",
+  "version": "1.1",
   "landing_page": "https://www.wheelofheaven.world/datasets/flood-myths/",
   "columns": [
     "id",
@@ -18,7 +19,7 @@
     "aftermath",
     "woh_library"
   ],
-  "count": 8,
+  "count": 11,
   "rows": [
     {
       "id": "sumerian-ziusudra",
@@ -138,6 +139,51 @@
       "birds_released": "",
       "landing_place": "The northern mountain (the “descent of the north”)",
       "aftermath": "Manu, sole survivor, generates humankind again through Iḍā",
+      "woh_library": ""
+    },
+    {
+      "id": "aztec-tata-nena",
+      "tradition": "Aztec / Nahua",
+      "source_text": "Leyenda de los Soles (Codex Chimalpopoca)",
+      "approx_date": "1558 CE (manuscript)",
+      "survivor": "Tata and Nena",
+      "flood_decreed_by": "Tezcatlipoca",
+      "warned_by": "Tezcatlipoca",
+      "cause": "The end of the Fourth Sun (Nahui-Atl, ‘4-Water’); the age destroyed by flood",
+      "vessel": "A hollowed cypress (ahuehuete) log",
+      "birds_released": "",
+      "landing_place": "",
+      "aftermath": "They roast the drowned people (now fish); the smoke angers the star-gods, and Tezcatlipoca turns Tata and Nena into dogs",
+      "woh_library": ""
+    },
+    {
+      "id": "inca-viracocha",
+      "tradition": "Andean / Inca",
+      "source_text": "Betanzos, Suma y narración de los Incas; Molina, Relación de las fábulas y ritos de los Incas",
+      "approx_date": "1557–1575 CE (colonial record of pre-Columbian tradition)",
+      "survivor": "A man and a woman sealed in a box",
+      "flood_decreed_by": "Con Ticci Viracocha",
+      "warned_by": "",
+      "cause": "Viracocha destroys the first race (a race of giants) for disobedience",
+      "vessel": "A sealed box",
+      "birds_released": "",
+      "landing_place": "Tiwanaku (Tiahuanaco), by Lake Titicaca",
+      "aftermath": "Viracocha refashions humanity from stone at Tiwanaku and repopulates the earth",
+      "woh_library": ""
+    },
+    {
+      "id": "norse-bergelmir",
+      "tradition": "Norse",
+      "source_text": "Prose Edda (Gylfaginning); Vafþrúðnismál",
+      "approx_date": "c. 1220 CE (Prose Edda); older eddic verse",
+      "survivor": "Bergelmir and his wife",
+      "flood_decreed_by": "",
+      "warned_by": "",
+      "cause": "The blood of the slain primordial giant Ymir floods the world, drowning the frost giants",
+      "vessel": "A lúðr (a hollowed tree-trunk), on Snorri's reading",
+      "birds_released": "",
+      "landing_place": "",
+      "aftermath": "Bergelmir and his wife survive to continue the race of frost giants (jötnar)",
       "woh_library": ""
     }
   ]

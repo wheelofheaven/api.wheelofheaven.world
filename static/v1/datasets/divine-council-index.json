@@ -2,6 +2,7 @@
   "name": "Wheel of Heaven Divine-Council Index",
   "description": "An index of the divine council — the assembly of divine beings that governs and decides — across the ancient traditions: the presiding figure, the council term (in the original), the members, the function, and the primary reference, with links to the digitized texts. CC0 public domain.",
   "license": "CC0-1.0",
+  "version": "1.1",
   "landing_page": "https://www.wheelofheaven.world/datasets/divine-council-index/",
   "columns": [
     "id",
@@ -14,7 +15,7 @@
     "function",
     "woh_library"
   ],
-  "count": 11,
+  "count": 17,
   "rows": [
     {
       "id": "ugaritic-baal-cycle",
@@ -136,6 +137,72 @@
       "members": "The premortal spirits / the noble and great ones",
       "function": "The premortal council debates the plan and the choice of a Redeemer",
       "woh_library": "https://www.wheelofheaven.world/library/book-of-moses/"
+    },
+    {
+      "id": "greek-olympian-agora",
+      "tradition": "Greek (Olympian)",
+      "source_text": "Homer, Iliad",
+      "reference": "Iliad 4.1–72; 20.4–30",
+      "council_term": "ἀγορή (agorḗ, ‘assembly of the gods’)",
+      "presiding_figure": "Zeus",
+      "members": "Hera, Athena, Poseidon, Apollo, Themis, and the Olympian gods",
+      "function": "The gods sit in assembly; Zeus raises whether to end or renew the war, Hera and Athena argue, and the destruction of Troy is resolved",
+      "woh_library": ""
+    },
+    {
+      "id": "egyptian-ennead-tribunal",
+      "tradition": "Egyptian",
+      "source_text": "The Contendings of Horus and Seth (Papyrus Chester Beatty I)",
+      "reference": "Chester Beatty I (20th Dynasty, c. 1147 BCE)",
+      "council_term": "the Great Ennead — psḏt (‘the Nine’)",
+      "presiding_figure": "Re-Horakhty (the Lord of All)",
+      "members": "Thoth, Isis, Geb, Neith, Atum, Shu",
+      "function": "A divine tribunal adjudicates the eighty-year succession dispute over Osiris's throne between Horus and Seth",
+      "woh_library": ""
+    },
+    {
+      "id": "roman-concilium-deorum",
+      "tradition": "Roman",
+      "source_text": "Ovid, Metamorphoses",
+      "reference": "Metamorphoses 1.163–252",
+      "council_term": "concilium (deorum)",
+      "presiding_figure": "Jupiter",
+      "members": "The assembled gods — the great gods and the commoner deities",
+      "function": "Jupiter convenes the gods, denounces Lycaon and humankind, and the assembly assents to his resolve to destroy the human race by flood",
+      "woh_library": ""
+    },
+    {
+      "id": "norse-rokstolar",
+      "tradition": "Norse",
+      "source_text": "Völuspá (Poetic Edda); Prose Edda (Gylfaginning)",
+      "reference": "Völuspá st. 6, 9, 23–25; Gylfaginning ch. 14",
+      "council_term": "rökstólar (‘seats of counsel’); the regin / ginnheilög goð",
+      "presiding_figure": "The regin collectively; Odin in the Prose Edda",
+      "members": "The Æsir (the ruling powers)",
+      "function": "The gods take their seats of counsel — ordering time, resolving to fashion the dwarves, and deliberating the Æsir–Vanir war",
+      "woh_library": ""
+    },
+    {
+      "id": "sumerian-enlil-ninlil-assembly",
+      "tradition": "Sumerian",
+      "source_text": "Enlil and Ninlil (ETCSL 1.2.1)",
+      "reference": "ETCSL 1.2.1 (the Ki-ur / Ekur judgment scene)",
+      "council_term": "ukkin (the assembly) — ‘the fifty great gods’ and ‘the seven who decree the fates’ (the Anunna)",
+      "presiding_figure": "The assembly collectively (Enlil is the defendant, not the presider)",
+      "members": "The fifty great gods; the seven Anunna who decree the fates",
+      "function": "The divine assembly at Nippur seizes, judges, and banishes Enlil as ritually impure for defiling Ninlil",
+      "woh_library": ""
+    },
+    {
+      "id": "hindu-devasabha",
+      "tradition": "Hindu",
+      "source_text": "Mahābhārata, Adi Parva (Āstīka Parva)",
+      "reference": "Adi Parva, Sections XVII–XVIII (the churning of the ocean of milk)",
+      "council_term": "devasabhā / sabhā (the conclave of the celestials)",
+      "presiding_figure": "Brahmā, with Nārāyaṇa (Vishnu) as counselor",
+      "members": "The devas, assembled on Mount Meru",
+      "function": "The celestials sit in conclave on Meru; Nārāyaṇa counsels Brahmā and they resolve to churn the ocean of milk for the amrita (the nectar of immortality)",
+      "woh_library": ""
     }
   ]
 }

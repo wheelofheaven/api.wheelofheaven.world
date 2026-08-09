@@ -56,8 +56,8 @@ DATASETS = {
     },
     "flood-myths": {
         "title": "Wheel of Heaven Flood-Myth Concordance",
-        "subtitle": "Eight ancient flood traditions compared side by side (CC0)",
-        "blurb": "A comparative table of eight ancient flood traditions — survivor, decreeing power, "
+        "subtitle": "Eleven ancient flood traditions compared side by side (CC0)",
+        "blurb": "A comparative table of eleven ancient flood traditions — survivor, decreeing power, "
                  "warner, cause, vessel, birds released, landing place, and aftermath — with links to "
                  "the digitized source texts.",
         "keywords": ["flood-myth", "deluge", "comparative-mythology", "ancient-near-east",
@@ -66,12 +66,12 @@ DATASETS = {
                    "cause, vessel, birds_released, landing_place, aftermath, woh_library",
         "files": ["datasets/flood-myths.csv", "datasets/flood-myths.json"],
         "landing": f"{WWW}/datasets/flood-myths/",
-        "records": "8 traditions",
+        "records": "11 traditions",
     },
     "divine-council-index": {
         "title": "Wheel of Heaven Divine-Council Index",
-        "subtitle": "The divine council across six ancient traditions (CC0)",
-        "blurb": "Eleven attestations of the divine council across six ancient traditions — presiding "
+        "subtitle": "The divine council across twelve ancient traditions (CC0)",
+        "blurb": "Seventeen attestations of the divine council across twelve ancient traditions — presiding "
                  "figure, council term, members, function, and primary reference — with links to the "
                  "digitized texts.",
         "keywords": ["divine-council", "sons-of-god", "assembly-of-the-gods", "comparative-religion",
@@ -80,7 +80,7 @@ DATASETS = {
                    "function, woh_library",
         "files": ["datasets/divine-council-index.csv", "datasets/divine-council-index.json"],
         "landing": f"{WWW}/datasets/divine-council-index/",
-        "records": "11 attestations across 6 traditions",
+        "records": "17 attestations across 12 traditions",
     },
     "theomachy-crossrefs": {
         "title": "Wheel of Heaven Theomachy Cross-References",
