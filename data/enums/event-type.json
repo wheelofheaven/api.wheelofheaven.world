@@ -1,12 +1,44 @@
 {
   "name": "event-type",
   "title": "Event Type",
-  "description": "Type of event for Newsroom Dispatches. Each dispatch reads a current event through the canon.",
+  "description": "Type of event for Newsroom Dispatches. Each dispatch reads a current event through the canon. The taxonomy was slimmed in the 2026-05 editorial pass: 'announcement' is the only value accepted on new content. The four retired values are still listed, marked deprecated, so that consumers holding historical data can continue to resolve them. A value without a 'deprecated' key is active.",
   "values": [
-    {"value": "announcement", "label": "Announcement", "description": "Official statement, release, declaration."},
-    {"value": "discovery", "label": "Discovery", "description": "Scientific finding, archaeological discovery, new data."},
-    {"value": "anniversary", "label": "Anniversary", "description": "Notable date or commemoration."},
-    {"value": "cultural-moment", "label": "Cultural Moment", "description": "Significant cultural or media event."},
-    {"value": "obituary", "label": "Obituary", "description": "Death of a significant figure in the corpus's source program."}
+    {
+      "value": "announcement",
+      "label": "Announcement",
+      "description": "Official statement, release, declaration."
+    },
+    {
+      "value": "discovery",
+      "label": "Discovery",
+      "description": "Scientific finding, archaeological discovery, new data.",
+      "deprecated": true,
+      "deprecated_since": "2026-05",
+      "replacement": "announcement"
+    },
+    {
+      "value": "anniversary",
+      "label": "Anniversary",
+      "description": "Notable date or commemoration.",
+      "deprecated": true,
+      "deprecated_since": "2026-05",
+      "replacement": "announcement"
+    },
+    {
+      "value": "cultural-moment",
+      "label": "Cultural Moment",
+      "description": "Significant cultural or media event.",
+      "deprecated": true,
+      "deprecated_since": "2026-05",
+      "replacement": "announcement"
+    },
+    {
+      "value": "obituary",
+      "label": "Obituary",
+      "description": "Death of a significant figure in the corpus's source program.",
+      "deprecated": true,
+      "deprecated_since": "2026-05",
+      "replacement": "announcement"
+    }
   ]
 }
