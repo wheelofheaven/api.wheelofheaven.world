@@ -163,13 +163,22 @@ DATASETS = {
 def hf_card(slug, d):
     """HuggingFace dataset card: YAML frontmatter + markdown body."""
     tags = "".join(f"\n- {k}" for k in d["keywords"])
-    fmt = "json" if slug == "content-graph" else "csv"
+    # Pin the dataset-viewer to the CSV: with both .csv and .json in the repo
+    # the loader may pick the JSON, and our JSON files are single objects
+    # (columns + rows envelope) that pyarrow cannot parse as records.
+    # content-graph has no tabular file, so it gets no configs block.
+    configs = (
+        ""
+        if slug == "content-graph"
+        else f"configs:\n- config_name: default\n  data_files: {slug}.csv\n"
+    )
     front = (
         "---\n"
         "license: cc0-1.0\n"
         f"pretty_name: {d['title']}\n"
         "language:\n- en\n"
         "tags:" + tags + "\n"
+        + configs +
         "---\n\n"
     )
     body = (
