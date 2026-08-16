@@ -61,7 +61,9 @@
         "aarne_1910_tale_types_csv": "/v1/datasets/aarne-1910-tale-types.csv",
         "aarne_1910_tale_types_json": "/v1/datasets/aarne-1910-tale-types.json",
         "grimm_khm_index_csv": "/v1/datasets/grimm-khm-index.csv",
-        "grimm_khm_index_json": "/v1/datasets/grimm-khm-index.json"
+        "grimm_khm_index_json": "/v1/datasets/grimm-khm-index.json",
+        "antediluvian_chronologies_csv": "/v1/datasets/antediluvian-chronologies.csv",
+        "antediluvian_chronologies_json": "/v1/datasets/antediluvian-chronologies.json"
       },
       "context": {
         "overview": "/v1/context/",

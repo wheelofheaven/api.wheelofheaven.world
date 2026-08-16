@@ -1,0 +1,39 @@
+id,list,epoch,position,figure,alt_names,city,reign_sars,reign_years,age_at_fathering_mt,age_at_fathering_sp,age_at_fathering_lxx,remaining_years_mt,remaining_years_sp,remaining_years_lxx,total_years_mt,total_years_sp,total_years_lxx,reference,note,woh_library
+skl-01-alulim,sumerian-king-list-wb444,antediluvian,1,Alulim,,Eridu,,28800,,,,,,,,,,SKL 3–4 (ETCSL 2.1.1),,https://www.wheelofheaven.world/library/sumerian-king-list-woh/#c1p3
+skl-02-alalgar,sumerian-king-list-wb444,antediluvian,2,Alalgar,,Eridu,,36000,,,,,,,,,,SKL 5 (ETCSL 2.1.1),,https://www.wheelofheaven.world/library/sumerian-king-list-woh/#c1p5
+skl-03-enmenluana,sumerian-king-list-wb444,antediluvian,3,En-men-lu-ana,,Bad-tibira,,43200,,,,,,,,,,SKL 11–12 (ETCSL 2.1.1),,https://www.wheelofheaven.world/library/sumerian-king-list-woh/#c1p11
+skl-04-enmengalana,sumerian-king-list-wb444,antediluvian,4,En-men-gal-ana,,Bad-tibira,,28800,,,,,,,,,,SKL 13–14 (ETCSL 2.1.1),,https://www.wheelofheaven.world/library/sumerian-king-list-woh/#c1p13
+skl-05-dumuzid,sumerian-king-list-wb444,antediluvian,5,Dumuzid the shepherd,,Bad-tibira,,36000,,,,,,,,,,SKL 15 (ETCSL 2.1.1),,https://www.wheelofheaven.world/library/sumerian-king-list-woh/#c1p15
+skl-06-ensipadzidana,sumerian-king-list-wb444,antediluvian,6,En-sipad-zid-ana,,Larak,,28800,,,,,,,,,,SKL 20–21 (ETCSL 2.1.1),,https://www.wheelofheaven.world/library/sumerian-king-list-woh/#c1p20
+skl-07-enmendurana,sumerian-king-list-wb444,antediluvian,7,En-men-dur-ana,,Sippar,,21000,,,,,,,,,,SKL 26–27 (ETCSL 2.1.1),,https://www.wheelofheaven.world/library/sumerian-king-list-woh/#c1p26
+skl-08-ubaratutu,sumerian-king-list-wb444,antediluvian,8,Ubara-Tutu,,Shuruppak,,18600,,,,,,,,,,SKL 32–33 (ETCSL 2.1.1),"Last king before the Flood; the WB-444 recension has no Ziusudra — other witnesses (WB-62, the Dynastic Chronicle, Berossos) add a flood hero at Shuruppak.",https://www.wheelofheaven.world/library/sumerian-king-list-woh/#c1p32
+ber-01-aloros,berossos,antediluvian,1,Aloros,,,10,36000,,,,,,,,,,"Berossos, Babyloniaca F 3 (FGrH 680; via Syncellus)",,
+ber-02-alaparos,berossos,antediluvian,2,Alaparos,,,3,10800,,,,,,,,,,"Berossos, Babyloniaca F 3 (FGrH 680; via Syncellus)",,
+ber-03-amelon,berossos,antediluvian,3,Amelon,,,13,46800,,,,,,,,,,"Berossos, Babyloniaca F 3 (FGrH 680; via Syncellus)",,
+ber-04-ammenon,berossos,antediluvian,4,Ammenon,,,12,43200,,,,,,,,,,"Berossos, Babyloniaca F 3 (FGrH 680; via Syncellus)",,
+ber-05-megalaros,berossos,antediluvian,5,Megalaros,Amegalaros,,18,64800,,,,,,,,,,"Berossos, Babyloniaca F 3 (FGrH 680; via Syncellus)",,
+ber-06-daonos,berossos,antediluvian,6,Daonos,Daos,,10,36000,,,,,,,,,,"Berossos, Babyloniaca F 3 (FGrH 680; via Syncellus)",,
+ber-07-euedorachos,berossos,antediluvian,7,Euedorachos,Euedoreschos; cf. En-men-dur-ana,,18,64800,,,,,,,,,,"Berossos, Babyloniaca F 3 (FGrH 680; via Syncellus)",,
+ber-08-amempsinos,berossos,antediluvian,8,Amempsinos,,,10,36000,,,,,,,,,,"Berossos, Babyloniaca F 3 (FGrH 680; via Syncellus)",,
+ber-09-otiartes,berossos,antediluvian,9,Otiartes,Ardates; cf. Ubara-Tutu,,8,28800,,,,,,,,,,"Berossos, Babyloniaca F 3 (FGrH 680; via Syncellus)",,
+ber-10-xisouthros,berossos,antediluvian,10,Xisouthros,Xisuthros; = Ziusudra,,18,64800,,,,,,,,,,"Berossos, Babyloniaca F 3 (FGrH 680; via Syncellus)",The flood hero of Berossos' account — see the Flood-Myth Concordance row berossus-xisuthros.,
+gen5-01-adam,genesis-5,antediluvian,1,Adam,,,,,130,130,230,800,800,700,930,930,930,Genesis 5:3–5,,https://www.wheelofheaven.world/library/genesis-woh/#c5p3
+gen5-02-seth,genesis-5,antediluvian,2,Seth,Shet,,,,105,105,205,807,807,707,912,912,912,Genesis 5:6–8,,https://www.wheelofheaven.world/library/genesis-woh/#c5p6
+gen5-03-enosh,genesis-5,antediluvian,3,Enosh,,,,,90,90,190,815,815,715,905,905,905,Genesis 5:9–11,,https://www.wheelofheaven.world/library/genesis-woh/#c5p9
+gen5-04-kenan,genesis-5,antediluvian,4,Kenan,Qenan,,,,70,70,170,840,840,740,910,910,910,Genesis 5:12–14,,https://www.wheelofheaven.world/library/genesis-woh/#c5p12
+gen5-05-mahalalel,genesis-5,antediluvian,5,Mahalalel,,,,,65,65,165,830,830,730,895,895,895,Genesis 5:15–17,,https://www.wheelofheaven.world/library/genesis-woh/#c5p15
+gen5-06-jared,genesis-5,antediluvian,6,Jared,Yered,,,,162,62,162,800,785,800,962,847,962,Genesis 5:18–20,,https://www.wheelofheaven.world/library/genesis-woh/#c5p18
+gen5-07-enoch,genesis-5,antediluvian,7,Enoch,Chanokh,,,,65,65,165,300,300,200,365,365,365,Genesis 5:21–23,"Does not die: ""he was not, for Elohim took him"" (5:24).",https://www.wheelofheaven.world/library/genesis-woh/#c5p21
+gen5-08-methuselah,genesis-5,antediluvian,8,Methuselah,Metushelach,,,,187,67,167,782,653,802,969,720,969,Genesis 5:25–27,"LXX majority 167/802 has Methuselah survive the Flood by 14 years; Alexandrinus reads 187/782, matching MT.",https://www.wheelofheaven.world/library/genesis-woh/#c5p25
+gen5-09-lamech,genesis-5,antediluvian,9,Lamech,Lemekh,,,,182,53,188,595,600,565,777,653,753,Genesis 5:28–31,,https://www.wheelofheaven.world/library/genesis-woh/#c5p28
+gen5-10-noah,genesis-5,antediluvian,10,Noah,Noach,,,,500,500,500,,,,950,950,950,Genesis 5:32; 9:29,Fathering age from 5:32; total 950 from 9:29; 600 at the Flood (7:6).,https://www.wheelofheaven.world/library/genesis-woh/#c5p32
+gen11-01-shem,genesis-11,postdiluvian,1,Shem,,,,,100,100,100,500,500,500,600,600,600,Genesis 11:10–11,"Fathered Arpachshad ""two years after the flood"" (11:10).",https://www.wheelofheaven.world/library/genesis-woh/#c11p10
+gen11-02-arpachshad,genesis-11,postdiluvian,2,Arpachshad,Arpakhshad,,,,35,135,135,403,303,430,438,438,565,Genesis 11:12–13,LXX remaining years vary by manuscript (430 / 400).,https://www.wheelofheaven.world/library/genesis-woh/#c11p12
+gen11-03-kainan,genesis-11,postdiluvian,3,Kainan,Cainan,,,,,,130,,,330,,,460,Genesis 11:13 LXX,Second Kainan: present only in the LXX (and Luke 3:36); absent from MT and SP.,
+gen11-04-shelah,genesis-11,postdiluvian,4,Shelah,Shelach,,,,30,130,130,403,303,330,433,433,460,Genesis 11:14–15,,https://www.wheelofheaven.world/library/genesis-woh/#c11p14
+gen11-05-eber,genesis-11,postdiluvian,5,Eber,Ever,,,,34,134,134,430,270,370,464,404,504,Genesis 11:16–17,The three witnesses give three different totals (464 / 404 / 504).,https://www.wheelofheaven.world/library/genesis-woh/#c11p16
+gen11-06-peleg,genesis-11,postdiluvian,6,Peleg,,,,,30,130,130,209,109,209,239,239,339,Genesis 11:18–19,"""In his days the earth was divided"" (10:25).",https://www.wheelofheaven.world/library/genesis-woh/#c11p18
+gen11-07-reu,genesis-11,postdiluvian,7,Reu,,,,,32,132,132,207,107,207,239,239,339,Genesis 11:20–21,,https://www.wheelofheaven.world/library/genesis-woh/#c11p20
+gen11-08-serug,genesis-11,postdiluvian,8,Serug,,,,,30,130,130,200,100,200,230,230,330,Genesis 11:22–23,,https://www.wheelofheaven.world/library/genesis-woh/#c11p22
+gen11-09-nahor,genesis-11,postdiluvian,9,Nahor,Nachor,,,,29,79,79,119,69,129,148,148,208,Genesis 11:24–25,,https://www.wheelofheaven.world/library/genesis-woh/#c11p24
+gen11-10-terah,genesis-11,postdiluvian,10,Terah,Terach,,,,70,70,70,,,,205,145,205,"Genesis 11:26, 32",SP total 145 places Terah's death in the year Abram leaves Harran.,https://www.wheelofheaven.world/library/genesis-woh/#c11p26

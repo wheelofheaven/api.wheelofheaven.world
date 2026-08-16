@@ -174,6 +174,25 @@ DATASETS = {
         "landing": f"{WWW}/datasets/grimm-khm-index/",
         "records": "211 tales (201 KHM incl. 151a + 10 children's legends)",
     },
+    "antediluvian-chronologies": {
+        "title": "Wheel of Heaven Antediluvian Chronologies",
+        "subtitle": "SKL kings, Berossos, and Genesis 5/11 in MT-SP-LXX parallel (CC0)",
+        "blurb": "The long-lived generations around the Flood, side by side: the eight antediluvian "
+                 "kings of the Sumerian King List (WB-444, 241,200 years), the ten kings of Berossos "
+                 "(120 sars = 432,000 years), and the Genesis 5 and 11 patriarchs with the Masoretic, "
+                 "Samaritan Pentateuch, and Septuagint figures in parallel columns — including the "
+                 "LXX-only second Kainan and the Methuselah flood-overlap variant. Every number "
+                 "anchored to a primary-text locator and cross-checked against the digitized texts.",
+        "keywords": ["chronology", "genealogy", "sumerian-king-list", "berossos", "genesis",
+                     "septuagint", "masoretic-text", "samaritan-pentateuch", "flood-myth",
+                     "ancient-near-east", "digital-humanities"],
+        "columns": "list, epoch, position, figure, alt_names, city, reign_sars, reign_years, "
+                   "age_at_fathering / remaining_years / total_years x (mt, sp, lxx), "
+                   "reference, note, woh_library",
+        "files": ["datasets/antediluvian-chronologies.csv", "datasets/antediluvian-chronologies.json"],
+        "landing": f"{WWW}/datasets/antediluvian-chronologies/",
+        "records": "38 figures across 4 lists (SKL 8, Berossos 10, Genesis 5 + 11)",
+    },
 }
 
 
