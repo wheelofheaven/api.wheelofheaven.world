@@ -1,0 +1,1341 @@
+{
+ "name": "Wheel of Heaven Myth Index",
+ "description": "A cross-cultural index of mythological motifs — flood, divine council, theomachy, creation of humans, sky-descent, tower of Babel, giants, garden-paradise, and the immortality quest — one row per attestation, with named primary text, locator, Thompson Motif-Index cross-references, and links to the digitized source texts. CC0 public domain.",
+ "license": "CC0-1.0",
+ "version": "1.0",
+ "landing_page": "https://www.wheelofheaven.world/datasets/myth-index/",
+ "columns": [
+  "id",
+  "motif_family",
+  "tradition",
+  "source_text",
+  "reference",
+  "summary",
+  "thompson_motifs",
+  "atu_type",
+  "aarne_1910_type",
+  "woh_wiki",
+  "woh_library",
+  "see_dataset",
+  "woh_reading"
+ ],
+ "count": 75,
+ "rows": [
+  {
+   "id": "flood-sumerian-ziusudra",
+   "motif_family": "flood",
+   "tradition": "Sumerian",
+   "source_text": "Eridu Genesis / Sumerian Flood Story",
+   "reference": "ETCSL 1.7.4 (Sumerian Flood Story, segments C–E)",
+   "summary": "The gods resolve to destroy humankind; Ziusudra, king of Shuruppak, is warned by Enki, rides out the seven-day flood in a great boat, and is granted eternal life in Dilmun.",
+   "thompson_motifs": [
+    "A1010",
+    "A1021"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/great-flood/",
+   "woh_library": "https://www.wheelofheaven.world/library/eridu-genesis/",
+   "see_dataset": "flood-myths",
+   "woh_reading": "Canon reads the flood as a deliberate planetary reset ordered from the Elohim home world, with a favored lineage preserved."
+  },
+  {
+   "id": "flood-babylonian-atrahasis",
+   "motif_family": "flood",
+   "tradition": "Babylonian (Akkadian)",
+   "source_text": "Atra-ḫasīs",
+   "reference": "Atra-ḫasīs, Tablet III (OB version)",
+   "summary": "Enlil, exasperated by the noise of overpopulated humankind, has the assembly swear a flood into being; Enki leaks the plan through a reed wall and Atra-ḫasīs builds the boat that saves his household.",
+   "thompson_motifs": [
+    "A1010",
+    "A1018",
+    "A1021"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/great-flood/",
+   "woh_library": "https://www.wheelofheaven.world/library/atrahasis-woh/",
+   "see_dataset": "flood-myths",
+   "woh_reading": ""
+  },
+  {
+   "id": "flood-babylonian-utnapishtim",
+   "motif_family": "flood",
+   "tradition": "Babylonian (Akkadian)",
+   "source_text": "Epic of Gilgamesh, Tablet XI",
+   "reference": "Epic of Gilgamesh, Tablet XI.1–206",
+   "summary": "Utnapishtim recounts to Gilgamesh how Ea told him to build a cube-shaped boat, how the storm terrified even the gods, and how the raven he released did not return; he and his wife receive immortality.",
+   "thompson_motifs": [
+    "A1010",
+    "A1021",
+    "A1021.2"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/great-flood/",
+   "woh_library": "https://www.wheelofheaven.world/library/gilgamesh-woh/",
+   "see_dataset": "flood-myths",
+   "woh_reading": ""
+  },
+  {
+   "id": "flood-hebrew-noah",
+   "motif_family": "flood",
+   "tradition": "Hebrew / Biblical",
+   "source_text": "Genesis 6–9",
+   "reference": "Genesis 6:5–9:17",
+   "summary": "Yahweh resolves to blot out corrupt humankind; Noah builds the ark to specification, survives the flood with his family and the animals, and receives the rainbow covenant.",
+   "thompson_motifs": [
+    "A1010",
+    "A1018",
+    "A1021",
+    "A1021.2"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/noah/",
+   "woh_library": "https://www.wheelofheaven.world/library/genesis-woh/",
+   "see_dataset": "flood-myths",
+   "woh_reading": "Canon: the ark preserved the genetic material of the species to re-seed life after a reset decreed from the Elohim home planet (The Book Which Tells the Truth)."
+  },
+  {
+   "id": "flood-islamic-nuh",
+   "motif_family": "flood",
+   "tradition": "Islamic",
+   "source_text": "Qurʾān (Sūrahs 11, 71, 23)",
+   "reference": "Qurʾān 11:25–48; 71:1–28; 23:23–30",
+   "summary": "Nūḥ preaches in vain, builds the ark under revelation, and the disbelievers — his own son among them — drown; the ark comes to rest on Mount Jūdī.",
+   "thompson_motifs": [
+    "A1010",
+    "A1018",
+    "A1021"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/great-flood/",
+   "woh_library": "https://www.wheelofheaven.world/library/quran-woh/",
+   "see_dataset": "flood-myths",
+   "woh_reading": ""
+  },
+  {
+   "id": "flood-greek-deucalion",
+   "motif_family": "flood",
+   "tradition": "Greek",
+   "source_text": "Apollodorus, Bibliotheca 1.7.2",
+   "reference": "Apollodorus, Bibliotheca 1.7.2",
+   "summary": "Zeus floods the Bronze Age race; forewarned by Prometheus, Deucalion floats in a chest to Parnassus and repopulates the earth with Pyrrha by casting stones over their shoulders.",
+   "thompson_motifs": [
+    "A1010",
+    "A1021"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/great-flood/",
+   "woh_library": "",
+   "see_dataset": "flood-myths",
+   "woh_reading": ""
+  },
+  {
+   "id": "flood-berossus-xisuthros",
+   "motif_family": "flood",
+   "tradition": "Greco-Babylonian",
+   "source_text": "Berossus, Babyloniaca (via Alexander Polyhistor)",
+   "reference": "Berossos, Babyloniaca (FGrH 680 F 4)",
+   "summary": "Kronos reveals the coming flood to Xisuthros, who buries the writings at Sippar, builds an enormous boat, releases birds three times, and is translated to live with the gods.",
+   "thompson_motifs": [
+    "A1010",
+    "A1021",
+    "A1021.2"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/great-flood/",
+   "woh_library": "",
+   "see_dataset": "flood-myths",
+   "woh_reading": ""
+  },
+  {
+   "id": "flood-vedic-manu",
+   "motif_family": "flood",
+   "tradition": "Vedic / Hindu",
+   "source_text": "Śatapatha Brāhmaṇa 1.8.1",
+   "reference": "Śatapatha Brāhmaṇa 1.8.1.1–10",
+   "summary": "A fish Manu spares grows huge, warns him of the flood, and tows his boat to the northern mountain; sole survivor, Manu regenerates humankind through Iḍā.",
+   "thompson_motifs": [
+    "A1010",
+    "A1021"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/great-flood/",
+   "woh_library": "",
+   "see_dataset": "flood-myths",
+   "woh_reading": ""
+  },
+  {
+   "id": "flood-aztec-tata-nena",
+   "motif_family": "flood",
+   "tradition": "Aztec / Nahua",
+   "source_text": "Leyenda de los Soles (Codex Chimalpopoca)",
+   "reference": "Leyenda de los Soles (Codex Chimalpopoca), the Fourth Sun (Nahui-Atl)",
+   "summary": "At the end of the Fourth Sun the world drowns; Tata and Nena ride out the flood in a hollowed cypress log, but roast a fish against orders and are turned into dogs by Tezcatlipoca.",
+   "thompson_motifs": [
+    "A1010",
+    "A1021"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/great-flood/",
+   "woh_library": "",
+   "see_dataset": "flood-myths",
+   "woh_reading": ""
+  },
+  {
+   "id": "flood-inca-viracocha",
+   "motif_family": "flood",
+   "tradition": "Andean / Inca",
+   "source_text": "Betanzos, Suma y narración de los Incas; Molina, Relación de las fábulas y ritos de los Incas",
+   "reference": "Betanzos, Suma y narración de los Incas I.1–2; Molina, Relación de las fábulas y ritos",
+   "summary": "Colonial chroniclers record that Con Ticci Viracocha destroyed a first, disobedient race by flood and refashioned humanity in stone at Tiwanaku by Lake Titicaca.",
+   "thompson_motifs": [
+    "A1010"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/great-flood/",
+   "woh_library": "",
+   "see_dataset": "flood-myths",
+   "woh_reading": ""
+  },
+  {
+   "id": "flood-norse-bergelmir",
+   "motif_family": "flood",
+   "tradition": "Norse",
+   "source_text": "Prose Edda (Gylfaginning); Vafþrúðnismál",
+   "reference": "Vafþrúðnismál 35; Gylfaginning 7",
+   "summary": "The blood of the slain primordial giant Ymir drowns the frost-giants; only Bergelmir and his wife escape — on Snorri’s reading aboard a lúðr, a hollowed trunk — to continue the jötnar.",
+   "thompson_motifs": [
+    "A1010",
+    "A1012.3.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/great-flood/",
+   "woh_library": "",
+   "see_dataset": "flood-myths",
+   "woh_reading": ""
+  },
+  {
+   "id": "divine-council-ugaritic-baal-cycle",
+   "motif_family": "divine-council",
+   "tradition": "Ugaritic (Canaanite)",
+   "source_text": "Baal Cycle",
+   "reference": "KTU 1.1–1.6",
+   "summary": "At Ugarit the sons of El sit as the assembled council (pḫr mʿd) under aged El while Baal, Yam and Mot contend for kingship.",
+   "thompson_motifs": [
+    "A167.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/council-of-eternals/",
+   "woh_library": "https://www.wheelofheaven.world/library/baal-cycle-woh/",
+   "see_dataset": "divine-council-index",
+   "woh_reading": "Canon: the biblical divine council preserves the memory of the Council of the Eternals presided over by Yahweh."
+  },
+  {
+   "id": "divine-council-hebrew-psalm-82",
+   "motif_family": "divine-council",
+   "tradition": "Hebrew / Biblical",
+   "source_text": "Psalms",
+   "reference": "Psalm 82:1",
+   "summary": "Elohim takes his stand in the council of El and sentences the gods of the nations to die like men — the courtroom scene of biblical council theology.",
+   "thompson_motifs": [
+    "A167.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/plurality-of-gods/",
+   "woh_library": "https://www.wheelofheaven.world/library/psalms/",
+   "see_dataset": "divine-council-index",
+   "woh_reading": "Canon reads the ʾĕlōhîm of the psalm as the plural creators remembered behind the singular God of later theology."
+  },
+  {
+   "id": "divine-council-hebrew-1kings-22",
+   "motif_family": "divine-council",
+   "tradition": "Hebrew / Biblical",
+   "source_text": "1 Kings (Micaiah's vision)",
+   "reference": "1 Kings 22:19–23",
+   "summary": "Micaiah sees Yahweh enthroned with the host of heaven at his right and left, deliberating how to entice Ahab; a spirit volunteers.",
+   "thompson_motifs": [
+    "A167.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/council-of-eternals/",
+   "woh_library": "https://www.wheelofheaven.world/library/1-kings/",
+   "see_dataset": "divine-council-index",
+   "woh_reading": ""
+  },
+  {
+   "id": "divine-council-hebrew-job-court",
+   "motif_family": "divine-council",
+   "tradition": "Hebrew / Biblical",
+   "source_text": "Job (heavenly court)",
+   "reference": "Job 1:6; 2:1",
+   "summary": "The sons of God present themselves before Yahweh on a set day, the Accuser among them, and the wager over Job is struck in session.",
+   "thompson_motifs": [
+    "A167.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/council-of-eternals/",
+   "woh_library": "https://www.wheelofheaven.world/library/job-woh/",
+   "see_dataset": "divine-council-index",
+   "woh_reading": ""
+  },
+  {
+   "id": "divine-council-hebrew-deut-32",
+   "motif_family": "divine-council",
+   "tradition": "Hebrew / Biblical",
+   "source_text": "Deuteronomy (Song of Moses)",
+   "reference": "Deuteronomy 32:8–9",
+   "summary": "ʿElyon divides the nations according to the number of the sons of God, each people allotted to a council member; Yahweh’s own portion is Israel.",
+   "thompson_motifs": [
+    "A167.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/plurality-of-gods/",
+   "woh_library": "https://www.wheelofheaven.world/library/deuteronomy/",
+   "see_dataset": "divine-council-index",
+   "woh_reading": ""
+  },
+  {
+   "id": "divine-council-hebrew-isaiah-6",
+   "motif_family": "divine-council",
+   "tradition": "Hebrew / Biblical",
+   "source_text": "Isaiah (throne vision)",
+   "reference": "Isaiah 6:1–8",
+   "summary": "Isaiah’s throne vision: seraphim in attendance and the council plural — “who will go for us?” — before the prophet volunteers.",
+   "thompson_motifs": [
+    "A167.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/council-of-eternals/",
+   "woh_library": "https://www.wheelofheaven.world/library/isaiah/",
+   "see_dataset": "divine-council-index",
+   "woh_reading": ""
+  },
+  {
+   "id": "divine-council-babylonian-enuma-elish",
+   "motif_family": "divine-council",
+   "tradition": "Babylonian (Akkadian)",
+   "source_text": "Enūma Eliš",
+   "reference": "Tablets II–VI",
+   "summary": "The assembly of the gods (puḫur ilāni) feasts, deliberates, and invests Marduk with kingship and the Tablet of Destinies to face Tiamat.",
+   "thompson_motifs": [
+    "A167",
+    "A167.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/anunnaki/",
+   "woh_library": "",
+   "see_dataset": "divine-council-index",
+   "woh_reading": ""
+  },
+  {
+   "id": "divine-council-babylonian-atrahasis",
+   "motif_family": "divine-council",
+   "tradition": "Babylonian (Akkadian)",
+   "source_text": "Atra-ḫasīs",
+   "reference": "Tablets I–III",
+   "summary": "The great gods in assembly swear the flood into being over Enki’s dissent — divine policy made by vote and oath.",
+   "thompson_motifs": [
+    "A167",
+    "A167.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/council-of-eternals/",
+   "woh_library": "https://www.wheelofheaven.world/library/atrahasis-woh/",
+   "see_dataset": "divine-council-index",
+   "woh_reading": ""
+  },
+  {
+   "id": "divine-council-second-temple-watchers",
+   "motif_family": "divine-council",
+   "tradition": "Second Temple / Apocrypha",
+   "source_text": "Book of the Watchers (1 Enoch)",
+   "reference": "1 Enoch 6–16; 14",
+   "summary": "The heavenly court of the Holy Ones judges the Watchers who descended; the archangels petition and sentence is passed.",
+   "thompson_motifs": [
+    "A167.1",
+    "V236"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/watchers/",
+   "woh_library": "https://www.wheelofheaven.world/library/book-of-enoch-woh/",
+   "see_dataset": "divine-council-index",
+   "woh_reading": ""
+  },
+  {
+   "id": "divine-council-anatolian-song-of-emergence",
+   "motif_family": "divine-council",
+   "tradition": "Hurrian-Hittite",
+   "source_text": "Song of Emergence (Kingship in Heaven)",
+   "reference": "CTH 344",
+   "summary": "Kingship in heaven passes dynastically — Alalu, Anu, Kumarbi, Teshub — the council rendered as a succession struggle among the gods of heaven.",
+   "thompson_motifs": [
+    "A167"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/theomachy/",
+   "woh_library": "",
+   "see_dataset": "divine-council-index",
+   "woh_reading": ""
+  },
+  {
+   "id": "divine-council-mormon-council-in-heaven",
+   "motif_family": "divine-council",
+   "tradition": "Latter-day Saint",
+   "source_text": "Book of Moses / Book of Abraham",
+   "reference": "Moses 4:1–4; Abraham 3:22–28",
+   "summary": "In the LDS scriptures a premortal council debates the plan of salvation and the choice of a Redeemer before the world is organized.",
+   "thompson_motifs": [
+    "A167.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/council-of-eternals/",
+   "woh_library": "https://www.wheelofheaven.world/library/book-of-moses/",
+   "see_dataset": "divine-council-index",
+   "woh_reading": ""
+  },
+  {
+   "id": "divine-council-greek-olympian-agora",
+   "motif_family": "divine-council",
+   "tradition": "Greek (Olympian)",
+   "source_text": "Homer, Iliad",
+   "reference": "Iliad 4.1–72; 20.4–30",
+   "summary": "Zeus convenes the Olympian agora; Hera and Athena argue the fate of Troy and the war is steered from the assembly floor.",
+   "thompson_motifs": [
+    "A167",
+    "A167.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/council-of-eternals/",
+   "woh_library": "",
+   "see_dataset": "divine-council-index",
+   "woh_reading": ""
+  },
+  {
+   "id": "divine-council-egyptian-ennead-tribunal",
+   "motif_family": "divine-council",
+   "tradition": "Egyptian",
+   "source_text": "The Contendings of Horus and Seth (Papyrus Chester Beatty I)",
+   "reference": "Chester Beatty I (20th Dynasty, c. 1147 BCE)",
+   "summary": "The Great Ennead sits as a tribunal for eighty years over the succession of Osiris’s throne, weighing Horus against Seth.",
+   "thompson_motifs": [
+    "A167",
+    "A167.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/council-of-eternals/",
+   "woh_library": "",
+   "see_dataset": "divine-council-index",
+   "woh_reading": ""
+  },
+  {
+   "id": "divine-council-roman-concilium-deorum",
+   "motif_family": "divine-council",
+   "tradition": "Roman",
+   "source_text": "Ovid, Metamorphoses",
+   "reference": "Metamorphoses 1.163–252",
+   "summary": "Jupiter summons the concilium deorum, denounces Lycaon, and wins the assembly’s assent to destroy humankind by flood.",
+   "thompson_motifs": [
+    "A167.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/council-of-eternals/",
+   "woh_library": "",
+   "see_dataset": "divine-council-index",
+   "woh_reading": ""
+  },
+  {
+   "id": "divine-council-norse-rokstolar",
+   "motif_family": "divine-council",
+   "tradition": "Norse",
+   "source_text": "Völuspá (Poetic Edda); Prose Edda (Gylfaginning)",
+   "reference": "Völuspá st. 6, 9, 23–25; Gylfaginning ch. 14",
+   "summary": "The regin repeatedly take their rökstólar, the seats of counsel, to order time, fashion the dwarves, and weigh the Æsir–Vanir war.",
+   "thompson_motifs": [
+    "A167",
+    "A167.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/council-of-eternals/",
+   "woh_library": "",
+   "see_dataset": "divine-council-index",
+   "woh_reading": ""
+  },
+  {
+   "id": "divine-council-sumerian-enlil-ninlil-assembly",
+   "motif_family": "divine-council",
+   "tradition": "Sumerian",
+   "source_text": "Enlil and Ninlil (ETCSL 1.2.1)",
+   "reference": "ETCSL 1.2.1 (the Ki-ur / Ekur judgment scene)",
+   "summary": "The assembly of the fifty great gods at Nippur seizes, judges and banishes Enlil himself — the council as a court above even its president.",
+   "thompson_motifs": [
+    "A167",
+    "A167.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/anunnaki/",
+   "woh_library": "",
+   "see_dataset": "divine-council-index",
+   "woh_reading": ""
+  },
+  {
+   "id": "divine-council-hindu-devasabha",
+   "motif_family": "divine-council",
+   "tradition": "Hindu",
+   "source_text": "Mahābhārata, Adi Parva (Āstīka Parva)",
+   "reference": "Adi Parva, Sections XVII–XVIII (the churning of the ocean of milk)",
+   "summary": "The devas sit in conclave on Meru; counseled by Nārāyaṇa, they resolve to churn the ocean of milk for the amrita.",
+   "thompson_motifs": [
+    "A167",
+    "A167.1",
+    "A154.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/council-of-eternals/",
+   "woh_library": "",
+   "see_dataset": "divine-council-index",
+   "woh_reading": ""
+  },
+  {
+   "id": "theomachy-babylonian-marduk-tiamat",
+   "motif_family": "theomachy",
+   "tradition": "Babylonian (Akkadian)",
+   "source_text": "Enūma Eliš",
+   "reference": "Tablet IV",
+   "summary": "Marduk nets and splits Tiamat, builds sky and earth from her body, and is enthroned — combat as cosmogony.",
+   "thompson_motifs": [
+    "A162.2"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/theomachy/",
+   "woh_library": "",
+   "see_dataset": "theomachy-crossrefs",
+   "woh_reading": ""
+  },
+  {
+   "id": "theomachy-ugaritic-baal-yam",
+   "motif_family": "theomachy",
+   "tradition": "Ugaritic (Canaanite)",
+   "source_text": "Baal Cycle",
+   "reference": "KTU 1.2; 1.5",
+   "summary": "With the maces Yagrush and Ayamur, Baal beats down Yam — Sea and Judge River — and is acclaimed king; the serpent Lôtan lies behind biblical Leviathan.",
+   "thompson_motifs": [
+    "A162.2",
+    "A162.7"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/theomachy/",
+   "woh_library": "https://www.wheelofheaven.world/library/baal-cycle-woh/",
+   "see_dataset": "theomachy-crossrefs",
+   "woh_reading": ""
+  },
+  {
+   "id": "theomachy-hebrew-yahweh-leviathan",
+   "motif_family": "theomachy",
+   "tradition": "Hebrew / Biblical",
+   "source_text": "Psalms, Isaiah, Job",
+   "reference": "Ps 74:13–14; Isa 27:1; 51:9–10; Job 26:12–13",
+   "summary": "The psalmists and prophets remember Yahweh crushing Leviathan, Rahab and the Sea — the old combat surviving as poetry of creation and exodus.",
+   "thompson_motifs": [
+    "A162.2"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/leviathan/",
+   "woh_library": "https://www.wheelofheaven.world/library/psalms/",
+   "see_dataset": "theomachy-crossrefs",
+   "woh_reading": "Canon reads the theomachy layer as the memory of real conflict among the creators — the Elohimian space wars — compressed into chaos-combat imagery."
+  },
+  {
+   "id": "theomachy-greek-zeus-typhon",
+   "motif_family": "theomachy",
+   "tradition": "Greek",
+   "source_text": "Hesiod, Theogony",
+   "reference": "Theogony 820–880",
+   "summary": "Hundred-headed Typhoeus, last child of Earth, challenges Zeus and is blasted by the thunderbolt into Tartarus.",
+   "thompson_motifs": [
+    "A162.7"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/theomachy/",
+   "woh_library": "",
+   "see_dataset": "theomachy-crossrefs",
+   "woh_reading": ""
+  },
+  {
+   "id": "theomachy-vedic-indra-vritra",
+   "motif_family": "theomachy",
+   "tradition": "Vedic / Hindu",
+   "source_text": "Rig Veda",
+   "reference": "RV 1.32; Book 10",
+   "summary": "Indra slays the dragon Vṛtra with the vajra and releases the pent-up seven rivers — the Vedic charter combat.",
+   "thompson_motifs": [
+    "A162.2"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/theomachy/",
+   "woh_library": "https://www.wheelofheaven.world/library/rig-veda-book-10/",
+   "see_dataset": "theomachy-crossrefs",
+   "woh_reading": ""
+  },
+  {
+   "id": "theomachy-hittite-stormgod-illuyanka",
+   "motif_family": "theomachy",
+   "tradition": "Hittite / Anatolian",
+   "source_text": "Illuyanka Myth",
+   "reference": "CTH 321",
+   "summary": "The Storm-god, aided by Inara and the mortal Ḫupašiya, defeats the serpent Illuyanka; the tale was recited at the purulli spring festival.",
+   "thompson_motifs": [
+    "A162.2"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/theomachy/",
+   "woh_library": "",
+   "see_dataset": "theomachy-crossrefs",
+   "woh_reading": ""
+  },
+  {
+   "id": "theomachy-egyptian-ra-apophis",
+   "motif_family": "theomachy",
+   "tradition": "Egyptian",
+   "source_text": "Coffin Texts / Book of the Dead",
+   "reference": "Spells against Apep",
+   "summary": "Apep assaults the solar barque nightly and is repelled with knives and spells — a combat renewed forever rather than won.",
+   "thompson_motifs": [
+    "A162.2"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/theomachy/",
+   "woh_library": "",
+   "see_dataset": "theomachy-crossrefs",
+   "woh_reading": ""
+  },
+  {
+   "id": "theomachy-christian-michael-dragon",
+   "motif_family": "theomachy",
+   "tradition": "Christian",
+   "source_text": "Revelation",
+   "reference": "Revelation 12:7–9",
+   "summary": "Michael and his angels cast down the great dragon, the ancient serpent — the combat myth transposed into an eschatological key.",
+   "thompson_motifs": [
+    "A106.2"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/theomachy/",
+   "woh_library": "https://www.wheelofheaven.world/library/revelation/",
+   "see_dataset": "theomachy-crossrefs",
+   "woh_reading": ""
+  },
+  {
+   "id": "creation-of-humans-hebrew-genesis",
+   "motif_family": "creation-of-humans",
+   "tradition": "Hebrew / Biblical",
+   "source_text": "Genesis",
+   "reference": "Genesis 1:26–27; 2:7",
+   "summary": "The Elohim resolve — in the plural — to make humankind “in our image, after our likeness”; the second account has Yahweh Elohim form the man from dust and breathe life into him.",
+   "thompson_motifs": [
+    "A1210",
+    "A1241"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/adam-and-eve/",
+   "woh_library": "https://www.wheelofheaven.world/library/genesis-woh/",
+   "see_dataset": "",
+   "woh_reading": "Canon states the creation directly: humankind was engineered in the creators’ laboratories, “in our image” read literally (The Book Which Tells the Truth)."
+  },
+  {
+   "id": "creation-of-humans-babylonian-atrahasis",
+   "motif_family": "creation-of-humans",
+   "tradition": "Babylonian (Akkadian)",
+   "source_text": "Atra-ḫasīs",
+   "reference": "Atra-ḫasīs, Tablet I.170–230",
+   "summary": "To relieve the striking Igigi of their toil, the mother goddess mixes clay with the flesh and blood of the slain god Wê-ila, and humankind is created to bear the workload of the gods.",
+   "thompson_motifs": [
+    "A1210",
+    "A1241"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/anunnaki/",
+   "woh_library": "https://www.wheelofheaven.world/library/atrahasis-woh/",
+   "see_dataset": "",
+   "woh_reading": "Canon: the “clay plus divine substance” recipe preserves the memory of laboratory synthesis from the creators’ own genetic material."
+  },
+  {
+   "id": "creation-of-humans-babylonian-enuma-elish",
+   "motif_family": "creation-of-humans",
+   "tradition": "Babylonian (Akkadian)",
+   "source_text": "Enūma Eliš",
+   "reference": "Enūma Eliš, Tablet VI.1–38",
+   "summary": "Marduk announces his plan to create lullû, “man,” from the blood of the condemned rebel Qingu, so that the gods may be at rest and the toil laid on humankind.",
+   "thompson_motifs": [
+    "A1210"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/anunnaki/",
+   "woh_library": "https://www.wheelofheaven.world/library/enuma-elish/",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "creation-of-humans-sumerian-enki-ninmah",
+   "motif_family": "creation-of-humans",
+   "tradition": "Sumerian",
+   "source_text": "Enki and Ninmaḫ",
+   "reference": "ETCSL 1.1.2, lines 24–43",
+   "summary": "Enki has humankind fashioned from the clay of the Abzu to free the gods from their labor; in the drinking contest that follows, he and Ninmaḫ shape a series of flawed human prototypes.",
+   "thompson_motifs": [
+    "A1210",
+    "A1241"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/life-engineering/",
+   "woh_library": "https://www.wheelofheaven.world/library/enki-and-ninmah-woh/",
+   "see_dataset": "",
+   "woh_reading": "Canon reads the flawed-prototypes episode as trial-and-error genetic engineering remembered as a contest."
+  },
+  {
+   "id": "creation-of-humans-vedic-purusha",
+   "motif_family": "creation-of-humans",
+   "tradition": "Vedic / Hindu",
+   "source_text": "Rig Veda (Puruṣa-sūkta)",
+   "reference": "Rig Veda 10.90",
+   "summary": "From the sacrificed cosmic man Puruṣa the worlds and the four social orders are apportioned — humanity derived from the divided body of a primordial divine being.",
+   "thompson_motifs": [
+    "A1210"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/comparative-mythology/",
+   "woh_library": "https://www.wheelofheaven.world/library/rig-veda-book-10/",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "creation-of-humans-greek-prometheus",
+   "motif_family": "creation-of-humans",
+   "tradition": "Greek",
+   "source_text": "Apollodorus, Bibliotheca",
+   "reference": "Bibliotheca 1.7.1; cf. Ovid, Metamorphoses 1.76–88",
+   "summary": "Prometheus molds humankind from water and earth; Ovid has the new creature made upright, to look at the sky, from earth still holding seeds of its kindred heaven.",
+   "thompson_motifs": [
+    "A1241"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/comparative-mythology/",
+   "woh_library": "",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "creation-of-humans-quiche-popol-vuh",
+   "motif_family": "creation-of-humans",
+   "tradition": "K’iche’ Maya",
+   "source_text": "Popol Vuh",
+   "reference": "Popol Vuh, Part 3 (the maize creation)",
+   "summary": "After failed races of mud and of wood, the gods grind white and yellow maize and shape the first true humans — beings who see and praise, whose sight the gods then deliberately dim.",
+   "thompson_motifs": [
+    "A1210"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/comparative-mythology/",
+   "woh_library": "",
+   "see_dataset": "",
+   "woh_reading": "Canon parallel: successive imperfect creations before a satisfactory model echo iterative design; the dimming of the first humans’ sight reads as a deliberate limitation set by the creators."
+  },
+  {
+   "id": "creation-of-humans-egyptian-khnum",
+   "motif_family": "creation-of-humans",
+   "tradition": "Egyptian",
+   "source_text": "Hymn to Khnum (Esna temple)",
+   "reference": "Esna temple texts, Great Hymn to Khnum",
+   "summary": "The ram-headed Khnum shapes humans — body by body, organ by organ — on the potter’s wheel and knits their bodies together, a craftsman-creation of anatomical precision.",
+   "thompson_motifs": [
+    "A1241.3"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/life-engineering/",
+   "woh_library": "",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "creation-of-humans-norse-ask-embla",
+   "motif_family": "creation-of-humans",
+   "tradition": "Norse",
+   "source_text": "Völuspá (Poetic Edda)",
+   "reference": "Völuspá 17–18",
+   "summary": "Three gods find Ask and Embla on the shore, lifeless and fateless, and give them breath, spirit and warmth — humanity awakened from inert stock rather than made from nothing.",
+   "thompson_motifs": [
+    "A1251"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/comparative-mythology/",
+   "woh_library": "",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "sky-descent-second-temple-watchers",
+   "motif_family": "sky-descent",
+   "tradition": "Second Temple / Apocrypha",
+   "source_text": "Book of the Watchers (1 Enoch)",
+   "reference": "1 Enoch 6–8",
+   "summary": "Two hundred Watchers bind themselves by oath on Mount Hermon, descend, take human wives, and teach metallurgy, cosmetics, sorcery and the reading of signs — civilization arriving as transgression.",
+   "thompson_motifs": [
+    "V236",
+    "F531.6.1.1",
+    "A513.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/watchers/",
+   "woh_library": "https://www.wheelofheaven.world/library/book-of-enoch-woh/",
+   "see_dataset": "",
+   "woh_reading": "Canon: the Watchers are the exiled creator-scientists who continued their work on Earth against the home world’s policy."
+  },
+  {
+   "id": "sky-descent-mesopotamian-oannes",
+   "motif_family": "sky-descent",
+   "tradition": "Greco-Babylonian",
+   "source_text": "Berossos, Babyloniaca",
+   "reference": "Babyloniaca, Book 1 (FGrH 680 F 1) — the Oannes account",
+   "summary": "In the first year a being called Oannes rises from the Erythraean Sea and teaches humankind letters, sciences, arts, city-building and law; nothing new, Berossos adds, has been discovered since.",
+   "thompson_motifs": [
+    "A510.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/forerunners/",
+   "woh_library": "",
+   "see_dataset": "",
+   "woh_reading": "Canon parallel: the apkallu civilizers match the creators’ envoys educating early humanity."
+  },
+  {
+   "id": "sky-descent-greek-prometheus-fire",
+   "motif_family": "sky-descent",
+   "tradition": "Greek",
+   "source_text": "Hesiod, Theogony; Works and Days",
+   "reference": "Theogony 561–570; Works and Days 50–58",
+   "summary": "Prometheus steals fire in a hollow fennel stalk and gives it to humankind against the will of Zeus, and both giver and receivers pay for the technology transfer.",
+   "thompson_motifs": [
+    "A1415"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/lucifer/",
+   "woh_library": "https://www.wheelofheaven.world/library/theogony-woh/",
+   "see_dataset": "",
+   "woh_reading": "Canon parallel: the punished technology-bringer belongs to the same memory-family as the serpent of Eden — knowledge given to the young species against policy."
+  },
+  {
+   "id": "sky-descent-sumerian-kingship",
+   "motif_family": "sky-descent",
+   "tradition": "Sumerian",
+   "source_text": "Sumerian King List",
+   "reference": "Sumerian King List, opening line (ETCSL 2.1.1)",
+   "summary": "“After the kingship descended from heaven, the kingship was in Eridu” — political order itself framed as an institution lowered from the sky, twice: before and after the Flood.",
+   "thompson_motifs": [],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/sumerian-king-list/",
+   "woh_library": "https://www.wheelofheaven.world/library/sumerian-king-list-woh/",
+   "see_dataset": "",
+   "woh_reading": "Canon: kingship “from heaven” records administration delegated by the creators to human intermediaries."
+  },
+  {
+   "id": "sky-descent-japanese-ninigi",
+   "motif_family": "sky-descent",
+   "tradition": "Japanese / Shinto",
+   "source_text": "Kojiki; Nihon Shoki",
+   "reference": "Kojiki, Book 1 (the tenson kōrin); Nihon Shoki, Book 2",
+   "summary": "Amaterasu sends her grandson Ninigi down from the Plain of High Heaven with the three regalia to rule the land; the imperial line descends, literally, from the sky.",
+   "thompson_motifs": [
+    "A171.0.3",
+    "F32.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/comparative-mythology/",
+   "woh_library": "",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "sky-descent-andean-viracocha",
+   "motif_family": "sky-descent",
+   "tradition": "Andean / Inca",
+   "source_text": "Betanzos, Suma y narración de los Incas",
+   "reference": "Betanzos I.1–2",
+   "summary": "Con Ticci Viracocha emerges at Lake Titicaca, fashions the peoples and their costumes at Tiwanaku, and walks the land calling each nation out of hills, springs and caves, teaching as he goes.",
+   "thompson_motifs": [
+    "A510.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/forerunners/",
+   "woh_library": "",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "tower-babel-hebrew-genesis",
+   "motif_family": "tower-babel",
+   "tradition": "Hebrew / Biblical",
+   "source_text": "Genesis",
+   "reference": "Genesis 11:1–9",
+   "summary": "A single-language humanity bakes bricks to build a city and a tower with its head in the heavens; Yahweh descends, confounds their speech, and scatters them over the earth.",
+   "thompson_motifs": [
+    "F772.1",
+    "A1333",
+    "C771.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/tower-of-babel/",
+   "woh_library": "https://www.wheelofheaven.world/library/genesis-woh/",
+   "see_dataset": "",
+   "woh_reading": "Canon: the tower was a rocket project aimed at the creators’ planet, dispersed before it could succeed (The Book Which Tells the Truth 2:72)."
+  },
+  {
+   "id": "tower-babel-second-temple-jubilees",
+   "motif_family": "tower-babel",
+   "tradition": "Second Temple / Apocrypha",
+   "source_text": "Book of Jubilees",
+   "reference": "Jubilees 10:18–26",
+   "summary": "Jubilees dates the tower’s building to forty-three years, names the mortar and bitumen, and ends it with the confusion of tongues and a mighty wind that overthrows the tower.",
+   "thompson_motifs": [
+    "F772.1",
+    "A1333"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/tower-of-babel/",
+   "woh_library": "https://www.wheelofheaven.world/library/jubilees-woh/",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "tower-babel-mesopotamian-etemenanki",
+   "motif_family": "tower-babel",
+   "tradition": "Babylonian (Akkadian)",
+   "source_text": "Enūma Eliš; Neo-Babylonian building inscriptions",
+   "reference": "Enūma Eliš VI.60–62; Nebuchadnezzar II’s Etemenanki inscriptions",
+   "summary": "The Anunnaki raise Esagila and its tower in a year of brick-molding, and royal inscriptions boast of Etemenanki, “House of the foundation-platform of heaven and earth” — the ziggurat behind the Babel image.",
+   "thompson_motifs": [
+    "F772.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/babel/",
+   "woh_library": "https://www.wheelofheaven.world/library/enuma-elish/",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "tower-babel-nahua-cholula",
+   "motif_family": "tower-babel",
+   "tradition": "Nahua (colonial record)",
+   "source_text": "Codex Vaticanus A (Codex Ríos)",
+   "reference": "Codex Vaticanus A, gloss on the Great Pyramid of Cholula",
+   "summary": "The colonial gloss records that the giant Xelhua built the great mound of Cholula to reach the sky, until the lords of heaven destroyed the work with fire — a heaven-reaching tower struck down, recorded independently of Genesis.",
+   "thompson_motifs": [
+    "F772.1",
+    "F531"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/tower-of-babel/",
+   "woh_library": "",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "tower-babel-greek-aloadae",
+   "motif_family": "tower-babel",
+   "tradition": "Greek",
+   "source_text": "Homer, Odyssey",
+   "reference": "Odyssey 11.305–320",
+   "summary": "The giant Aloadae, Otus and Ephialtes, pile Ossa on Olympus and Pelion on Ossa to storm heaven itself, and are destroyed by Apollo before their beards can grow.",
+   "thompson_motifs": [
+    "F531"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/tower-of-babel/",
+   "woh_library": "",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "giants-hebrew-nephilim",
+   "motif_family": "giants",
+   "tradition": "Hebrew / Biblical",
+   "source_text": "Genesis",
+   "reference": "Genesis 6:1–4",
+   "summary": "The sons of God take the daughters of men, and the Nephilim — “the mighty men of old, the men of renown” — are in the earth in those days and after.",
+   "thompson_motifs": [
+    "F531.6.1.1",
+    "F531.6.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/nephilim/",
+   "woh_library": "https://www.wheelofheaven.world/library/genesis-woh/",
+   "see_dataset": "",
+   "woh_reading": "Canon: the Nephilim are the offspring of the exiled creators and human women (The Book Which Tells the Truth)."
+  },
+  {
+   "id": "giants-second-temple-enoch",
+   "motif_family": "giants",
+   "tradition": "Second Temple / Apocrypha",
+   "source_text": "Book of the Watchers (1 Enoch)",
+   "reference": "1 Enoch 7:2–5",
+   "summary": "The Watchers’ wives bear giants three thousand ells tall who consume the labor of humankind and then humankind itself — the Nephilim narrative expanded into catastrophe.",
+   "thompson_motifs": [
+    "F531.6.1.1",
+    "F531"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/nephilim/",
+   "woh_library": "https://www.wheelofheaven.world/library/book-of-enoch-woh/",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "giants-hebrew-anakim-og",
+   "motif_family": "giants",
+   "tradition": "Hebrew / Biblical",
+   "source_text": "Numbers; Deuteronomy",
+   "reference": "Numbers 13:32–33; Deuteronomy 3:11",
+   "summary": "The spies report the sons of Anak, before whom they seemed like grasshoppers; Og of Bashan, last of the Rephaim, leaves an iron bed nine cubits long as his measure.",
+   "thompson_motifs": [
+    "F531",
+    "F531.0.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/nephilim/",
+   "woh_library": "https://www.wheelofheaven.world/library/deuteronomy/",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "giants-ugaritic-rephaim",
+   "motif_family": "giants",
+   "tradition": "Ugaritic (Canaanite)",
+   "source_text": "The Rephaim texts",
+   "reference": "KTU 1.20–1.22; cf. Deuteronomy 2:10–11",
+   "summary": "At Ugarit the rpum are honored dead invoked at feasts; in the Hebrew Bible the same name covers both aboriginal giant peoples and the shades in Sheol — one term straddling heroes, giants and the dead.",
+   "thompson_motifs": [
+    "F531"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/nephilim/",
+   "woh_library": "",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "giants-greek-gigantes",
+   "motif_family": "giants",
+   "tradition": "Greek",
+   "source_text": "Hesiod, Theogony; Apollodorus, Bibliotheca",
+   "reference": "Theogony 183–187; Bibliotheca 1.6.1–2",
+   "summary": "The Giants spring from Earth and the blood of wounded Ouranos; in the Gigantomachy they war on the Olympians and are put down only with a mortal’s help.",
+   "thompson_motifs": [
+    "F531"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/theomachy/",
+   "woh_library": "https://www.wheelofheaven.world/library/theogony-woh/",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "giants-norse-jotnar",
+   "motif_family": "giants",
+   "tradition": "Norse",
+   "source_text": "Prose Edda (Gylfaginning)",
+   "reference": "Gylfaginning 5–7",
+   "summary": "From the venom-drips of Élivágar grows the primordial giant Ymir, ancestor of the frost-giants; the gods slay him and build the world from his body.",
+   "thompson_motifs": [
+    "F531",
+    "A621.1"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/comparative-mythology/",
+   "woh_library": "",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "giants-andean-first-race",
+   "motif_family": "giants",
+   "tradition": "Andean / Inca",
+   "source_text": "Sarmiento de Gamboa, Historia de los Incas",
+   "reference": "Sarmiento, Historia de los Incas, ch. 7; cf. Betanzos I.1–2",
+   "summary": "Colonial chroniclers record a first creation — in several versions a race of giants — that disobeyed Viracocha and was destroyed by flood before the present humanity was made.",
+   "thompson_motifs": [
+    "F531"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/comparative-mythology/",
+   "woh_library": "",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "garden-paradise-hebrew-eden",
+   "motif_family": "garden-paradise",
+   "tradition": "Hebrew / Biblical",
+   "source_text": "Genesis",
+   "reference": "Genesis 2:8–17",
+   "summary": "Yahweh Elohim plants a garden in Eden, waters it with a four-branched river, sets the man in it to work it, and places in its midst the tree of life and the tree of the knowledge of good and evil.",
+   "thompson_motifs": [
+    "A151.2",
+    "F111"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/eden/",
+   "woh_library": "https://www.wheelofheaven.world/library/genesis-woh/",
+   "see_dataset": "",
+   "woh_reading": "Canon: Eden is the enclosed laboratory-garden where the creators kept and observed the first engineered humans (The Book Which Tells the Truth)."
+  },
+  {
+   "id": "garden-paradise-sumerian-dilmun",
+   "motif_family": "garden-paradise",
+   "tradition": "Sumerian",
+   "source_text": "Enki and Ninḫursaĝa",
+   "reference": "ETCSL 1.1.1, lines 1–30",
+   "summary": "Dilmun is pure, clean and bright: the raven does not croak, the lion does not kill, no eye-disease, no old age — the paradise-land later given to the flood survivor Ziusudra.",
+   "thompson_motifs": [
+    "A151.2",
+    "F111"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/eden/",
+   "woh_library": "https://www.wheelofheaven.world/library/enki-and-ninhursag-woh/",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "garden-paradise-iranian-vara",
+   "motif_family": "garden-paradise",
+   "tradition": "Iranian / Zoroastrian",
+   "source_text": "Vendidad (Vidēvdād)",
+   "reference": "Vendidad, Fargard 2.20–43",
+   "summary": "Warned by Ahura Mazda of destroying winters, Yima builds the vara, a sealed enclosure stocked with the seed of every kind of human, animal and plant — a preserved remnant against planetary catastrophe.",
+   "thompson_motifs": [],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/great-flood/",
+   "woh_library": "",
+   "see_dataset": "",
+   "woh_reading": "Canon parallel: the vara’s seed-store matches the ark read as a genetic repository rather than a menagerie."
+  },
+  {
+   "id": "garden-paradise-greek-hesperides",
+   "motif_family": "garden-paradise",
+   "tradition": "Greek",
+   "source_text": "Hesiod, Theogony",
+   "reference": "Theogony 215–216; 274–275",
+   "summary": "Beyond glorious Ocean the Hesperides tend the golden apples and their guardian trees — a god’s garden at the edge of the world, barred to mortals.",
+   "thompson_motifs": [
+    "A151.2"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/eden/",
+   "woh_library": "https://www.wheelofheaven.world/library/theogony-woh/",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "garden-paradise-greek-elysium",
+   "motif_family": "garden-paradise",
+   "tradition": "Greek",
+   "source_text": "Homer, Odyssey",
+   "reference": "Odyssey 4.561–569",
+   "summary": "Menelaus is promised the Elysian plain at the world’s end: no snow, no storm, always the clear west wind — ease granted, not earned, by kinship with the gods.",
+   "thompson_motifs": [
+    "A151"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/eden/",
+   "woh_library": "",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "garden-paradise-chinese-xiwangmu",
+   "motif_family": "garden-paradise",
+   "tradition": "Chinese",
+   "source_text": "Shanhaijing; Han-era Xiwangmu traditions",
+   "reference": "Shanhaijing (Classic of Mountains and Seas), Western Mountains; Han Wudi neizhuan",
+   "summary": "On Kunlun the Queen Mother of the West keeps the garden whose peaches ripen once in millennia and confer immortality — paradise as an orchard of controlled access to long life.",
+   "thompson_motifs": [
+    "A151.2",
+    "D1346.5"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/tree-of-life/",
+   "woh_library": "",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "immortality-quest-babylonian-gilgamesh",
+   "motif_family": "immortality-quest",
+   "tradition": "Babylonian (Akkadian)",
+   "source_text": "Epic of Gilgamesh",
+   "reference": "Epic of Gilgamesh, Tablet XI.283–307",
+   "summary": "Utnapishtim reveals the plant of heartbeat that makes the old young again; Gilgamesh dives for it, wins it, and loses it to a snake that sheds its skin as it slips away.",
+   "thompson_motifs": [
+    "H1333.2.1",
+    "D1346.5",
+    "A1319.12"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/tree-of-life/",
+   "woh_library": "https://www.wheelofheaven.world/library/gilgamesh-woh/",
+   "see_dataset": "",
+   "woh_reading": "Canon: the withheld plant is one more image of life-extension technology kept from the young species."
+  },
+  {
+   "id": "immortality-quest-babylonian-adapa",
+   "motif_family": "immortality-quest",
+   "tradition": "Babylonian (Akkadian)",
+   "source_text": "Adapa and the South Wind",
+   "reference": "Adapa, Fragment B (Amarna)",
+   "summary": "Summoned to Anu’s heaven, the sage Adapa is offered the bread and water of life — and refuses them on Ea’s prior advice, losing immortality for humankind by obedience.",
+   "thompson_motifs": [
+    "E80"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/tree-of-life/",
+   "woh_library": "https://www.wheelofheaven.world/library/adapa-woh/",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "immortality-quest-hebrew-tree-of-life",
+   "motif_family": "immortality-quest",
+   "tradition": "Hebrew / Biblical",
+   "source_text": "Genesis",
+   "reference": "Genesis 3:22–24",
+   "summary": "“Lest he put out his hand and take also of the tree of life, and eat, and live forever” — the man is expelled and cherubim with a whirling flaming sword bar the way back.",
+   "thompson_motifs": [
+    "D1346.5"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/tree-of-life/",
+   "woh_library": "https://www.wheelofheaven.world/library/genesis-woh/",
+   "see_dataset": "",
+   "woh_reading": "Canon states it directly: the creators withheld their longevity science from the new species and guarded the way to it."
+  },
+  {
+   "id": "immortality-quest-norse-idunn",
+   "motif_family": "immortality-quest",
+   "tradition": "Norse",
+   "source_text": "Prose Edda (Skáldskaparmál)",
+   "reference": "Skáldskaparmál, the abduction of Idunn",
+   "summary": "The gods stay young only by Idunn’s apples; when the giant Thjazi steals her, the Æsir grey and wither until Loki brings her back — divine immortality shown as a maintained supply.",
+   "thompson_motifs": [
+    "A153.1",
+    "A153"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/tree-of-life/",
+   "woh_library": "",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "immortality-quest-hindu-amrita",
+   "motif_family": "immortality-quest",
+   "tradition": "Hindu",
+   "source_text": "Mahābhārata, Adi Parva",
+   "reference": "Adi Parva, Sections XVII–XVIII",
+   "summary": "Devas and asuras churn the ocean of milk with Mount Mandara to raise the amrita, and the nectar of immortality is fought over, rationed and guarded from the losing side.",
+   "thompson_motifs": [
+    "A154.1",
+    "A153"
+   ],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/tree-of-life/",
+   "woh_library": "",
+   "see_dataset": "",
+   "woh_reading": ""
+  },
+  {
+   "id": "immortality-quest-egyptian-ani",
+   "motif_family": "immortality-quest",
+   "tradition": "Egyptian",
+   "source_text": "Book of the Dead (Papyrus of Ani)",
+   "reference": "Papyrus of Ani, the weighing of the heart and the spells of coming forth by day",
+   "summary": "Ani’s scroll equips him to pass the judgment, avoid the second death, and come forth by day — immortality pursued not as a plant or drink but as a technology of passage.",
+   "thompson_motifs": [],
+   "atu_type": "",
+   "aarne_1910_type": "",
+   "woh_wiki": "https://www.wheelofheaven.world/wiki/tree-of-life/",
+   "woh_library": "https://www.wheelofheaven.world/library/papyrus-of-ani/",
+   "see_dataset": "",
+   "woh_reading": ""
+  }
+ ]
+}

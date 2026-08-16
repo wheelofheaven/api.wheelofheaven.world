@@ -120,6 +120,43 @@ DATASETS = {
         "landing": f"{WWW}/datasets/prophets-and-religions/",
         "records": "48 traditions",
     },
+    "myth-index": {
+        "title": "Wheel of Heaven Myth Index",
+        "subtitle": "75 myth-motif attestations across 9 families, ATU/TMI-aligned (CC0)",
+        "blurb": "A cross-cultural index of mythological motifs — flood, divine council, theomachy, "
+                 "creation of humans, sky-descent, tower of Babel, giants, garden-paradise, and the "
+                 "immortality quest. One row per attestation, with named primary text, locator, "
+                 "Thompson Motif-Index cross-references, and links to the digitized source texts. "
+                 "The flood, divine-council, and theomachy rows unify the three specialized "
+                 "Wheel of Heaven concordances, which carry the full per-family column depth.",
+        "keywords": ["comparative-mythology", "motif-index", "thompson-motif-index", "flood-myth",
+                     "divine-council", "chaoskampf", "ancient-near-east", "folklore",
+                     "digital-humanities"],
+        "columns": "motif_family, tradition, source_text, reference, summary, thompson_motifs, "
+                   "atu_type, aarne_1910_type, woh_wiki, woh_library, see_dataset, woh_reading",
+        "files": ["datasets/myth-index.csv", "datasets/myth-index.json"],
+        "landing": f"{WWW}/datasets/myth-index/",
+        "records": "75 attestations across 9 motif families",
+    },
+    "aarne-1910-tale-types": {
+        "title": "Aarne 1910 Tale-Type Index (Verzeichnis der Märchentypen)",
+        "subtitle": "The founding 1910 tale-type catalogue, fully structured (CC0)",
+        "blurb": "A complete structured digitization of Antti Aarne's *Verzeichnis der Märchentypen* "
+                 "(Folklore Fellows' Communications 3, Helsinki 1910) — the founding catalogue of the "
+                 "Aarne–Thompson–Uther tale-type system. Every type with its German title and "
+                 "description, part/division/subsection structure, group captions, Grundtvig and "
+                 "Grimm cross-references, page numbers, and English title glosses. Parsed from the "
+                 "proofread German Wikisource transcription; the 1910 source text is public domain "
+                 "worldwide (Aarne d. 1925), and this dataset is released CC0.",
+        "keywords": ["folklore", "folktales", "aarne-thompson-uther", "tale-type-index",
+                     "fairy-tales", "comparative-mythology", "digital-humanities",
+                     "classification"],
+        "columns": "type_label, type_start, type_end, subtype, title_de, description_de, title_en, "
+                   "part, division, subsection, group_label, group_title, grundtvig_no, grimm_no, page",
+        "files": ["datasets/aarne-1910-tale-types.csv", "datasets/aarne-1910-tale-types.json"],
+        "landing": f"{WWW}/datasets/aarne-1910-tale-types/",
+        "records": "603 rows (533 titled types incl. lettered subtypes)",
+    },
 }
 
 
