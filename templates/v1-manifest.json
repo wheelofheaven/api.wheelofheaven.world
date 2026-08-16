@@ -59,7 +59,9 @@
         "myth_index_csv": "/v1/datasets/myth-index.csv",
         "myth_index_json": "/v1/datasets/myth-index.json",
         "aarne_1910_tale_types_csv": "/v1/datasets/aarne-1910-tale-types.csv",
-        "aarne_1910_tale_types_json": "/v1/datasets/aarne-1910-tale-types.json"
+        "aarne_1910_tale_types_json": "/v1/datasets/aarne-1910-tale-types.json",
+        "grimm_khm_index_csv": "/v1/datasets/grimm-khm-index.csv",
+        "grimm_khm_index_json": "/v1/datasets/grimm-khm-index.json"
       },
       "context": {
         "overview": "/v1/context/",

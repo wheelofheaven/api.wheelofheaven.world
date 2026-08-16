@@ -157,6 +157,23 @@ DATASETS = {
         "landing": f"{WWW}/datasets/aarne-1910-tale-types/",
         "records": "603 rows (533 titled types incl. lettered subtypes)",
     },
+    "grimm-khm-index": {
+        "title": "Grimm KHM Tale-Type Crosswalk",
+        "subtitle": "All 211 Grimm tales with ATU types and Aarne-1910 joins (CC0)",
+        "blurb": "All 201 tales and 10 children's legends of the Grimms' *Kinder- und Hausmärchen* "
+                 "(1857 canonical numbering, incl. KHM 151a) with German and English titles, ATU "
+                 "tale-type numbers, back-references to Aarne's 1910 catalogue (joins the "
+                 "aarne-1910-tale-types dataset on `type_label`), the edition in which each tale "
+                 "first appeared (1812/15–1857), and links to the 1857 German text on Wikisource.",
+        "keywords": ["grimm", "fairy-tales", "folktales", "kinder-und-hausmaerchen",
+                     "aarne-thompson-uther", "tale-type-index", "folklore",
+                     "digital-humanities", "classification"],
+        "columns": "khm_no, part (KHM | KL), title_de, title_en, atu_type, atu_episode_types, "
+                   "type_note, aarne_1910_types, first_edition, wikisource_de",
+        "files": ["datasets/grimm-khm-index.csv", "datasets/grimm-khm-index.json"],
+        "landing": f"{WWW}/datasets/grimm-khm-index/",
+        "records": "211 tales (201 KHM incl. 151a + 10 children's legends)",
+    },
 }
 
 
