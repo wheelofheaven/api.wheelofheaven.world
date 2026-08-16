@@ -6,13 +6,19 @@
     {
       "value": "direct",
       "label": "Direct",
-      "description": "The claim is explicit in a primary source — Raëlian, biblical, scientific, etc. — or is a direct description of the project / methodology.",
+      "description": "The claim is explicit in a primary source AND uncontroversial in the mainstream — a textual fact, an astronomical fact, or a direct description of the project and its methodology.",
       "badge_color": "cyan"
+    },
+    {
+      "value": "framework",
+      "label": "Framework",
+      "description": "A foundational premise of the Wheel of Heaven framework — stated plainly in the Raëlian canon but not endorsed by mainstream scholarship. Distinct from 'direct' (which implies mainstream agreement) and from 'speculative' (which implies the claim is not asserted by any single source).",
+      "badge_color": "mauve"
     },
     {
       "value": "inferred",
       "label": "Inferred",
-      "description": "The claim is a reasonable reading of a source, not literally stated but consistent with it. Comparative-religion readings, framework summaries, interpreting myth as compression.",
+      "description": "The claim is a reasonable reading of a source, not literally stated but consistent with it. Comparative-religion readings, or interpreting myth as compressed history.",
       "badge_color": "yellow"
     },
     {
