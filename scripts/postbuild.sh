@@ -23,11 +23,26 @@ echo "Postbuild: preparing public/ for Cloudflare Pages..."
 # deployment cap.
 
 # Top-level _headers: every served path returns application/json.
+#
+# THIS is the _headers that ships. It is written here, after `zola build`,
+# so it overwrites anything static/ copied into public/ — which is why
+# static/_headers was deleted: editing it looked like it worked and
+# changed nothing. Add response headers here, not there.
+#
+# The Link header is the RFC 9727 catalog advertisement. This host is the
+# likeliest place an agent enters the project — it is the API — and www
+# alone used to send it, so an agent that landed on /v1/ had no path to
+# the catalog, the auth policy or the MCP server. The URL is absolute,
+# unlike www's copy: the catalog document is centralised on www so there
+# is one copy that cannot drift, and a relative `/.well-known/api-catalog`
+# here would resolve against this host, where it 404s. The catalog sends
+# `Access-Control-Allow-Origin: *`, so cross-origin agents can follow it.
 cat > public/_headers << 'EOF'
 /*
   Content-Type: application/json; charset=utf-8
   Access-Control-Allow-Origin: *
   Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Link: <https://www.wheelofheaven.world/.well-known/api-catalog>; rel="api-catalog"
   X-License: CC0-1.0
   X-Citable: true
   X-API-Version: v1
