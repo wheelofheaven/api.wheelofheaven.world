@@ -1,18 +1,24 @@
-# CORS headers for API access
+# CORS headers for API access.
+#
+# Keep comments OUTSIDE the rule blocks. Cloudflare Pages parses every
+# indented line under a path as `name: value`, so an indented `#` comment
+# is an invalid line — and the first version of the Link rule below sat
+# after such a comment and was silently dropped for a full deploy cycle
+# while CORS above it kept working.
+#
+# RFC 9727 catalog advertisement: this host is the likeliest place an
+# agent enters the project — it is the API — and www alone used to send
+# the header, so an agent that landed on /v1/ had no path to the catalog,
+# the auth policy or the MCP server. The URL is absolute, unlike www's
+# copy: the catalog document is centralised on www so there is one copy
+# that cannot drift, and a relative `/.well-known/api-catalog` here would
+# resolve against this host, where it 404s. The catalog sends
+# `Access-Control-Allow-Origin: *`, so cross-origin agents can follow it.
 /*
   Access-Control-Allow-Origin: *
   Access-Control-Allow-Methods: GET, HEAD, OPTIONS
   Access-Control-Allow-Headers: Content-Type
   Content-Type: application/json; charset=utf-8
-  # RFC 9727 catalog advertisement. This host is the likeliest place an
-  # agent enters the project — it is the API — and until now only www sent
-  # this, so an agent that landed on /v1/ had no path to the catalog, the
-  # auth policy or the MCP server.
-  #
-  # Absolute URL, unlike www's copy: the catalog document is centralised on
-  # www (one copy, so it cannot drift), and a relative `/.well-known/…`
-  # here would resolve against this host, where it 404s. The catalog sends
-  # `Access-Control-Allow-Origin: *`, so cross-origin agents can follow it.
   Link: <https://www.wheelofheaven.world/.well-known/api-catalog>; rel="api-catalog"
 
 # Cache control for API responses
