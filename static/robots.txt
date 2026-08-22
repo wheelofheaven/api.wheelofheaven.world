@@ -1,10 +1,29 @@
-User-agent: *
-Allow: /
+# Wheel of Heaven — JSON API
+#
+# Policy: the entire corpus is CC0-1.0 (public domain). There is no
+# rights-based reason to restrict any crawler, and the project's whole
+# distribution strategy depends on being ingested, retrieved, and cited.
+# So: one open group for everyone, and no per-agent exceptions. This is
+# the same policy www.wheelofheaven.world states, restated here rather
+# than centralised — robots.txt is per-host under RFC 9309, so a crawler
+# on this origin reads *this* file and never sees www's.
+#
+# Do NOT add per-agent "User-agent: <bot>" stanzas. They are redundant
+# against the wildcard group below, and they collide with Cloudflare's
+# managed robots.txt block if that is ever enabled. Crawler access is
+# controlled in the Cloudflare dashboard. See
+# https://docs.wheelofheaven.world/ai-ingestion/agent-discovery/
+#
+# The AI-optimised entry points — /llms.txt, /v1/context/, /v1/schema/,
+# /v1/enums/ — used to be listed here as explicit `Allow:` lines. They
+# were doing nothing twice over: `Allow: /` already covers them, and they
+# sat after a blank line, which ends the group under RFC 9309, so they
+# formed a second group with no `User-agent` line and were skipped
+# entirely. They are a comment now, which is what they always were in
+# effect. The catalog at /v1/ is the real index.
 
-# AI-optimised entry points
-Allow: /llms.txt
-Allow: /v1/context/
-Allow: /v1/schema/
-Allow: /v1/enums/
+User-agent: *
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
+Allow: /
 
 Sitemap: https://api.wheelofheaven.world/sitemap.xml
