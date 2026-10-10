@@ -80,9 +80,9 @@ cat > public/_redirects << 'EOF'
 
 # The manifest documents per-node ego networks as a URI template,
 # /v1/graph/{section}/{slug}/. Naive crawlers fetch the template literally
-# (raw braces and %7B-encoded) and used to get a 404; send them to the graph
-# index, which is the resource the template describes.
-/v1/graph/{section}/{slug}/ /v1/graph/ 302
+# and used to get a 404; send them to the graph index, which is the resource
+# the template describes. Clients percent-encode the braces on the wire, and
+# that is the only form Pages matches — a raw-brace source line is ignored.
 /v1/graph/%7Bsection%7D/%7Bslug%7D/ /v1/graph/ 302
 
 # Library URL canonicalisation. Bare /v1/books/ and /v1/traditions/ stay live
