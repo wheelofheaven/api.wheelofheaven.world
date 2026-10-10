@@ -78,6 +78,13 @@ cat > public/_redirects << 'EOF'
 # (Both keep working; the directory form is canonical.)
 /v1/*/index.json /v1/:splat/ 200
 
+# The manifest documents per-node ego networks as a URI template,
+# /v1/graph/{section}/{slug}/. Naive crawlers fetch the template literally
+# (raw braces and %7B-encoded) and used to get a 404; send them to the graph
+# index, which is the resource the template describes.
+/v1/graph/{section}/{slug}/ /v1/graph/ 302
+/v1/graph/%7Bsection%7D/%7Bslug%7D/ /v1/graph/ 302
+
 # Library URL canonicalisation. Bare /v1/books/ and /v1/traditions/ stay live
 # as alias *listings*, but per-item paths under them route to the
 # library-prefixed canonical pages. Per Decision 14, /v1/ URL permanence is
