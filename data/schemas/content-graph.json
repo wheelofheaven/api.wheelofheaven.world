@@ -17,7 +17,10 @@
         "edges_by_type": {"type": "object"},
         "orphans": {"type": "integer"},
         "asymmetric_see_also": {"type": "integer"},
-        "dangling_links": {"type": "integer"}
+        "dangling_links": {"type": "integer", "description": "Unresolved local page targets only."},
+        "outside_graph_links": {"type": "integer", "description": "Links to verified published website destinations outside the graph."},
+        "external_links": {"type": "integer", "description": "Off-site links; availability is not checked."},
+        "excluded_links": {"type": "integer", "description": "Links to draft or non-rendered destinations; identifiers are withheld."}
       }
     },
     "nodes": {"type": "array", "items": {"$ref": "#/$defs/node"}},
@@ -34,13 +37,33 @@
         },
         "dangling": {
           "type": "array",
-          "items": {"type": "object", "properties": {"source": {"type": "string"}, "path": {"type": "string"}, "reason": {"type": "string", "enum": ["internal_missing", "external"]}, "via": {"type": "string", "enum": ["see_also", "in_body"]}}},
-          "description": "Curated/in-body links whose target is a broken internal slug or points outside the content graph."
+          "items": {"$ref": "#/$defs/linkReport"},
+          "description": "Unresolved local page targets (reason=internal_missing). Declared aliases are resolved before reporting."
+        },
+        "outside_graph": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/linkReport"},
+          "description": "Verified published website destinations outside the graph, including aliases to library pages (reason=outside_graph)."
+        },
+        "external": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/linkReport"},
+          "description": "Off-site links whose availability is not checked (reason=external)."
         }
       }
     }
   },
   "$defs": {
+    "linkReport": {
+      "type": "object",
+      "required": ["source", "path", "reason", "via"],
+      "properties": {
+        "source": {"type": "string"},
+        "path": {"type": "string"},
+        "reason": {"type": "string", "enum": ["internal_missing", "outside_graph", "external"]},
+        "via": {"type": "string", "enum": ["see_also", "in_body"]}
+      }
+    },
     "node": {
       "type": "object",
       "required": ["id", "section", "slug", "kind", "title", "url"],

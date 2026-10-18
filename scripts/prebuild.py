@@ -24,10 +24,12 @@ from __future__ import annotations
 import datetime as _dt
 import json
 import re
+import shutil
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlsplit
 
 
 class _JSONEncoder(json.JSONEncoder):
@@ -742,20 +744,68 @@ _GRAPH_LANG_CODES = {"en", "de", "es", "fr", "ja", "ko", "ru", "zh", "zh-Hant", 
 _WIKI_SHORTCODE_RE = re.compile(r'\{%\s*wiki\(\s*slug\s*=\s*"([a-z0-9-]+)"\s*\)\s*%\}')
 
 
-def _graph_resolve(path: str, nodes: dict) -> tuple[str | None, str]:
-    """Resolve a see_also/canon_link path to a node id.
+def _graph_path(path: str) -> str | None:
+    """Normalize website paths for the English graph; None means off-site.
 
-    Returns (node_id, status): 'ok' (internal, resolved), 'internal_missing'
-    (content section but unknown slug — a broken link), or 'external' (points
-    outside the content graph, e.g. library/sources). A redundant leading
-    language segment is tolerated (see project_see_also_langprefix_bug)."""
-    segs = [s for s in path.strip().strip("/").split("/") if s]
+    Language prefixes project onto English. Queries/fragments do not change
+    page identity; their contents are not validated by this page-level graph.
+    """
+    url = urlsplit(path.strip())
+    if url.scheme and url.scheme not in {"http", "https"}:
+        return None
+    if url.netloc and url.netloc not in {"www.wheelofheaven.world", "wheelofheaven.world"}:
+        return None
+    segs = [s for s in url.path.strip("/").split("/") if s]
     if segs and segs[0] in _GRAPH_LANG_CODES:
         segs = segs[1:]
-    if len(segs) >= 2 and segs[0] in GRAPH_SECTIONS:
-        nid = f"{segs[0]}/{segs[1]}"
-        return (nid, "ok") if nid in nodes else (None, "internal_missing")
-    return (None, "external")
+    return "/".join(segs)
+
+
+def _graph_destinations(nodes: dict) -> dict[str, tuple[str | None, str]]:
+    """Index actual English website routes, including declared Zola aliases.
+
+    A filename is not an implicit alias when frontmatter overrides its slug.
+    Library destinations are verified against data/content, not the graph or
+    data-library: a published library landing page need not have a full text.
+    """
+    destinations: dict[str, tuple[str | None, str]] = {}
+    owners: dict[str, Path] = {}
+    for md in sorted(SRC_CONTENT.rglob("*.md")):
+        rel = md.relative_to(SRC_CONTENT)
+        if rel.parts[0] in _GRAPH_LANG_CODES:
+            continue
+        fm, _ = parse_toml_frontmatter(md.read_text(encoding="utf-8"))
+        if not fm.get("title"):
+            continue
+        slug = fm.get("slug") or md.stem
+        if md.stem in {"_index", "index"}:
+            default_path = "/".join(rel.parent.parts)
+        else:
+            default_path = (rel.parent / slug).as_posix()
+        canonical = _graph_path(fm.get("path") or default_path)
+        nid = f"{rel.parent.as_posix()}/{slug}"
+        if fm.get("draft") is True or fm.get("render") is False:
+            result = (None, "excluded")
+        elif nid in nodes:
+            result = (nid, "ok")
+        else:
+            result = (None, "outside_graph")
+        for route in [canonical] + [_graph_path(a) for a in fm.get("aliases", [])]:
+            if route is None:
+                continue
+            if route in owners and owners[route] != md:
+                raise ValueError(f"Ambiguous graph destination /{route}/: {owners[route]} and {md}")
+            owners[route] = md
+            destinations[route] = result
+    return destinations
+
+
+def _graph_resolve(path: str, destinations: dict) -> tuple[str | None, str]:
+    """Resolve curated and in-body links through the same route index."""
+    route = _graph_path(path)
+    if route is None:
+        return None, "external"
+    return destinations.get(route, (None, "internal_missing"))
 
 
 def build_graph() -> None:
@@ -771,7 +821,7 @@ def build_graph() -> None:
             if md.name == "_index.md":
                 continue
             fm, body = parse_toml_frontmatter(md.read_text(encoding="utf-8"))
-            if not fm.get("title"):
+            if not fm.get("title") or fm.get("draft") is True or fm.get("render") is False:
                 continue
             slug = fm.get("slug") or md.stem
             nid = f"{section}/{slug}"
@@ -793,6 +843,10 @@ def build_graph() -> None:
     edges: list[dict] = []
     seen: set = set()
     dangling: list[dict] = []
+    outside_graph: list[dict] = []
+    external: list[dict] = []
+    excluded_links = 0
+    destinations = _graph_destinations(nodes)
 
     def add_edge(s: str, t: str, ty: str) -> None:
         key = (s, t, ty)
@@ -801,6 +855,19 @@ def build_graph() -> None:
         seen.add(key)
         edges.append({"source": s, "target": t, "type": ty})
 
+    def resolve_link(source: str, path: str, via: str) -> None:
+        nonlocal excluded_links
+        tid, status = _graph_resolve(path, destinations)
+        if status == "ok":
+            add_edge(source, tid, via)
+        elif status == "excluded":
+            # Do not publish draft identifiers even in the downloadable QA data.
+            excluded_links += 1
+        else:
+            report = {"internal_missing": dangling, "outside_graph": outside_graph,
+                      "external": external}[status]
+            report.append({"source": source, "path": path, "reason": status, "via": via})
+
     for nid in nodes:
         for item in curated.get(nid, []):
             if not isinstance(item, dict):
@@ -808,17 +875,9 @@ def build_graph() -> None:
             path = item.get("path")
             if not path:
                 continue
-            tid, status = _graph_resolve(path, nodes)
-            if status == "ok":
-                add_edge(nid, tid, "see_also")
-            else:
-                dangling.append({"source": nid, "path": path, "reason": status, "via": "see_also"})
+            resolve_link(nid, path, "see_also")
         for m in _WIKI_SHORTCODE_RE.finditer(bodies.get(nid, "")):
-            tid = f"wiki/{m.group(1)}"
-            if tid in nodes:
-                add_edge(nid, tid, "in_body")
-            else:
-                dangling.append({"source": nid, "path": tid, "reason": "internal_missing", "via": "in_body"})
+            resolve_link(nid, f"wiki/{m.group(1)}", "in_body")
 
     out_deg = {nid: 0 for nid in nodes}
     in_deg = {nid: 0 for nid in nodes}
@@ -850,6 +909,9 @@ def build_graph() -> None:
             "orphans": len(orphans),
             "asymmetric_see_also": len(asymmetric),
             "dangling_links": len(dangling),
+            "outside_graph_links": len(outside_graph),
+            "external_links": len(external),
+            "excluded_links": excluded_links,
         },
         "nodes": sorted(nodes.values(), key=lambda n: n["id"]),
         "edges": edges,
@@ -857,8 +919,15 @@ def build_graph() -> None:
             "orphans": orphans,
             "asymmetric_see_also": asymmetric,
             "dangling": sorted(dangling, key=lambda d: (d["source"], d["path"])),
+            "outside_graph": sorted(outside_graph, key=lambda d: (d["source"], d["path"])),
+            "external": sorted(external, key=lambda d: (d["source"], d["path"])),
         },
     }
+    # Invalidate previously rendered endpoints/downloads as well as the source
+    # stubs below. This also protects rebuilds that preserve Zola output paths.
+    public_graph = ROOT / "public" / "v1" / "graph"
+    if public_graph.exists():
+        shutil.rmtree(public_graph)
     write_json(OUT_DATA / "graph.json", graph)
     _write_graph_datasets(graph)
 
@@ -896,7 +965,8 @@ def build_graph() -> None:
     print(f"  graph: {len(nodes)} nodes, {len(edges)} edges "
           f"({', '.join(f'{k}:{v}' for k, v in sorted(by_type.items()))}) -> content/v1/graph/")
     print(f"  graph QA: {len(orphans)} orphans, {len(asymmetric)} asymmetric see_also, "
-          f"{len(dangling)} dangling links")
+          f"{len(dangling)} dangling links, {len(outside_graph)} outside graph, "
+          f"{len(external)} off-site (unchecked), {excluded_links} excluded")
     if orphans:
         shown = ", ".join(orphans[:12])
         print(f"    orphans: {shown}{' …' if len(orphans) > 12 else ''}")

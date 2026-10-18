@@ -63,6 +63,28 @@ All responses follow a consistent structure:
 }
 ```
 
+### Content graph
+
+`/v1/graph/` contains published English wiki, article, timeline, and news nodes.
+`/v1/graph/{section}/{slug}/` provides each node's incoming/outgoing edges and neighbors.
+Downloads are available at `/v1/graph/content-graph.json` and `/v1/graph/content-graph.graphml`.
+Drafts are excluded from every graph surface.
+
+Curated `see_also`/`canon_links` and in-body wiki shortcodes share canonical slug and declared alias resolution.
+Links to the same canonical node are deduplicated per edge type; self-links are omitted.
+Language prefixes project onto the English graph, and query strings/fragments do not change page identity.
+A filename is not treated as an alias unless the page declares it.
+
+The QA report distinguishes unresolved local page targets (`qa.dangling`) from verified published destinations outside the graph (`qa.outside_graph`), such as library landing pages.
+Verification uses the English `data/content` routes, including explicit paths and aliases; missing library paths remain dangling.
+Off-site URLs appear separately in `qa.external`; their availability is not checked.
+Links to drafts or non-rendered pages are counted in `stats.excluded_links` without publishing their identifiers.
+The graph does not validate anchor existence or extract ordinary Markdown links.
+
+Every prebuild replaces graph data/downloads, removes stale generated ego data and page stubs, and invalidates `public/v1/graph/` before Zola renders fresh endpoints.
+Run the complete build before serving output after a prebuild.
+For the verified baseline and alias inventory, see [the graph audit](docs/content-graph-audit.md).
+
 ## Development
 
 ### Prerequisites
@@ -81,6 +103,9 @@ mise run serve
 
 # Check for errors
 mise run check
+
+# Focused graph regression tests (standard library only)
+mise exec -- python3 -m unittest discover -s scripts -p 'test_graph.py' -v
 ```
 
 ### Adding a New Book
