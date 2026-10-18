@@ -31,10 +31,14 @@
 {%- for p in chapter.paragraphs | default(value=[]) %}
 {%- set text = "" -%}
 {%- if p.i18n and p.i18n[lang] -%}{%- set text = p.i18n[lang] -%}
-{%- elif p.text -%}{%- set text = p.text -%}{%- endif -%}
+{%- elif not p.alignment[lang] and p.text -%}{%- set text = p.text -%}{%- endif -%}
       {
         "n": {{ p.n }},
-        {% if p.kind %}"kind": {{ p.kind | json_encode | safe }},
+        {% set kind = p.kindByLang[lang] | default(value=p.kind | default(value="")) %}
+        {% if kind %}"kind": {{ kind | json_encode | safe }},
+        {% endif %}
+        {% if p.alignment[lang] %}"alignment": {{ p.alignment[lang] | json_encode | safe }},
+        "sourceText": {{ p.text | default(value="") | json_encode | safe }},
         {% endif %}
         {% if p.speaker %}"speaker": {{ p.speaker | json_encode | safe }},
         {% endif %}"refId": {{ p.refId | default(value="") | json_encode | safe }},

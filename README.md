@@ -33,6 +33,11 @@ Book and book metadata responses include `data.version` when a
 `data-library` record defines structured version/provenance metadata in its
 `_meta.json`.
 
+Library chapter responses resolve `kindByLang` for the requested language before
+falling back to `kind`. Explicit edition gaps return an empty `text`, plus the
+language's `alignment` record and original `sourceText`; they do not silently
+substitute French for missing English. Shared passages carry the same metadata.
+
 ### Context Endpoints (for AI/LLM)
 
 The `/v1/context` endpoints provide structured context optimized for AI systems:
