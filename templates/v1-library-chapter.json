@@ -34,6 +34,8 @@
 {%- elif p.text -%}{%- set text = p.text -%}{%- endif -%}
       {
         "n": {{ p.n }},
+        {% if p.kind %}"kind": {{ p.kind | json_encode | safe }},
+        {% endif %}
         {% if p.speaker %}"speaker": {{ p.speaker | json_encode | safe }},
         {% endif %}"refId": {{ p.refId | default(value="") | json_encode | safe }},
         {% if p.verseRef %}"verseRef": {{ p.verseRef | json_encode | safe }},
