@@ -34,6 +34,10 @@
 {%- elif not p.alignment[lang] and p.text -%}{%- set text = p.text -%}{%- endif -%}
       {
         "n": {{ p.n }},
+        {% if p.preserveLineBreaks %}"preserveLineBreaks": true,
+        {% endif %}
+        {% if p.headingBefore %}"headingBefore": {% if p.headingBefore.i18n[lang] %}{{ p.headingBefore.i18n[lang] | json_encode | safe }}{% else %}{{ p.headingBefore.text | json_encode | safe }}{% endif %},
+        {% endif %}
         {% set kind = p.kindByLang[lang] | default(value=p.kind | default(value="")) %}
         {% if kind %}"kind": {{ kind | json_encode | safe }},
         {% endif %}
