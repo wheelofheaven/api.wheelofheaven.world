@@ -21,6 +21,7 @@
     "summary": {{ page.extra.summary | default(value="") | json_encode | safe }},
     "canon_links": {{ page.extra.canon_links | default(value=[]) | json_encode | safe }},
     "sources": {{ page.extra.sources | default(value=[]) | json_encode | safe }},
+    "claims": {% set _claims = load_data(path="data/extracted/claims/" ~ lang ~ "/news/" ~ slug ~ ".json", required=false) %}{% if _claims %}{{ _claims | json_encode | safe }}{% else %}[]{% endif %},
     "body_html": {{ page.content | json_encode | safe }},
     "extra": {% if page.extra %}{{ page.extra | json_encode | safe }}{% else %}{}{% endif %}
   },

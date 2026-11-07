@@ -22,6 +22,7 @@
     "alternative_names": {{ page.extra.alternative_names | default(value=[]) | json_encode | safe }},
     "see_also": {{ page.extra.see_also | default(value=[]) | json_encode | safe }},
     "references": {{ page.extra.references | default(value=[]) | json_encode | safe }},
+    "claims": {% set _claims = load_data(path="data/extracted/claims/" ~ lang ~ "/wiki/" ~ slug ~ ".json", required=false) %}{% if _claims %}{{ _claims | json_encode | safe }}{% else %}[]{% endif %},
     "body_html": {{ page.content | json_encode | safe }},
     "extra": {% if page.extra %}{{ page.extra | json_encode | safe }}{% else %}{}{% endif %}
   },

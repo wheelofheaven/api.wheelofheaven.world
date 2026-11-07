@@ -98,6 +98,31 @@ def parse_toml_frontmatter(raw: str) -> tuple[dict, str]:
     return fm, raw[m.end():]
 
 
+# Inline claim markers ({% claim(type=…, id=…) %}…{% end %}): extracted per
+# page into data/extracted/claims/{lang}/{kind}/{slug}.json, which the page
+# templates emit as a structured `claims` field.
+_CLAIM_RE = re.compile(
+    r'\{%\s*claim\(\s*type\s*=\s*"(?P<type>[a-z]+)"(?:\s*,\s*id\s*=\s*"(?P<id>[^"]+)")?\s*\)\s*%\}(?P<body>.*?)\{%\s*end\s*%\}',
+    re.S,
+)
+_MD_LINK_RE = re.compile(r'\[([^\]]+)\]\([^)]*\)')
+
+
+def extract_inline_claims(body: str) -> list[dict]:
+    """The page's inline claim markers as data: label, record id, plain text."""
+    out = []
+    for m in _CLAIM_RE.finditer(body):
+        text = _MD_LINK_RE.sub(r'\1', m.group("body"))
+        text = re.sub(r'[*_`]', '', text)
+        text = re.sub(r'\s+', ' ', text).strip()
+        item = {"label": m.group("type"), "text": text}
+        if m.group("id"):
+            item["id"] = m.group("id")
+            item["record"] = f"https://github.com/wheelofheaven/core/blob/main/model/claims/{m.group('id')}.json"
+        out.append(item)
+    return out
+
+
 _TEMPLATE_LINE_RE = re.compile(r'^template\s*=\s*"[^"]*"\s*$', re.MULTILINE)
 _TOC_LINE_RE = re.compile(r'^toc\s*=\s*(true|false)\s*$', re.MULTILINE)
 _ALIASES_LINE_RE = re.compile(r'^aliases\s*=\s*\[[^\]]*\]\s*$', re.MULTILINE)
@@ -269,6 +294,13 @@ def process_section(
             patched = f"+++\n{new_block}\n+++\n{patched[m.end():]}"
 
         (dest_pages / f"{slug}.md").write_text(patched, encoding="utf-8")
+
+        claims_path = OUT_DATA / "claims" / lang / kind / f"{slug}.json"
+        claims = extract_inline_claims(body)
+        if claims:
+            write_json(claims_path, claims)
+        elif claims_path.exists():
+            claims_path.unlink()
 
         lang_prefix = _lang_prefix(lang)
         index_entry: dict = {

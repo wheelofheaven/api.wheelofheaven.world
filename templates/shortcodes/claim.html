@@ -1,0 +1,6 @@
+{#- API stub: inline claim marker. www renders an underline + tappable note;
+    the API keeps the assertion text and carries the label and record as
+    data attributes, so body_html stays machine-readable. The same claims are
+    listed as structured data in each page's `claims` field (prebuild.py).
+      {% claim(type="framework", id="woh-claim-0001") %}…{% end %} -#}
+<span class="claim claim--{{ type }}" data-claim-type="{{ type }}"{% if id is defined and id %} data-claim-id="{{ id }}"{% endif %}>{{ body | markdown(inline=true) | safe }}</span>
