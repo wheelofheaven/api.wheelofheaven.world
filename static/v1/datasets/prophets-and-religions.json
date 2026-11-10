@@ -1,6 +1,6 @@
 {
   "name": "Wheel of Heaven Prophets & Religions Catalogue",
-  "description": "A catalogue of religious traditions and their founders/prophets, with the period, the content relevant to the Wheel of Heaven framework, and the corpus's authenticity assessment of the founding-contact claim (Canonical / Highly likely / … / Highly unlikely). CC0 public domain.",
+  "description": "A catalogue of religious traditions and their founders/prophets, with the period, the content relevant to the Wheel of Heaven framework, and the corpus's comparative tier (Canonical / Highly likely / … / Highly unlikely; 'Canonical' marks the traditions whose founders the Raëlian canon itself names; Mormonism is not graded). The tier is the corpus's own heuristic for organising comparison — not a canon ranking and not an authenticity verdict. CC0 public domain.",
   "license": "CC0-1.0",
   "landing_page": "https://www.wheelofheaven.world/datasets/prophets-and-religions/",
   "columns": [
@@ -8,7 +8,7 @@
     "tradition",
     "period",
     "founder",
-    "authenticity",
+    "comparative_tier",
     "principal_content",
     "woh_wiki"
   ],
@@ -19,7 +19,7 @@
       "tradition": "Raëlism",
       "period": "1973–present",
       "founder": "Claude Vorilhon (Raël)",
-      "authenticity": "Canonical",
+      "comparative_tier": "Canonical",
       "principal_content": "Direct first-person contact narrative; Elohim creation account; cosmic-chain doctrine; embassy project",
       "woh_wiki": "https://www.wheelofheaven.world/wiki/raelism/"
     },
@@ -28,7 +28,7 @@
       "tradition": "Eckankar",
       "period": "1965–present",
       "founder": "Paul Twitchell",
-      "authenticity": "Unlikely",
+      "comparative_tier": "Unlikely",
       "principal_content": "Soul-travel doctrine; eclectic syncretism drawing on Sant Mat",
       "woh_wiki": ""
     },
@@ -37,7 +37,7 @@
       "tradition": "Wicca",
       "period": "1953–present",
       "founder": "Gerald Gardner",
-      "authenticity": "Unlikely",
+      "comparative_tier": "Unlikely",
       "principal_content": "Reconstructed nature religion; goddess theology; horned-god theology",
       "woh_wiki": ""
     },
@@ -46,7 +46,7 @@
       "tradition": "Caodism (Đạo Cao Đài)",
       "period": "1921–present",
       "founder": "Ngô Văn Chiêu",
-      "authenticity": "Highly likely",
+      "comparative_tier": "Highly likely",
       "principal_content": "Syncretism of Eastern and Western religions; spirit-communication narratives; supreme-being doctrine",
       "woh_wiki": "https://www.wheelofheaven.world/wiki/caodism/"
     },
@@ -55,7 +55,7 @@
       "tradition": "Thelema",
       "period": "1900–present",
       "founder": "Aleister Crowley",
-      "authenticity": "Highly unlikely",
+      "comparative_tier": "Highly unlikely",
       "principal_content": "The Book of the Law (1904); Cairo working; Aiwass-contact narrative; \"do what thou wilt\" ethics",
       "woh_wiki": ""
     },
@@ -64,7 +64,7 @@
       "tradition": "Ōmoto (大本)",
       "period": "1892–present",
       "founder": "Nao Deguchi (出口 なお)",
-      "authenticity": "Highly likely",
+      "comparative_tier": "Highly likely",
       "principal_content": "Spirit possession; transformation-of-the-world doctrine; influence on subsequent Japanese new religions",
       "woh_wiki": ""
     },
@@ -73,7 +73,7 @@
       "tradition": "Tenrikyō (天理教)",
       "period": "1838–present",
       "founder": "Nakayama Miki (中山 みき)",
-      "authenticity": "Highly likely",
+      "comparative_tier": "Highly likely",
       "principal_content": "Direct contact with Oyagami (God the Parent); world-renewal doctrine; Ofudesaki scripture",
       "woh_wiki": ""
     },
@@ -82,8 +82,8 @@
       "tradition": "Mormonism (LDS)",
       "period": "1830–present",
       "founder": "Joseph Smith",
-      "authenticity": "Canonical",
-      "principal_content": "Angel-Moroni contact narrative; tangible-gods theology; exoplanet content (Kolob); plurality-of-worlds doctrine",
+      "comparative_tier": "Not graded (named in Raël's commentary, LWTE 3:27)",
+      "principal_content": "Moroni visitation narrative; embodied-God and plural-gods theology; Kolob, a governing star near God's throne; plurality-of-worlds doctrine",
       "woh_wiki": "https://www.wheelofheaven.world/wiki/mormonism/"
     },
     {
@@ -91,7 +91,7 @@
       "tradition": "Bahá'í Faith",
       "period": "1844–present",
       "founder": "The Báb; Bahá'u'lláh; 'Abdu'l-Bahá",
-      "authenticity": "Highly likely",
+      "comparative_tier": "Highly likely",
       "principal_content": "Progressive revelation doctrine; unity of religions; world-government doctrine",
       "woh_wiki": ""
     },
@@ -100,7 +100,7 @@
       "tradition": "Sikhism",
       "period": "15th c. CE–present",
       "founder": "Guru Nanak",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "Monotheism; divine name; ten-guru lineage; Guru Granth Sahib",
       "woh_wiki": "https://www.wheelofheaven.world/wiki/sikhism/"
     },
@@ -109,7 +109,7 @@
       "tradition": "Islam",
       "period": "7th c. CE–present",
       "founder": "Muhammad",
-      "authenticity": "Canonical",
+      "comparative_tier": "Canonical",
       "principal_content": "Quranic revelation; Gabriel-contact narrative; eschatological doctrine; final-prophet doctrine",
       "woh_wiki": "https://www.wheelofheaven.world/wiki/islam/"
     },
@@ -118,7 +118,7 @@
       "tradition": "Christianity",
       "period": "1st c. CE–present",
       "founder": "Jesus of Nazareth; the apostles",
-      "authenticity": "Canonical",
+      "comparative_tier": "Canonical",
       "principal_content": "Incarnation; resurrection; Second Coming doctrine; apocalyptic literature; Trinity doctrine",
       "woh_wiki": "https://www.wheelofheaven.world/wiki/christianity/"
     },
@@ -127,7 +127,7 @@
       "tradition": "Manichaeism",
       "period": "3rd–14th c. CE",
       "founder": "Mani",
-      "authenticity": "Highly likely",
+      "comparative_tier": "Highly likely",
       "principal_content": "Dualism; light–darkness cosmology; world-religions-synthesis doctrine; once a world religion in its own right",
       "woh_wiki": ""
     },
@@ -136,7 +136,7 @@
       "tradition": "Mithraism",
       "period": "1st c. BCE–4th c. CE",
       "founder": "—",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "Roman mystery religion; Mithras as solar-bull-slayer; seven-grade initiation; possible Iranian roots",
       "woh_wiki": ""
     },
@@ -145,7 +145,7 @@
       "tradition": "Hermeticism",
       "period": "1st c. BCE onward",
       "founder": "(Hermes Trismegistus; pseudepigraphic)",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "Corpus Hermeticum; cosmic-correspondence doctrine; Emerald Tablet; foundational for Western esotericism",
       "woh_wiki": ""
     },
@@ -154,7 +154,7 @@
       "tradition": "Gnosticism (Sethian, Valentinian, etc.)",
       "period": "1st–4th c. CE",
       "founder": "Various",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "Demiurge theology; Elohim-as-archons readings; pneumatic anthropology; substantial textual corpus (Nag Hammadi)",
       "woh_wiki": ""
     },
@@ -163,7 +163,7 @@
       "tradition": "Eleusinian Mysteries",
       "period": "14th c. BCE–4th c. CE",
       "founder": "(mythologically: Demeter)",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "Death-and-rebirth initiation; agricultural cosmology; secrecy ethos",
       "woh_wiki": ""
     },
@@ -172,7 +172,7 @@
       "tradition": "Orphism",
       "period": "6th c. BCE onward",
       "founder": "(mythologically: Orpheus)",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "Soul–body dualism; reincarnation; cosmogonic poems; influence on Plato",
       "woh_wiki": ""
     },
@@ -181,7 +181,7 @@
       "tradition": "Shintō (神道)",
       "period": "3rd c. BCE–present",
       "founder": "—",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "Kami theology; ancestor veneration; sacred-place cosmology; imperial-ancestral myth",
       "woh_wiki": "https://www.wheelofheaven.world/wiki/shinto/"
     },
@@ -190,7 +190,7 @@
       "tradition": "Taoism",
       "period": "4th c. BCE–present",
       "founder": "Laozi (老子)",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "The Tao Te Ching; Zhuangzi; cosmic Tao; immortality traditions",
       "woh_wiki": "https://www.wheelofheaven.world/wiki/taoism/"
     },
@@ -199,7 +199,7 @@
       "tradition": "Confucianism",
       "period": "5th c. BCE–present",
       "founder": "Kongzi (Confucius, 孔子)",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "Ethical-political philosophy; ancestor veneration; ritual propriety; Five Classics",
       "woh_wiki": ""
     },
@@ -208,7 +208,7 @@
       "tradition": "Buddhism",
       "period": "5th c. BCE–present",
       "founder": "Siddhārtha Gautama (the Buddha)",
-      "authenticity": "Canonical",
+      "comparative_tier": "Canonical",
       "principal_content": "Four Noble Truths; Eightfold Path; anatta; karma; nirvana; vast textual canon",
       "woh_wiki": "https://www.wheelofheaven.world/wiki/buddhism/"
     },
@@ -217,7 +217,7 @@
       "tradition": "Judaism",
       "period": "13th c. BCE–present",
       "founder": "Moses; the Hebrew prophets; the patriarchs",
-      "authenticity": "Canonical",
+      "comparative_tier": "Canonical",
       "principal_content": "Hebrew Bible; covenant theology; messianic doctrine; the Elohim themselves",
       "woh_wiki": "https://www.wheelofheaven.world/wiki/judaism/"
     },
@@ -226,7 +226,7 @@
       "tradition": "Zoroastrianism",
       "period": "7th c. BCE–present",
       "founder": "Zarathustra (Zoroaster)",
-      "authenticity": "Highly likely",
+      "comparative_tier": "Highly likely",
       "principal_content": "Ahura Mazda; dualism (Ahura Mazda vs Angra Mainyu); eschatology; resurrection doctrine; influence on subsequent traditions",
       "woh_wiki": ""
     },
@@ -235,7 +235,7 @@
       "tradition": "Hinduism",
       "period": "15th c. BCE–present",
       "founder": "— (Vedic rishis)",
-      "authenticity": "Highly likely",
+      "comparative_tier": "Highly likely",
       "principal_content": "Vedas, Upanishads, Bhagavad Gita, Mahabharata, Ramayana; atman–brahman; avatar doctrine; cyclical cosmology",
       "woh_wiki": "https://www.wheelofheaven.world/wiki/hinduism/"
     },
@@ -244,7 +244,7 @@
       "tradition": "Vedic religion (pre-Hindu)",
       "period": "15th c. BCE–6th c. BCE",
       "founder": "— (Vedic rishis)",
-      "authenticity": "Highly likely",
+      "comparative_tier": "Highly likely",
       "principal_content": "The four Vedas; rishi-contact narratives; soma rituals; Indo-Aryan religion",
       "woh_wiki": ""
     },
@@ -253,7 +253,7 @@
       "tradition": "Jainism",
       "period": "9th c. BCE–present",
       "founder": "Parshvanatha; Mahavira",
-      "authenticity": "Highly likely",
+      "comparative_tier": "Highly likely",
       "principal_content": "Twenty-four tirthankaras; ahimsa; ascetic tradition; jiva–ajiva dualism",
       "woh_wiki": ""
     },
@@ -262,7 +262,7 @@
       "tradition": "Sabaean / Harranian tradition",
       "period": "12th c. BCE–10th c. CE",
       "founder": "Hermes / Idris / Enoch",
-      "authenticity": "Highly likely",
+      "comparative_tier": "Highly likely",
       "principal_content": "Sabian astral religion; the Harranian Sabians; transmission of late antique pagan philosophy to Islamic philosophy",
       "woh_wiki": ""
     },
@@ -271,7 +271,7 @@
       "tradition": "Ancient Egyptian religion",
       "period": "31st c. BCE–4th c. CE",
       "founder": "—",
-      "authenticity": "Highly likely",
+      "comparative_tier": "Highly likely",
       "principal_content": "The netjeru (Ennead, Ogdoad); afterlife doctrine; pyramid and coffin texts; Book of the Dead; long temple tradition",
       "woh_wiki": ""
     },
@@ -280,7 +280,7 @@
       "tradition": "Sumerian religion",
       "period": "31st c. BCE–6th c. BCE",
       "founder": "—",
-      "authenticity": "Highly likely",
+      "comparative_tier": "Highly likely",
       "principal_content": "The Anunnaki; Enuma Elish; Gilgamesh; the deluge tradition; cuneiform sources",
       "woh_wiki": ""
     },
@@ -289,7 +289,7 @@
       "tradition": "Akkadian / Babylonian religion",
       "period": "24th c. BCE–6th c. BCE",
       "founder": "—",
-      "authenticity": "Highly likely",
+      "comparative_tier": "Highly likely",
       "principal_content": "Continuation of Sumerian theology in Semitic form; Enuma Elish; astrological tradition",
       "woh_wiki": ""
     },
@@ -298,7 +298,7 @@
       "tradition": "Canaanite religion",
       "period": "24th c. BCE–6th c. BCE",
       "founder": "—",
-      "authenticity": "Highly likely",
+      "comparative_tier": "Highly likely",
       "principal_content": "El, Baal, Asherah, Mot, Yam; Ugaritic texts; substrate of Hebrew Bible terminology",
       "woh_wiki": ""
     },
@@ -307,7 +307,7 @@
       "tradition": "Hittite religion",
       "period": "17th c. BCE–8th c. BCE",
       "founder": "—",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "\"Thousand gods\" syncretic pantheon; Anatolian–Hurrian–Mesopotamian fusion",
       "woh_wiki": ""
     },
@@ -316,7 +316,7 @@
       "tradition": "Indo-European religion (reconstructed)",
       "period": "4th millennium BCE",
       "founder": "—",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "Reconstructed proto-tradition; Dyēus Pətḗr (sky-father); thunder god; threefold social-functional theology (Dumézil)",
       "woh_wiki": ""
     },
@@ -325,7 +325,7 @@
       "tradition": "Maya religion",
       "period": "1st millennium BCE–16th c. CE",
       "founder": "—",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "Long Count calendar; the Popol Vuh; astronomical-religious complex; world-age doctrine",
       "woh_wiki": ""
     },
@@ -334,7 +334,7 @@
       "tradition": "Aztec religion",
       "period": "14th–16th c. CE",
       "founder": "—",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "Five-suns cosmology; Quetzalcoatl; calendrical-religious complex",
       "woh_wiki": ""
     },
@@ -343,7 +343,7 @@
       "tradition": "Inca religion",
       "period": "13th–16th c. CE",
       "founder": "—",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "Viracocha; solar theology; huacas; Andean cosmology",
       "woh_wiki": ""
     },
@@ -352,7 +352,7 @@
       "tradition": "Norse religion",
       "period": "1st millennium CE",
       "founder": "—",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "The Æsir and Vanir; Eddas; Ragnarök; world-tree (Yggdrasil) cosmology",
       "woh_wiki": ""
     },
@@ -361,7 +361,7 @@
       "tradition": "Celtic religion",
       "period": "1st millennium BCE–1st millennium CE",
       "founder": "(druids)",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "Polytheism; otherworld traditions; druidic priesthood; partial preservation in Welsh and Irish texts",
       "woh_wiki": ""
     },
@@ -370,7 +370,7 @@
       "tradition": "Slavic religion",
       "period": "1st millennium CE",
       "founder": "—",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "Perun; Veles; pre-Christian Slavic mythology; partial textual preservation",
       "woh_wiki": ""
     },
@@ -379,7 +379,7 @@
       "tradition": "African Traditional Religions",
       "period": "Various antiquity–present",
       "founder": "Various",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "Yoruba (Orisha); Akan; Bantu; Vodun (West Africa); diverse regional traditions",
       "woh_wiki": ""
     },
@@ -388,7 +388,7 @@
       "tradition": "Native American traditions",
       "period": "Various antiquity–present",
       "founder": "Various",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "Diverse traditions across the Americas; star-people contact narratives in many traditions",
       "woh_wiki": ""
     },
@@ -397,7 +397,7 @@
       "tradition": "Polynesian traditions",
       "period": "Various antiquity–present",
       "founder": "Various",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "Hawaiian, Maori, Tongan, Samoan; the Kumulipo; voyaging-knowledge religion",
       "woh_wiki": ""
     },
@@ -406,7 +406,7 @@
       "tradition": "Greco-Roman religion",
       "period": "8th c. BCE–4th c. CE",
       "founder": "—",
-      "authenticity": "Likely",
+      "comparative_tier": "Likely",
       "principal_content": "The Olympian pantheon; mystery cults; philosophical-religious schools (Stoicism, Neoplatonism)",
       "woh_wiki": ""
     },
@@ -415,7 +415,7 @@
       "tradition": "Theosophy",
       "period": "1875–present",
       "founder": "Helena Blavatsky",
-      "authenticity": "Unlikely",
+      "comparative_tier": "Unlikely",
       "principal_content": "Esoteric synthesis; root-races doctrine; ascended-masters; influence on subsequent occult and New Age traditions",
       "woh_wiki": ""
     },
@@ -424,7 +424,7 @@
       "tradition": "Anthroposophy",
       "period": "1912–present",
       "founder": "Rudolf Steiner",
-      "authenticity": "Unlikely",
+      "comparative_tier": "Unlikely",
       "principal_content": "Spiritual science; Christian mysticism; biodynamic agriculture; Waldorf education",
       "woh_wiki": ""
     },
@@ -433,7 +433,7 @@
       "tradition": "Scientology",
       "period": "1954–present",
       "founder": "L. Ron Hubbard",
-      "authenticity": "Highly unlikely",
+      "comparative_tier": "Highly unlikely",
       "principal_content": "Thetan theology; auditing; the Xenu narrative; cosmic-history doctrine",
       "woh_wiki": ""
     },
@@ -442,7 +442,7 @@
       "tradition": "New Age movement",
       "period": "20th c.–present",
       "founder": "(various)",
-      "authenticity": "Unlikely (varies by branch)",
+      "comparative_tier": "Unlikely (varies by branch)",
       "principal_content": "Eclectic syncretism; channelling; reincarnation; energy-and-vibration doctrine",
       "woh_wiki": ""
     }

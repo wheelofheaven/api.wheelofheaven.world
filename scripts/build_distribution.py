@@ -111,11 +111,11 @@ DATASETS = {
         "title": "Wheel of Heaven Prophets & Religions Catalogue",
         "subtitle": "48 religious traditions, founders, and framework relevance (CC0)",
         "blurb": "Forty-eight religious traditions with founder/prophet, period, framework-relevant "
-                 "content, and the corpus's authenticity assessment of the founding-contact claim "
-                 "(offered transparently as an interpretive label, not a neutral rating).",
+                 "content, and the corpus's comparative tier — its own heuristic for organising "
+                 "comparison, not a canon ranking and not an authenticity verdict.",
         "keywords": ["comparative-religion", "new-religious-movements", "prophets", "founders",
                      "revelation", "religious-studies", "digital-humanities"],
-        "columns": "tradition, period, founder, authenticity, principal_content, woh_wiki",
+        "columns": "tradition, period, founder, comparative_tier, principal_content, woh_wiki",
         "files": ["datasets/prophets-and-religions.csv", "datasets/prophets-and-religions.json"],
         "landing": f"{WWW}/datasets/prophets-and-religions/",
         "records": "48 traditions",
